@@ -1,0 +1,16 @@
+<RCC>
+    <qresource prefix="/">
+        <file alias="icon-bus">images/bus3.png</file>
+        <file alias="icon-walk">images/businessman4.png</file>
+        <file>images/front1.png</file>
+        <file alias="icon-metro">images/new73.png</file>
+        <file alias="icon-ferry">images/sail1.png</file>
+        <file>images/silhouette4.png</file>
+        <file>images/train20.png</file>
+        <file alias="icon-tram">images/tram4.png</file>
+        <file alias="icon-wait">images/zzz.png</file>
+        <file>images/train7.png</file>
+        <file alias="icon-train">images/train5.png</file>
+        <file alias="logo">harbour-routeskipper.png</file>
+    </qresource>
+</RCC>
