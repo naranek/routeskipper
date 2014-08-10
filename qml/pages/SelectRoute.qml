@@ -104,11 +104,17 @@ Page {
             MenuItem {
                 text: qsTr("Seuraavat yhteydet")
                 onClicked: {
-                    console.log("on: " + routeModel.count + " ja " + routeModel.get(5))
-                    var hum = routeModel.get(routeModel.count)
                     var lastTime = routeModel.get(routeModel.count-1).RouteStartTime
                     selectedTime = lastTime.substring(8,12)
                     selectedDate = lastTime.substring(0,8)
+                    HSL.makeHttpRoutingRequest()
+                }
+            }
+            MenuItem {
+                text: qsTr("Lähtöaika: Nyt")
+                onClicked: {
+                    selectedTime = Qt.formatDateTime(new Date(), "hhmm")
+                    selectedDate = Qt.formatDateTime(new Date(), "yyyyMMdd")
                     HSL.makeHttpRoutingRequest()
                 }
             }
