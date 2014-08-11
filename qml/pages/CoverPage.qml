@@ -7,6 +7,36 @@ import "../elements" as Elements
 CoverBackground {
     id: appCover
 
+    // select the most relevant cover to view
+    function areWeThereYet() {
+
+        var startTime = selectedLegsModel.get(coverView.currentIndex).StartTime
+        var transportType = selectedLegsModel.get(coverView.currentIndex).Type
+
+        // only increment if we're not at the end
+        if (coverView.currentIndex < coverView.count) {
+            // always skip over waiting periods
+            if (transportType === "wait") {
+                coverView.incrementCurrentIndex()
+                appCover.areWeThereYet()
+            } else {
+                var startTimeObject = HSL.dateObjectFromDateStamp(startTime)
+                var timeNow = new Date()
+
+                // increment if current time is in the past
+                if ( startTimeObject < timeNow) {
+                    coverView.incrementCurrentIndex()
+                    appCover.areWeThereYet()
+                }
+            }
+        }
+    }
+
+    onStateChanged: {
+        if (state == "active") {
+            appCover.areWeThereYet()
+        }
+    }
 
     states: [
         State {
@@ -21,6 +51,7 @@ CoverBackground {
             PropertyChanges {target: emptyCoverActions; enabled: false }
             PropertyChanges {target: bothCoverActions; enabled: true }
             PropertyChanges {target: coverTimer; running: true }
+            PropertyChanges {target: routeBackground; opacity: 0.1}
 
         },
         State {
@@ -36,6 +67,11 @@ CoverBackground {
                 target: logoImage
                 properties: "x"
                 duration: 400
+            }
+            NumberAnimation {
+                target: routeBackground
+                properties: "opacity"
+                duration: 1000
             }
         }
     ]
@@ -76,16 +112,15 @@ CoverBackground {
 
     // transparent film behind routeinfo
     Rectangle {
-
+        id: routeBackground
         x: 0
         y: routeWindow.y -5
 
         height: routeWindow.height + 10
         width: parent.width
 
-
         color: Theme.primaryColor
-        opacity: 0.1
+        opacity: 0
     }
 
     Column {
@@ -122,7 +157,7 @@ CoverBackground {
             clip: true  // this is needed so that only one leg is shown in the cover
             width: parent.width
 
-            height: 100
+            height: 120
             color: "transparent"
 
             ListView {
@@ -144,7 +179,8 @@ CoverBackground {
                         Label {
                             id: row1
                             text: HSL.timeFromDatetime(StartTime)
-                            font.pixelSize: Theme.fontSizeSmall
+                            font.pixelSize: Theme.fontSizeMedium
+                            width: parent.width - lineShield.width - 25
                         }
 
                         Elements.LineShield {id: lineShield; lineColor: Theme.highlightColor;}
@@ -159,6 +195,7 @@ CoverBackground {
                     }
                 }
             }
+
         }
 
 
