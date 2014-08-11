@@ -91,7 +91,7 @@ Page {
 
                     onTextChanged: {
                         // enable searchbutton
-                        if (selectedSourceCoords != "") doSearch.enabled = true;
+                        if (selectedDestinationCoords != "") doSearch.enabled = true;
                     }
                 }
 
