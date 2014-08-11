@@ -16,7 +16,7 @@ function makeHttpRoutingRequest() {
             + "&time=" + pastDatetime[1]
 
     // debugging url
-    // var url="http://riippuliito.net/files/routing-esimerkki.xml"
+     var url="http://riippuliito.net/files/routing-esimerkki.xml"
 
     http.open("GET", url, true)
 

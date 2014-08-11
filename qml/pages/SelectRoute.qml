@@ -67,6 +67,8 @@ Page {
         id: credentials
     }
 
+
+
     // Busy indicator and error text. These are dwarn according to httpQueryStatus and httpQueryFailed
     BusyIndicator  {
         id: busyIndicator
@@ -120,12 +122,14 @@ Page {
             }
         }
 
+        // Show the clock
+        Elements.Clock {}
 
 
         // Main column holds everything else and sets margins
         Column{
             id: mainColumn
-            spacing: 0
+            spacing: 2
             width: parent.width - 2* Theme.paddingLarge
             x: Theme.paddingLarge
             y: Theme.paddingLarge

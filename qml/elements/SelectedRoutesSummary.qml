@@ -16,21 +16,16 @@ Column {
     width: parent.width
     id: selectedRoutesColumn
 
-    // Show header
-    Column {
-        id: headerColumn
-        width: parent.width
-        spacing: 0
 
-        Label {
-            id: header
-            text: qsTr("Reitit")
-            width: parent.width
-            font.pixelSize: Theme.fontSizeLarge
-            color: Theme.highlightColor
-            horizontalAlignment: Text.AlignRight
-        }
+    Label {
+        id: header
+        text: qsTr("Reitit")
+        width: parent.width
+        font.pixelSize: Theme.fontSizeLarge
+        color: Theme.highlightColor
+        horizontalAlignment: Text.AlignRight
     }
+
 
     Repeater {
         width: parent.width
@@ -44,7 +39,7 @@ Column {
 
             // only show if the rows are from the previous page
             visible: (typeof CurrentPage === 'undefined' ? false :
-                                                        (pageStack.depth == CurrentPage ? false : true)
+                                                           (pageStack.depth == CurrentPage ? false : true)
                       )
         }
     }
@@ -65,7 +60,7 @@ Column {
 
                 // Show selectedTime and selectedName if no previous routes are selected. otherwise use the first of those
                 text: HSL.prettyTime(sourceTime) + " " + sourceName
-                font.pixelSize: Theme.fontSizeSmall
+                font.pixelSize: Theme.fontSizeMedium
                 width: parent.width / 2
                 color: Theme.highlightColor
                 horizontalAlignment: Text.AlignLeft
@@ -76,7 +71,7 @@ Column {
             Label  {
                 id: routeSummary
                 text:  destinationName
-                font.pixelSize: Theme.fontSizeSmall
+                font.pixelSize: Theme.fontSizeMedium
                 width: (parent.width ) / 2
                 color: Theme.highlightColor
                 horizontalAlignment: Text.AlignRight

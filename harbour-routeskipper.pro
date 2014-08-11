@@ -45,7 +45,8 @@ OTHER_FILES += qml/harbour-routeskipper.qml \
     qml/elements/LineBreadCrumbs.qml \
     qml/pages/About.qml \
     README.md \
-    qml/models/Credentials.qml
+    qml/models/Credentials.qml \
+    qml/elements/Clock.qml
 
 # to disable building translations every time, comment out the
 # following CONFIG line
