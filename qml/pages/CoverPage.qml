@@ -8,7 +8,6 @@ CoverBackground {
     id: appCover
 
 
-
     states: [
         State {
             name: "empty"
@@ -51,16 +50,17 @@ CoverBackground {
         }
     }
 
+
     // update the clocks on the cover
     signal updateClocks()
     onUpdateClocks: {
-        var offsetDay = new Date()
+        // update the upper edge clock
+        clock.update()
+
         var currentStartTime = selectedLegsModel.get(coverView.currentIndex).StartTime
-
-        clock.text =  Qt.formatDateTime(offsetDay, "hh:mm:ss")
         timeLeft.text = HSL.prettyTimeFromSeconds(HSL.timestampDifferenceInSeconds(null, currentStartTime))
-
     }
+
 
     // this is a placeholder image so we don't show old information
     // Cover.Status: peeking would be cool.
@@ -74,7 +74,19 @@ CoverBackground {
         source: "qrc:logo"
     }
 
+    // transparent film behind routeinfo
+    Rectangle {
 
+        x: 0
+        y: routeWindow.y -5
+
+        height: routeWindow.height + 10
+        width: parent.width
+
+
+        color: Theme.primaryColor
+        opacity: 0.1
+    }
 
     Column {
         id: routeDataColumn
@@ -84,34 +96,29 @@ CoverBackground {
         spacing: 10
         visible: false
 
-        Label {
+        Elements.Clock {
             id: clock
-            width: parent.width
-            font.pixelSize: Theme.fontSizeSmall
-
+            width: parent.width / 1.5
+            height: 45
+            font.pixelSize: Theme.fontSizeMedium
+            anchors.horizontalCenter: parent.horizontalCenter
         }
 
-        GlassItem {
-            width: parent.width
-            id: divider1
-            height: 10
-            falloffRadius: 0.150
-            radius: 0.150
-            color: Theme.highlightColor
-            cache: false
-        }
 
 
         Elements.LineBreadCrumbs{
-            anchors.horizontalCenter: routeDataColumn.horizontalCenter
-            sizeBig: 32
+            anchors.horizontalCenter: parent.horizontalCenter
+            sizeBig: 48
             sizeSmall: 16
             selectedId: coverView.currentIndex
+            width: parent.width
         }
+
 
 
 
         Rectangle {
+            id: routeWindow
             clip: true  // this is needed so that only one leg is shown in the cover
             width: parent.width
 
@@ -156,26 +163,17 @@ CoverBackground {
 
 
 
-        GlassItem {
-            width: parent.width
-            id: divider2
-            height: 10
-            falloffRadius: 0.150
-            radius: 0.150
-            color: Theme.highlightColor
-            cache: false
-        }
+
 
         Label {
             id: timeLeft
+            font.pixelSize: Theme.fontSizeLarge
             width: parent.width
-            font.pixelSize: Theme.fontSizeSmall
-            font.bold: false
+            horizontalAlignment: Text.AlignRight
         }
 
+
     }
-
-
 
     CoverActionList {
         id: bothCoverActions
@@ -202,6 +200,6 @@ CoverBackground {
         id: emptyCoverActions
         enabled: true
     }
-}
 
+}
 

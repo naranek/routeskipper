@@ -3,14 +3,20 @@ import Sailfish.Silica 1.0
 
 // Clock
 Rectangle {
-    id: bgRect
-    width: parent.width / 4
-    anchors {
-        top: parent.top
-        topMargin: - 5
-        horizontalCenter: parent.horizontalCenter
-    }
+    id: clock
 
+    property alias font: clockText.font
+    property alias running: clockTimer.running
+
+    color: "transparent"
+
+
+    // update the time on the clock
+    signal update()
+    onUpdate: {
+        var offsetDay = new Date()
+        clockText.text =  Qt.formatDateTime(offsetDay, "hh:mm:ss")
+    }
 
 
     Rectangle {
@@ -18,12 +24,12 @@ Rectangle {
         color: Theme.secondaryColor
         border.color: Theme.primaryColor
         border.width: 1
-        opacity: 0.3
+        opacity: 0.2
 
         radius: 5
         smooth: true
 
-        height: 50
+        height: parent.height
         width: parent.width
 
         anchors {
@@ -34,23 +40,20 @@ Rectangle {
     // Label can't be clockRect's child, because it would inherit the opacity
     Label {
         id: clockText
-        text: "12:34"
         opacity: 1.0
         color: Theme.primaryColor
         anchors.horizontalCenter: clockRect.horizontalCenter
         anchors.verticalCenter: clockRect.verticalCenter
     }
 
+    // timer - doesn't need to be enabled - clock can be used by calling the update signal
     Timer {
         id: clockTimer
         interval: 1000
-        running: Qt.application.active == true
+        running: false
         repeat: true
         onTriggered: {
-            console.debug("Tik / tak")
-
-            var offsetDay = new Date()
-            clockText.text =  Qt.formatDateTime(offsetDay, "hh:mm:ss")
+            clock.update()
         }
     }
 }

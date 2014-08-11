@@ -123,7 +123,17 @@ Page {
         }
 
         // Show the clock
-        Elements.Clock {}
+        Elements.Clock {
+            running: Qt.application.active == true // clock is ticking only when the application is active
+            width: parent.width /4
+            height: 50
+
+            anchors {
+                top: parent.top
+                topMargin: - 5
+                horizontalCenter: parent.horizontalCenter
+            }
+        }
 
 
         // Main column holds everything else and sets margins
