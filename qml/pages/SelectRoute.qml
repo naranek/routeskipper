@@ -125,8 +125,9 @@ Page {
         // Show the clock
         Elements.Clock {
             running: Qt.application.active == true // clock is ticking only when the application is active
-            width: parent.width /4
-            height: 50
+            width: parent.width /3.5
+            height: 60
+            font.pixelSize: Theme.fontSizeLarge
 
             anchors {
                 top: parent.top
