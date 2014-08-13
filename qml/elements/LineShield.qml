@@ -1,6 +1,7 @@
 import QtQuick 2.0
 import Sailfish.Silica 1.0
 import "../pages/../js/HSL-functions.js" as HSL
+import "../js/Common.js" as JS
 
 Rectangle {
     id: lineContainer
@@ -20,7 +21,7 @@ Rectangle {
     Component.onCompleted: {
         var lineShieldText
         if (Type == "walk") {
-            lineShieldText = HSL.formatLength(Length)
+            lineShieldText = JS.formatLength(Length)
         } else if (Type == "wait") {
             lineShieldText = (Duration/60) + "min"
         } else {

@@ -1,6 +1,5 @@
 import QtQuick 2.0
 import QtQuick.XmlListModel 2.0
-import "../js/HSL-functions.js" as HSL
 
 
 // This model will only handle the route level separation

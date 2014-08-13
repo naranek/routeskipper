@@ -1,8 +1,8 @@
 import QtQuick 2.0
 import Sailfish.Silica 1.0
 import QtQuick.XmlListModel 2.0
-import "../js/HSL-functions.js" as HSL
 import "../elements" as Elements
+import "../js/Common.js" as JS
 
 CoverBackground {
     id: appCover
@@ -20,7 +20,7 @@ CoverBackground {
                 coverView.incrementCurrentIndex()
                 appCover.areWeThereYet()
             } else {
-                var startTimeObject = HSL.dateObjectFromDateStamp(startTime)
+                var startTimeObject = JS.dateObjectFromDateStamp(startTime)
                 var timeNow = new Date()
 
                 // increment if current time is in the past
@@ -66,7 +66,7 @@ CoverBackground {
         },
         State {
             name: "passive"
-            when: selectedLegsModel.count > 0 && cover.status !== Cover.Active
+            when: selectedLegsModel.counHSLt > 0 && cover.status !== Cover.Active
         }
     ]
 
@@ -104,7 +104,7 @@ CoverBackground {
         clock.update()
 
         var currentStartTime = selectedLegsModel.get(coverView.currentIndex).StartTime
-        timeLeft.text = HSL.prettyTimeFromSeconds(HSL.timestampDifferenceInSeconds(null, currentStartTime))
+        timeLeft.text = JS.prettyTimeFromSeconds(JS.timestampDifferenceInSeconds(null, currentStartTime))
     }
 
 
@@ -189,7 +189,7 @@ CoverBackground {
                         spacing: 10
                         Label {
                             id: row1
-                            text: HSL.timeFromDatetime(StartTime)
+                            text: JS.prettyTime(StartTime)
                             font.pixelSize: Theme.fontSizeMedium
                             width: parent.width - lineShield.width - 25
                         }

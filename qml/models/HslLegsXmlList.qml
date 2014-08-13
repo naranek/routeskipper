@@ -1,6 +1,6 @@
 import QtQuick 2.0
 import QtQuick.XmlListModel 2.0
-import "../js/HSL-functions.js" as HSL
+import "../js/Common.js" as JS
 
 // Create model for legs of this route (select route using index)
 XmlListModel {
@@ -51,7 +51,7 @@ XmlListModel {
                 if (leg.EndTime < leg.EndDepTime) {
                     var waitingLeg = xmlModel.get(i)
                     waitingLeg.Type = "wait"
-                    waitingLeg.Duration = HSL.timestampDifferenceInSeconds(leg.EndTime, leg.EndDepTime).toString()
+                    waitingLeg.Duration = JS.timestampDifferenceInSeconds(leg.EndTime, leg.EndDepTime).toString()
                     waitingLeg.Length = "0"
                     waitingLeg.JORECode = ""
 

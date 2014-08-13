@@ -1,7 +1,6 @@
 import QtQuick 2.0
 import Sailfish.Silica 1.0
-import "../js/HSL-functions.js" as HSL
-
+import "../js/Common.js" as JS
 
 Page {
     id: firstPage
@@ -201,8 +200,8 @@ Page {
                 onClicked: pageStack.push(Qt.resolvedUrl("SelectRoute.qml"),
                                           {sourceName: sourceValue.text, destinationName: destinationValue.text,
                                               sourceCoords: selectedSourceCoords, destinationCoords: selectedDestinationCoords,
-                                              selectedTime: HSL.addZeroPadding(selectedHour) + HSL.addZeroPadding(selectedMinute),
-                                              selectedDate: HSL.makeDateStamp(selectedDayOffset),
+                                              selectedTime: JS.addZeroPadding(selectedHour) + JS.addZeroPadding(selectedMinute),
+                                              selectedDate: JS.hslDate(new Date(), selectedDayOffset),
                                               mainWindow: mainWindow
                                           } )
 

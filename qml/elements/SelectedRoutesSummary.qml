@@ -1,8 +1,8 @@
 import QtQuick 2.0
 import Sailfish.Silica 1.0
 import QtQuick.XmlListModel 2.0
-import "../js/HSL-functions.js" as HSL
 import "../js/DatabaseTools.js" as DbTools
+import "../js/Common.js" as JS
 import "../elements" as Elements
 
 Column {
@@ -59,7 +59,7 @@ Column {
                 id: routeStart
 
                 // Show selectedTime and selectedName if no previous routes are selected. otherwise use the first of those
-                text: HSL.prettyTime(sourceTime) + " " + sourceName
+                text: JS.prettyTime(sourceTime) + " " + sourceName
                 font.pixelSize: Theme.fontSizeMedium
                 width: parent.width / 2
                 color: Theme.highlightColor

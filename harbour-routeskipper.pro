@@ -24,7 +24,6 @@ OTHER_FILES += qml/harbour-routeskipper.qml \
     translations/*.ts \
     harbour-routeskipper.desktop \
     qml/pages/SelectRoute.qml \
-    qml/pages/DummyData.qml \
     qml/pages/Dev.qml \ 
     qml/pages/PlacePicker.qml \
     qml/pages/Geocode.qml \    
@@ -46,7 +45,8 @@ OTHER_FILES += qml/harbour-routeskipper.qml \
     qml/pages/About.qml \
     README.md \
     qml/models/Credentials.qml \
-    qml/elements/Clock.qml
+    qml/elements/Clock.qml \
+    qml/js/Common.js
 
 # to disable building translations every time, comment out the
 # following CONFIG line

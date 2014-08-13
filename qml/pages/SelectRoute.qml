@@ -4,6 +4,7 @@ import QtQuick.XmlListModel 2.0
 import "../js/HSL-functions.js" as HSL
 import "../elements" as Elements
 import "../models" as Models
+import "../js/Common.js" as JS
 
 Page {
     id: mainPage
@@ -35,6 +36,7 @@ Page {
 
     // retry if the fetch failed
     onHttpQueryStatusChanged: {
+
         if (httpQueryStatus == -1) {
             httpQueryStatus = 0
             httpQueryFailed = true
@@ -107,8 +109,8 @@ Page {
                 text: qsTr("Seuraavat yhteydet")
                 onClicked: {
                     var lastTime = routeModel.get(routeModel.count-1).RouteStartTime
-                    selectedTime = lastTime.substring(8,12)
-                    selectedDate = lastTime.substring(0,8)
+                    selectedTime = JS.hslTime(lastTime)
+                    selectedDate = JS.hslDate(lastTime)
                     HSL.makeHttpRoutingRequest()
                 }
             }
@@ -250,8 +252,8 @@ Page {
 
                         Label {
                             id: routeHeader
-                            text: (index +1) +": " + HSL.timeFromDatetime(RouteStartTime) + " - " + HSL.timeFromDatetime(RouteEndTime) + " (" + (Duration/60) + " min, " +
-                                  qsTr("kävelyä") + " " + HSL.formatLength(WalkingLength) + ")"
+                            text: (index +1) +": " + JS.prettyTime(RouteStartTime) + " - " + JS.prettyTime(RouteEndTime) + " (" + (Duration/60) + " min, " +
+                                  qsTr("kävelyä") + " " + JS.formatLength(WalkingLength) + ")"
                             color: routeBackground.highlighted ? Theme.highlightColor : Theme.primaryColor
 
                         }
@@ -292,8 +294,8 @@ Page {
                                        destinationName: destinationName,
                                        sourceCoords: waypoint.CoordX + "," + waypoint.CoordY,
                                        destinationCoords: destinationCoords,
-                                       selectedTime: waypoint.ArrTime.substring(8,12),
-                                       selectedDate: waypoint.ArrTime.substring(0,8),
+                                       selectedTime: JS.hslTime(waypoint.ArrTime),
+                                       selectedDate: JS.hslDate(waypoint.ArrTime),
                                        mainWindow: mainWindow
                                    } )
                 }

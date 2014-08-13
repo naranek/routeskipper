@@ -4,6 +4,7 @@ import QtQuick.XmlListModel 2.0
 import "../js/HSL-functions.js" as HSL
 import "../elements" as Elements
 import "../models" as Models
+import "../js/Common.js" as JS
 
 
 
@@ -134,7 +135,7 @@ Column {
                         anchors.verticalCenter: parent.verticalCenter
 
                         Label {
-                            text: (index == 0 ? HSL.timeFromDatetime(DepTime) : HSL.timeFromDatetime(ArrTime)) // HSL shows depTime > arrTime if there is waiting on the bus stop
+                            text: (index == 0 ? JS.prettyTime(DepTime) : JS.prettyTime(ArrTime)) // HSL shows depTime > arrTime if there is waiting on the bus stop
                             font.pixelSize: Theme.fontSizeSmall
                             width: 100
                             anchors.verticalCenter: parent.verticalCenter
