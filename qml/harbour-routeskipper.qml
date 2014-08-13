@@ -11,6 +11,7 @@ ApplicationWindow
 
     property alias selectedLegsModel: selectedLegsModel
     property alias selectedWaypointsModel: selectedWaypointsModel
+    property alias coverPage: coverPage
 
     cover:
         CoverPage {

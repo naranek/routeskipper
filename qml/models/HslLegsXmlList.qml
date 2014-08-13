@@ -66,6 +66,8 @@ XmlListModel {
                     targetListModel.append(waitingLeg)
                 }
             }
+
+
         }
     }
 

@@ -6,10 +6,10 @@ import "../elements" as Elements
 
 CoverBackground {
     id: appCover
+    property alias coverView: coverView
 
     // select the most relevant cover to view
     function areWeThereYet() {
-
         var startTime = selectedLegsModel.get(coverView.currentIndex).StartTime
         var transportType = selectedLegsModel.get(coverView.currentIndex).Type
 
@@ -32,9 +32,19 @@ CoverBackground {
         }
     }
 
+    signal resetCover
+    onResetCover: {
+        // for some reason setting to 0 doesn't work, so we work around it
+        coverView.currentIndex = 1
+        coverView.decrementCurrentIndex()
+
+        updateClocks()
+    }
+
     onStateChanged: {
         if (state == "active") {
             appCover.areWeThereYet()
+            updateClocks()
         }
     }
 
@@ -148,6 +158,7 @@ CoverBackground {
             selectedId: coverView.currentIndex
             width: parent.width
         }
+
 
 
 

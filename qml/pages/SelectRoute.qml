@@ -206,6 +206,7 @@ Page {
                             // Add new legs to selectedLegsModel
                             mainWindow.selectedLegsModel.removeLegsFromPage(pageStack.depth) // remove this level's old selection
                             mainWindow.selectedLegsModel.addLegs(legsModel, pageStack.depth) // add new selection
+                            mainWindow.coverPage.resetCover()
                         }
 
                         // minimize all other items except the one clicked
