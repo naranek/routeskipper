@@ -168,7 +168,7 @@ Page {
 
                 delegate: BackgroundItem {
                     id: routeBackground
-                    height: contentItem.childrenRect.height
+                    height: routeHeader.height + minimizedView.height
                     anchors.bottomMargin: 30
                     clip: true // clipping on, so that route details are hidden when minimized
 
@@ -242,7 +242,7 @@ Page {
                             name: "detailed"
                             PropertyChanges {
                                 target: routeBackground
-                                height: routeHeader.height + divider.height
+                                height: routeHeader.height + detailedView.height
                             }
                             PropertyChanges {
                                 target: minimizedView
@@ -269,7 +269,7 @@ Page {
                             id: routeHeader
 
                             Label {
-                                id: startTime
+                                id: routeStartTime
                                 text: JS.prettyTime(RouteStartTime)
                                 color: routeBackground.highlighted ? Theme.highlightColor : Theme.primaryColor
                                 width: parent.width / 3
@@ -287,7 +287,7 @@ Page {
 
 
                             Label {
-                                id: endTime
+                                id: routeEndTime
                                 text: JS.prettyTime(RouteEndTime)
                                 color: routeBackground.highlighted ? Theme.highlightColor : Theme.primaryColor
                                 width: parent.width / 3
@@ -311,11 +311,24 @@ Page {
                                     clip: true
 
                                     delegate:
+                                        Column {
+                                        visible: Type !== "walk" && Type !== "wait" ? true : false;
+                                        height: lineShield.height + startTime.height
+                                        width: lineShield.height
+                                        Elements.LineShield {id: lineShield;  lineColor: routeBackground.highlighted ? Theme.highlightColor : Theme.primaryColor; state: "horizontal"}
 
-                                        Elements.LineShield {id: lineShield; visible: Type !== "walk" && Type !== "wait" ? true : false; lineColor: routeBackground.highlighted ? Theme.highlightColor : Theme.primaryColor; state: "horizontal"}
+                                        Label {
+                                            id: startTime
+                                            text: JS.prettyTime(StartTime)
+                                            anchors {
+                                                horizontalCenter: lineShield.horizontalCenter
+                                            }
+                                            horizontalAlignment: Text.AlignHCenter
+                                            font.pixelSize: Theme.fontSizeSmall
+                                        }
 
 
-
+                                    }
                                 }
                             }
 
@@ -351,7 +364,7 @@ Page {
 
                             Label {
                                 id: waitDuration
-                                text: Math.round((Duration - MovingDuration)/60) + " min"
+                                text: Math.ceil((Duration - MovingDuration)/60) + " min"
                                 color: routeBackground.highlighted ? Theme.highlightColor : Theme.primaryColor
                                 width: 90
                                 horizontalAlignment: Text.AlignRight
@@ -360,17 +373,22 @@ Page {
                             }
                         }
 
-
-                        // the detailed view
-                        Elements.LegRow {
+                        Column {
                             id: detailedView
-                            lineColor: routeBackground.highlighted ? Theme.highlightColor : Theme.primaryColor
-                            startName: StartName
-                            startTime: StartTime
-                            endTime: EndTime
+                            width: parent.width
                             visible: false
+                            Repeater {
+                                model: legsModel
+                                delegate:
+                                    // the detailed view
+                                    Elements.LegRow {
+                                    lineColor: routeBackground.highlighted ? Theme.highlightColor : Theme.primaryColor
+                                    startName: StartName
+                                    startTime: StartTime
+                                    endTime: EndTime
+                                }
+                            }
                         }
-
                     }
                 }
 
