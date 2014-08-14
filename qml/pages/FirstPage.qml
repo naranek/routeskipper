@@ -195,7 +195,7 @@ Page {
             Button {
                 id: doSearch
                 text: qsTr("Hae yhteydet")
-      enabled: false
+ //     enabled: false
                 anchors.horizontalCenter: parent.horizontalCenter
                 onClicked: pageStack.push(Qt.resolvedUrl("SelectRoute.qml"),
                                           {sourceName: sourceValue.text, destinationName: destinationValue.text,

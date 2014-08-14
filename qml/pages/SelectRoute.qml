@@ -173,6 +173,9 @@ Page {
                     clip: true // clipping on, so that route details are hidden when minimized
 
 
+                    // the opacity that changes depending on if it's even or odd row
+                    property real rowOpacity: 0.15 - (index % 2) *0.1
+
                     Models.HslLegsXmlList {
                         xml: hslXml
                         routeIndex: index
@@ -201,7 +204,7 @@ Page {
 
                             // first click shows details and hides other
                         {
-                            newState = "minimized"
+                            newState = "detailed"
                             routeDetails.show(index)
                             lastClickedRouteSummary = index
 
@@ -211,24 +214,44 @@ Page {
                             mainWindow.coverPage.resetCover()
                         }
 
-                        // minimize all other items except the one clicked
+                        //  show details for the clicked, minimize others
                         for (var i = 0; i < routeModel.count; ++i) {
                             if (i == index) {
-                                routes.itemAt(i).state = ""
-                            }   else {
                                 routes.itemAt(i).state = newState
+                            }   else {
+                                routes.itemAt(i).state = ""
                             }
                         }
 
                     }
 
+
+                    // background color
+                    Rectangle {
+                        anchors.fill: parent
+                        opacity: rowOpacity  // odd rows
+                        z:-1
+                        color: Theme.primaryColor
+                        radius: 5
+                        smooth: true
+                    }
+
                     // define the settings for minimized BackgroundItem
                     states: [
                         State {
-                            name: "minimized"
+                            name: "detailed"
                             PropertyChanges {
                                 target: routeBackground
                                 height: routeHeader.height + divider.height
+                            }
+                            PropertyChanges {
+                                target: minimizedView
+                                visible: false
+                            }
+                            PropertyChanges {
+                                target: detailedView
+                                visible: true
+
                             }
                         }
                     ]
@@ -237,42 +260,117 @@ Page {
                     // Actual route view
                     Column {
                         id: routeList
-                        width: parent.width
+                        width: parent.width - Theme.paddingSmall
 
-                        GlassItem {
-                            id: divider
-                            objectName: "menuitem"
-                            height: Theme.paddingMedium
-                            width: mainPage.width
-                            falloffRadius: 0.150
-                            radius: 0.150
-                            color: Theme.highlightColor
-                            cache: false
-                        }
 
-                        Label {
+                        // Route header row
+                        Row {
+                            width: parent.width
                             id: routeHeader
-                            text: (index +1) +": " + JS.prettyTime(RouteStartTime) + " - " + JS.prettyTime(RouteEndTime) + " (" + (Duration/60) + " min, " +
-                                  qsTr("kävelyä") + " " + JS.formatLength(WalkingLength) + ")"
-                            color: routeBackground.highlighted ? Theme.highlightColor : Theme.primaryColor
 
-                        }
+                            Label {
+                                id: startTime
+                                text: JS.prettyTime(RouteStartTime)
+                                color: routeBackground.highlighted ? Theme.highlightColor : Theme.primaryColor
+                                width: parent.width / 3
+                                font.pixelSize: Theme.fontSizeLarge
+                            }
+
+                            Label {
+                                id: duration
+                                text: (Duration/60) + " min"
+                                color: routeBackground.highlighted ? Theme.highlightColor : Theme.primaryColor
+                                width: parent.width / 3
+                                anchors.verticalCenter: parent.verticalCenter
+                                horizontalAlignment: Text.AlignHCenter
+                            }
 
 
-                        Repeater {
-                            id: legsRepeater
-                            model: legsModel
-                            clip: true
-
-                            delegate:
-                                Elements.LegRow {
-                                lineColor: routeBackground.highlighted ? Theme.highlightColor : Theme.primaryColor
-                                startName: StartName
-                                startTime: StartTime
-                                endTime: EndTime
+                            Label {
+                                id: endTime
+                                text: JS.prettyTime(RouteEndTime)
+                                color: routeBackground.highlighted ? Theme.highlightColor : Theme.primaryColor
+                                width: parent.width / 3
+                                font.pixelSize: Theme.fontSizeLarge
+                                horizontalAlignment: Text.AlignRight
                             }
 
                         }
+
+                        // minimized view
+                        Item {
+                            id: minimizedView
+                            width: parent.width
+                            height: lineRow.height
+                            Row {
+                                id: lineRow
+                                width: parent.width - walkIcon.width - walkingLength.width
+                                Repeater {
+                                    id: legsRepeater
+                                    model: legsModel
+                                    clip: true
+
+                                    delegate:
+
+                                        Elements.LineShield {id: lineShield; visible: Type !== "walk" && Type !== "wait" ? true : false; lineColor: routeBackground.highlighted ? Theme.highlightColor : Theme.primaryColor; state: "horizontal"}
+
+
+
+                                }
+                            }
+
+                            Image {
+                                id: walkIcon
+                                width: 32; height: 32
+                                fillMode: Image.PreserveAspectFit
+                                smooth: true
+                                source: "qrc:icon-walk"
+                                anchors.left: lineRow.right
+                                anchors.top: parent.top
+                            }
+
+                            Label {
+                                id: walkingLength
+                                text: JS.formatLength(WalkingLength)
+                                color: routeBackground.highlighted ? Theme.highlightColor : Theme.primaryColor
+                                width: 90
+                                horizontalAlignment: Text.AlignRight
+                                anchors.left: walkIcon.right
+                                anchors.top: parent.top
+                            }
+
+                            Image {
+                                id: waitIcon
+                                width: 32; height: 32
+                                fillMode: Image.PreserveAspectFit
+                                smooth: true
+                                source: "qrc:icon-wait"
+                                anchors.left: lineRow.right
+                                anchors.bottom: parent.bottom
+                            }
+
+                            Label {
+                                id: waitDuration
+                                text: Math.round((Duration - MovingDuration)/60) + " min"
+                                color: routeBackground.highlighted ? Theme.highlightColor : Theme.primaryColor
+                                width: 90
+                                horizontalAlignment: Text.AlignRight
+                                anchors.left: walkIcon.right
+                                anchors.bottom: parent.bottom
+                            }
+                        }
+
+
+                        // the detailed view
+                        Elements.LegRow {
+                            id: detailedView
+                            lineColor: routeBackground.highlighted ? Theme.highlightColor : Theme.primaryColor
+                            startName: StartName
+                            startTime: StartTime
+                            endTime: EndTime
+                            visible: false
+                        }
+
                     }
                 }
 

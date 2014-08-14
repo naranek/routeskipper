@@ -10,11 +10,12 @@ function makeHttpRoutingRequest() {
     // the actual url. Concatenating FTW
     var url = "http://api.reittiopas.fi/hsl/prod/?request=route&user=" + credentials.hslUsername + "&pass=" + credentials.hslPassword + "&format=xml&show=5&from=" +
             encodeURI(sourceCoords) + "&to=" + encodeURI(destinationCoords)
-            + "&date=" + pastDatetime[0]
-            + "&time=" + pastDatetime[1]
+            + "&date=" + JS.hslDate(pastDatetime)
+            + "&time=" + JS.hslTime(pastDatetime)
 
     // debugging url
-    // var url="http://riippuliito.net/files/routing-esimerkki.xml"
+    var url="http://riippuliito.net/files/routing-esimerkki.xml"
+
 
     http.open("GET", url, true)
 

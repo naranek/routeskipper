@@ -21,6 +21,7 @@ XmlListModel {
     XmlRole { name: "RouteStartTime"; query: "legs/node[1]/locs/node[1]/depTime/string()" }
     XmlRole { name: "RouteEndTime"; query: "legs/node[last()]/locs/node[last()]/arrTime/string()" }
     XmlRole { name: "WalkingLength"; query: "sum(legs/node[type='walk']/length)" }
+    XmlRole { name: "MovingDuration"; query: "sum(legs/node/duration)" } // time spent moving. Duration - MovingDuration = waiting time
 
 
 

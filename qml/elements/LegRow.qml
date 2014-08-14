@@ -31,7 +31,7 @@ Row {
 
     // Line icon and number
 
-    Elements.LineShield {id: lineShield; lineColor: lineRow.lineColor;}
+    Elements.LineShield {id: lineShield; lineColor: lineRow.lineColor; state: ""}
 
     // Endpoint and time
     Label {
