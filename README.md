@@ -12,10 +12,9 @@ Basic functionality is pretty much there, but there are a lot of rough edges to 
 - *Live data* will be implemented next
 
 ### Other stuff
-- Refactoring, commenting and documenting - always on the list
-- Especially the javascript functions are a mess.
-- *UI and usability tweaks* - a lot of them
+- Properly separating model and UI so other datasources besides HSL can be used. Contact me if you're interested.
 
 ## Known issues
-- i18n is not done. Just Finnish for now.
+- It kind of works
+- The UI could be better. It's a neverending battle :)
 
