@@ -16,6 +16,7 @@ Column {
 
 
     property int routeIndex
+    property int newRouteIndex
 
     // clear waypoints if the selected route is changed
     onRouteIndexChanged: {
@@ -25,8 +26,12 @@ Column {
     // create signals for status change
     // show also needs XML data and index of the route to use
     signal show(string newRouteIndex)
-    onShow: { 
-        routeIndex = newRouteIndex
+    onShow: {
+        routeDetailsColumn.newRouteIndex = newRouteIndex
+
+        // two states, because we want to run the visible animation every time, and it doesn't trigger
+        // if state is visible -> visible
+        routeDetailsColumn.state= "change"
         routeDetailsColumn.state= "visible"
     }
 
@@ -40,9 +45,26 @@ Column {
     opacity: 0
 
     // add a nice transition because we can
-    transitions: Transition {
-        PropertyAnimation { properties: "opacity"; duration: 500 }
-    }
+    transitions: [
+        Transition {
+            from: "change"
+            to: "visible"
+            SequentialAnimation {
+                NumberAnimation { target: routeDetailsColumn ; property: "opacity"; to: 0; duration: 200; }
+                PropertyAction { target: routeDetailsColumn; property: "routeIndex"; value: newRouteIndex }
+                PauseAnimation { duration: 750 }
+                NumberAnimation { target: routeDetailsColumn ; property: "opacity"; to: 1; duration: 200; }
+            }
+        },
+        Transition {
+            from: "visible"
+            to: ""
+            SequentialAnimation {
+                NumberAnimation { target: routeDetailsColumn ; property: "opacity"; to: 0; duration: 200; }
+            }
+        }
+    ]
+
 
     // define the settings for minimized BackgroundItem
     states: [
@@ -52,6 +74,9 @@ Column {
                 target: routeDetailsColumn
                 opacity: 1
             }
+        },
+        State {
+            name: "change"
         }
     ]
 

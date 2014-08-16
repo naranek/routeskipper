@@ -160,7 +160,6 @@ Page {
 
 
             // Show routes summary
-            // Can't use SilicaListView, because delegate states can't be changed then
             Repeater {
                 id: routes
                 model: routeModel
@@ -186,10 +185,7 @@ Page {
                     }
 
 
-                    // add a sliding transition because we can
-                    transitions: Transition {
-                        PropertyAnimation { properties: "height"; duration: 200 }
-                    }
+
 
 
                     onClicked: {
@@ -240,21 +236,45 @@ Page {
                     states: [
                         State {
                             name: "detailed"
-                            PropertyChanges {
-                                target: routeBackground
-                                height: routeHeader.height + detailedView.height
-                            }
-                            PropertyChanges {
-                                target: minimizedView
-                                visible: false
-                            }
-                            PropertyChanges {
-                                target: detailedView
-                                visible: true
-                            }
+                            // all the changes are defined in the transitions
                         }
                     ]
 
+                    transitions: [
+
+                        // to Detailed view
+                        Transition {
+                            from: ""
+                            to: "detailed"
+                            ParallelAnimation {
+                                NumberAnimation { target: routeBackground; property: "height"; duration: 300; to: routeHeader.height + detailedView.height}
+                                SequentialAnimation {
+                                    PropertyAnimation { target: detailedView; property: "opacity"; to: 0}
+                                    FadeAnimation { target: minimizedView; property: "opacity"; duration: 150; to: 0}
+                                    ScriptAction {script: detailedView.visible = true; }
+                                    ScriptAction {script: minimizedView.visible = false;  }
+                                    FadeAnimation { target: detailedView; property: "opacity"; duration: 150; to: 1}
+                                }
+
+                            }
+                        },
+                        // to Minimized view
+                        Transition {
+                            from: "detailed"
+                            to: ""
+                            ParallelAnimation {
+                                NumberAnimation { target: routeBackground; property: "height"; duration: 300; to: routeHeader.height + minimizedView.height}
+                                SequentialAnimation {
+                                    PropertyAnimation { target: minimizedView; property: "opacity"; to: 0}
+                                    FadeAnimation { target: detailedView; property: "opacity"; duration: 150; to: 0}
+                                    ScriptAction {script: minimizedView.visible = true;  }
+                                    ScriptAction {script: detailedView.visible = false; }
+                                    FadeAnimation { target: minimizedView; property: "opacity"; duration: 150; to: 1}
+                                }
+                            }
+                        }
+
+                    ]
 
                     // Actual route view
                     Column {

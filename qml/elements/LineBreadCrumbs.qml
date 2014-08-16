@@ -1,7 +1,7 @@
 import QtQuick 2.0
 import Sailfish.Silica 1.0
 import "../pages/../js/HSL-functions.js" as HSL
-
+import "../elements" as Elements
 
 Row {
     id: breadCrumbRow
@@ -13,13 +13,11 @@ Row {
 
     Repeater {
         model:selectedLegsModel
-        delegate: Image {
+        delegate: Elements.LineIcon {
             id: lineIcon
-            width: (selectedId == index ? sizeBig : sizeSmall); height: (selectedId == index ? sizeBig : sizeSmall)
-            fillMode: Image.PreserveAspectFit
-            smooth: true
+            size: (selectedId == index ? sizeBig : sizeSmall); height: (selectedId == index ? sizeBig : sizeSmall)
             anchors.verticalCenter: breadCrumbRow.verticalCenter
-            source: "qrc:" + HSL.transportIcon(Type)
+            type: HSL.transportIcon(Type)
         }
     }
 }

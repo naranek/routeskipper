@@ -12,5 +12,6 @@
         <file>images/train7.png</file>
         <file alias="icon-train">images/train5.png</file>
         <file alias="logo">harbour-routeskipper.png</file>
+        <file>images/businessman4.svg</file>
     </qresource>
 </RCC>

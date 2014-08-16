@@ -1,6 +1,8 @@
 import QtQuick 2.0
 import Sailfish.Silica 1.0
 
+import "../elements" as Elements
+
 Page {
     id: routePage
 
@@ -60,13 +62,10 @@ Page {
                     width: parent.width
                     spacing: 10
 
-                    Image {
+                    Elements.LineIcon {
                         id: image
-                        width: Theme.iconSizeSmall; height: Theme.iconSizeSmall
-                        fillMode: Image.PreserveAspectFit
-                        smooth: true
-
-                        source: "qrc:" + icon
+                        size: Theme.iconSizeSmall; height: Theme.iconSizeSmall
+                        type: icon
                     }
                     Label {
                         font.pixelSize: Theme.fontSizeExtraSmall
