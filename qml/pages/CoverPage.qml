@@ -14,11 +14,13 @@ CoverBackground {
         var transportType = selectedLegsModel.get(coverView.currentIndex).Type
 
         // only increment if we're not at the end
-        if (coverView.currentIndex < coverView.count) {
+        if (coverView.currentIndex < coverView.count -1) {
+
             // always skip over waiting periods
             if (transportType === "wait") {
                 coverView.incrementCurrentIndex()
-                appCover.areWeThereYet()
+
+                return
             } else {
                 var startTimeObject = JS.dateObjectFromDateStamp(startTime)
                 var timeNow = new Date()
@@ -26,10 +28,13 @@ CoverBackground {
                 // increment if current time is in the past
                 if ( startTimeObject < timeNow) {
                     coverView.incrementCurrentIndex()
-                    appCover.areWeThereYet()
+
+                    return
                 }
             }
         }
+        // stop the timer if there was nothing to do
+        currentStopTimer.running = false
     }
 
     signal resetCover
@@ -37,13 +42,11 @@ CoverBackground {
         // for some reason setting to 0 doesn't work, so we work around it
         coverView.currentIndex = 1
         coverView.decrementCurrentIndex()
-
-        updateClocks()
     }
 
     onStateChanged: {
         if (state == "active") {
-            appCover.areWeThereYet()
+            currentStopTimer.running = true
             updateClocks()
         }
     }
@@ -96,6 +99,15 @@ CoverBackground {
         }
     }
 
+    Timer {
+        id: currentStopTimer
+        interval: 300
+        running: false
+        repeat: true
+        onTriggered: {
+            areWeThereYet()
+        }
+    }
 
     // update the clocks on the cover
     signal updateClocks()
@@ -177,6 +189,8 @@ CoverBackground {
                 width: parent.width
                 interactive: false
 
+                onCurrentIndexChanged: { updateClocks() } // update timers when the route is changed
+
                 anchors.left: parent.left
                 anchors.top: parent.top
 
@@ -231,7 +245,7 @@ CoverBackground {
             iconSource: "image://theme/icon-m-previous-song"
             onTriggered: {
                 coverView.decrementCurrentIndex()
-                updateClocks()
+
             }
         }
 
@@ -239,7 +253,7 @@ CoverBackground {
             iconSource: "image://theme/icon-m-next-song"
             onTriggered: {
                 coverView.incrementCurrentIndex()
-                updateClocks()
+
             }
         }
     }
