@@ -47,12 +47,13 @@ OTHER_FILES += qml/harbour-routeskipper.qml \
     qml/models/Credentials.qml \
     qml/elements/Clock.qml \
     qml/js/Common.js \
-    qml/elements/LineIcon.qml
+    qml/elements/LineIcon.qml \
+    translations/harbour-routeskipper-fi.ts
 
 # to disable building translations every time, comment out the
 # following CONFIG line
-# CONFIG += sailfishapp_i18n
-# TRANSLATIONS += translations/harbour-routeskipper-de.ts
+CONFIG += sailfishapp_i18n
+TRANSLATIONS += translations/harbour-routeskipper-fi.ts
 
 RESOURCES += \
     icons.qrc

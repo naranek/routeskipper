@@ -86,7 +86,7 @@ Page {
             top: busyIndicator.bottom
         }
         visible: httpQueryFailed == true
-        text: qsTr("Haku epäonnistui. Yritetään uudestaan.")
+        text: qsTr("Query failed. Fine. I'll try again.")
 
     }
 
@@ -102,11 +102,11 @@ Page {
 
         PullDownMenu {
             MenuItem {
-                text: qsTr("Uusi haku")
+                text: qsTr("New search")
                 onClicked: pageStack.pop(null)
             }
             MenuItem {
-                text: qsTr("Seuraavat yhteydet")
+                text: qsTr("Following connections")
                 onClicked: {
                     var lastTime = routeModel.get(routeModel.count-1).RouteStartTime
                     selectedTime = JS.hslTime(lastTime)
@@ -115,7 +115,7 @@ Page {
                 }
             }
             MenuItem {
-                text: qsTr("Lähtöaika: Nyt")
+                text: qsTr("Departure: Now")
                 onClicked: {
                     selectedTime =JS.hslTime(new Date())
                     selectedDate = JS.hslDate(new Date())

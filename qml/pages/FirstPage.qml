@@ -42,7 +42,7 @@ Page {
             }
             */
             MenuItem {
-                text: qsTr("Tietoja ohjelmasta")
+                text: qsTr("About")
                 onClicked: pageStack.push(Qt.resolvedUrl("About.qml"))
             }
         }
@@ -57,7 +57,7 @@ Page {
             width: firstPage.width
             spacing: Theme.paddingMedium
             PageHeader {
-                title: qsTr("Reittiopas")
+                title: qsTr("Route Planner")
             }
 
 
@@ -69,7 +69,7 @@ Page {
 
                 Label {
                     id: sourceLabel
-                    text: qsTr("Mistä")
+                    text: qsTr("From")
                     color: sourceBox.highlighted ? Theme.highlightColor : Theme.primaryColor
                     anchors.verticalCenter: parent.verticalCenter
                     x: Theme.paddingLarge
@@ -77,7 +77,7 @@ Page {
 
                 Label {
                     id: sourceValue
-                    text: qsTr("Valitse")
+                    text: qsTr("Select")
                     color: sourceBox.highlighted ? Theme.highlightColor : Theme.highlightColor
                     anchors.verticalCenter: sourceLabel.verticalCenter
                     anchors.right: parent.right
@@ -103,7 +103,7 @@ Page {
 
                 Label {
                     id: destinationLabel
-                    text: qsTr("Minne")
+                    text: qsTr("To")
                     color: destinationBox.highlighted ? Theme.highlightColor : Theme.primaryColor
                     anchors.verticalCenter: parent.verticalCenter
                     x: Theme.paddingLarge
@@ -112,7 +112,7 @@ Page {
 
                 Label {
                     id: destinationValue
-                    text: qsTr("Valitse")
+                    text: qsTr("Select")
                     color: destinationBox.highlighted ? Theme.highlightColor : Theme.highlightColor
                     anchors.verticalCenter: destinationLabel.verticalCenter
                     anchors.right: parent.right
@@ -165,7 +165,7 @@ Page {
                     selectedHour: Qt.formatDateTime(new Date(), "hh")
                     selectedMinute: Qt.formatDateTime(new Date(), "mm")
 
-                    label: qsTr("Lähtöaika")
+                    label: qsTr("Departure")
                     value: Qt.formatDateTime(new Date(), "hh:mm")
                     width: parent.width / 2
                     onClicked: openTimeDialog()
@@ -183,7 +183,7 @@ Page {
                     }
 
                     Label {
-                        text: selectedDayOffset == 1 ? qsTr("Huomenna") : qsTr("Tänään")
+                        text: selectedDayOffset == 1 ? qsTr("Tomorrow") : qsTr("Today")
                         color: destinationBox.highlighted ? Theme.highlightColor : Theme.highlightColor
                         anchors.verticalCenter: parent.verticalCenter
                     }
@@ -194,7 +194,7 @@ Page {
 
             Button {
                 id: doSearch
-                text: qsTr("Hae yhteydet")
+                text: qsTr("Show routes")
  //     enabled: false
                 anchors.horizontalCenter: parent.horizontalCenter
                 onClicked: pageStack.push(Qt.resolvedUrl("SelectRoute.qml"),

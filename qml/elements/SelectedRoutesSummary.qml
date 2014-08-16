@@ -19,7 +19,7 @@ Column {
 
     Label {
         id: header
-        text: qsTr("Reitit")
+        text: qsTr("Routes")
         width: parent.width
         font.pixelSize: Theme.fontSizeLarge
         color: Theme.highlightColor

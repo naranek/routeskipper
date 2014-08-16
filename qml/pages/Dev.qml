@@ -10,7 +10,9 @@ import "../elements" as Elements
 Page {
     id: page
 
-
+    Label {
+        text: qsTr("uustesti")
+    }
 
     /*
     BackgroundItem {

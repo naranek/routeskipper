@@ -16,126 +16,138 @@
     </message>
 </context>
 <context>
+    <name>Dev</name>
+    <message>
+        <source>uustesti</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>FirstPage</name>
     <message>
-        <source>To Map</source>
+        <source>Route Planner</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>To Dev</source>
+        <source>About</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>To LayoutTest</source>
+        <source>From</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Reittiopas</source>
+        <source>Select</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Mist��</source>
+        <source>To</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Valitse</source>
+        <source>Tomorrow</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Minne</source>
+        <source>Today</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>L��ht��aika</source>
+        <source>Show routes</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Huomenna</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>T��n����n</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Hae yhteydet</source>
+        <source>Departure</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>Geocode</name>
     <message>
-        <source>Haku</source>
+        <source>Search</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Haetaan aikataulutietoja</source>
+        <source>Connection to Reittiopas failed</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Nothing was found, or connection to Reittiopas failed</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>HSL-functions</name>
     <message>
-        <source>Pys��kki</source>
+        <source>Stop</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Osoite</source>
+        <source>Address</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Paikka</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>HSL-functions-original</name>
-    <message>
-        <source>Pys��kki</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Osoite</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Paikka</source>
+        <source>Place of interest</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>PlacePicker</name>
     <message>
-        <source>L��ht��paikka</source>
+        <source>Delete all stops</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>M����r��np����</source>
+        <source>Deleting all the stops</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Paikka / Osoite</source>
+        <source>Departure</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Destination</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Address / Place</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Search</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>RouteDetails</name>
     <message>
-        <source>Pys��kkitiedot</source>
+        <source>Stop information</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>SelectRoute</name>
     <message>
-        <source>k��vely��</source>
+        <source>Query failed. Fine. I&apos;ll try again.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>New search</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Following connections</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Departure: Now</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>SelectedRoutesSummary</name>
     <message>
-        <source>Reitit</source>
+        <source>Routes</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

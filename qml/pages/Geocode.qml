@@ -40,7 +40,7 @@ Page {
         anchors.fill: parent
         model: xmlModel
 
-        header: PageHeader { title: qsTr("Haku") + ": " + searchstring}
+        header: PageHeader { title: qsTr("Search") + ": " + searchstring}
 
         // Get the XML response from reittiopas. This is pure awesome and magic combined
         XmlListModel {
@@ -58,11 +58,11 @@ Page {
             onStatusChanged: {
                 if (status == XmlListModel.Error) {
                     errorText.visible = true
-                    errorText.text = qsTr("Yhteys Reittioppaasen epäonnistui")
+                    errorText.text = qsTr("Connection to Reittiopas failed")
                 }
                 if (status == XmlListModel.Ready && xmlModel.count == 0) {
                     errorText.visible = true
-                    errorText.text = qsTr("Tuloksia ei löytynyt, tai Reittioppaassa on ruuhkaa")
+                    errorText.text = qsTr("Nothing was found, or connection to Reittiopas failed")
                 }
             }
         }

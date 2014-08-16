@@ -66,7 +66,7 @@ Column {
     }
 
     SectionHeader {
-        text: qsTr("Pysäkkitiedot")
+        text: qsTr("Stop information")
     }
 
     Repeater {

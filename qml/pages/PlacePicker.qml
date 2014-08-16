@@ -48,9 +48,9 @@ Page {
 
         PullDownMenu {
             MenuItem {
-                text: qsTr("Poista kaikki paikat")
+                text: qsTr("Delete all stops")
                 onClicked: {
-                    dbCleanRemorse.execute(mainColumn, qsTr("Poistetaan kaikki paikat"), function() {
+                    dbCleanRemorse.execute(mainColumn, qsTr("Deleting all the stops"), function() {
                         DbTools.cleanDb()
                         DbTools.getStops(stopsModel)
                     })
@@ -63,14 +63,14 @@ Page {
             width: placePickerPage.width
             spacing: Theme.paddingSmall
 
-            PageHeader { title: searchType == "source" ? qsTr("Lähtöpaikka") : qsTr("Määränpää") }
+            PageHeader { title: searchType == "source" ? qsTr("Departure") : qsTr("Destination") }
 
 
             TextField {
                 id: searchfield
                 width: parent.width
-                label: qsTr("Paikka / Osoite")
-                placeholderText: qsTr("Paikka / Osoite")
+                label: qsTr("Address / Place")
+                placeholderText: qsTr("Address / Place")
                 focus: false
                 horizontalAlignment: TextInput.AlignLeft
 
@@ -88,7 +88,7 @@ Page {
 
             Button {
                 id: doSearch
-                text: qsTr("Etsi")
+                text: qsTr("Search")
                 anchors.horizontalCenter: parent.horizontalCenter
                 onClicked: pageStack.push(Qt.resolvedUrl("Geocode.qml"),
                                           {searchstring: searchfield.text, parentPage: placePickerPage} )

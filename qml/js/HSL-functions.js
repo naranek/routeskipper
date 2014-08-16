@@ -81,9 +81,9 @@ function makeLineCode (joreCode) {
 // return the location type as text
 function locationTypeText(locTypeId) {
     /* Legend: (1-9 and 1008 = poi, 10 = stop, 900 = address) */
-    if (locTypeId == 10) return qsTr("Pysäkki")
-    else if (locTypeId == 900) return qsTr("Osoite")
-    else return qsTr("Paikka")
+    if (locTypeId == 10) return qsTr("Stop")
+    else if (locTypeId == 900) return qsTr("Address")
+    else return qsTr("Place of interest")
 }
 
 
