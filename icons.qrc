@@ -1,17 +1,85 @@
 <RCC>
     <qresource prefix="/">
-        <file alias="icon-bus">images/bus3.png</file>
-        <file alias="icon-walk">images/businessman4.png</file>
-        <file>images/front1.png</file>
-        <file>images/new73.png</file>
-        <file alias="icon-ferry">images/sail1.png</file>
-        <file>images/silhouette4.png</file>
-        <file alias="icon-metro">images/train20.png</file>
-        <file alias="icon-tram">images/tram4.png</file>
-        <file alias="icon-wait">images/zzz.png</file>
-        <file>images/train7.png</file>
-        <file alias="icon-train">images/train5.png</file>
         <file alias="logo">harbour-routeskipper.png</file>
-        <file>images/businessman4.svg</file>
+        <file>images/48/zzz.png</file>
+        <file>images/48/tram4.png</file>
+        <file>images/48/train20.png</file>
+        <file>images/48/train7.png</file>
+        <file>images/48/train5.png</file>
+        <file>images/48/silhouette4.png</file>
+        <file>images/48/sail1.png</file>
+        <file>images/48/new73.png</file>
+        <file>images/48/modern3.png</file>
+        <file>images/48/front1.png</file>
+        <file>images/48/businessman4.png</file>
+        <file>images/48/bus3.png</file>
+        <file>images/32/zzz.png</file>
+        <file>images/32/tram4.png</file>
+        <file>images/32/train20.png</file>
+        <file>images/32/train7.png</file>
+        <file>images/32/train5.png</file>
+        <file>images/32/silhouette4.png</file>
+        <file>images/32/sail1.png</file>
+        <file>images/32/new73.png</file>
+        <file>images/32/modern3.png</file>
+        <file>images/32/front1.png</file>
+        <file>images/32/businessman4.png</file>
+        <file>images/32/bus3.png</file>
+        <file>images/28/zzz.png</file>
+        <file>images/28/tram4.png</file>
+        <file>images/28/train20.png</file>
+        <file>images/28/train7.png</file>
+        <file>images/28/train5.png</file>
+        <file>images/28/silhouette4.png</file>
+        <file>images/28/sail1.png</file>
+        <file>images/28/new73.png</file>
+        <file>images/28/modern3.png</file>
+        <file>images/28/front1.png</file>
+        <file>images/28/businessman4.png</file>
+        <file>images/28/bus3.png</file>
+        <file>images/24/zzz.png</file>
+        <file>images/24/tram4.png</file>
+        <file>images/24/train20.png</file>
+        <file>images/24/train7.png</file>
+        <file>images/24/train5.png</file>
+        <file>images/24/silhouette4.png</file>
+        <file>images/24/sail1.png</file>
+        <file>images/24/new73.png</file>
+        <file>images/24/modern3.png</file>
+        <file>images/24/front1.png</file>
+        <file>images/24/businessman4.png</file>
+        <file>images/24/bus3.png</file>
+        <file>images/16/zzz.png</file>
+        <file>images/16/tram4.png</file>
+        <file>images/16/train20.png</file>
+        <file>images/16/train7.png</file>
+        <file>images/16/train5.png</file>
+        <file>images/16/silhouette4.png</file>
+        <file>images/16/sail1.png</file>
+        <file>images/16/new73.png</file>
+        <file>images/16/modern3.png</file>
+        <file>images/16/front1.png</file>
+        <file>images/16/businessman4.png</file>
+        <file>images/16/bus3.png</file>
+        <file>images/original/zzz.png</file>
+        <file>images/original/train5.png</file>
+        <file>images/original/train20.png</file>
+        <file>images/original/tram4.png</file>
+        <file>images/original/bus3.png</file>
+        <file>images/original/modern3.png</file>
+        <file>images/original/sail1.png</file>
+        <file>images/original/train7.png</file>
+        <file>images/original/silhouette4.png</file>
+        <file>images/original/new73.png</file>
+        <file>images/original/front1.png</file>
+        <file>images/original/businessman4.png</file>
+        <file>images/original/front1.svg</file>
+        <file>images/original/businessman4.svg</file>
+        <file>images/original/new73.svg</file>
+        <file>images/original/silhouette4.svg</file>
+        <file>images/original/train5.svg</file>
+        <file>images/original/train7.svg</file>
+        <file>images/original/train20.svg</file>
+        <file>images/original/tram4.svg</file>
     </qresource>
 </RCC>

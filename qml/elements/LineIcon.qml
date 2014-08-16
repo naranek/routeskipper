@@ -5,8 +5,8 @@ Image {
     property string type
 
     id: lineIcon
-    width: size; height: size
+
     fillMode: Image.PreserveAspectFit
     smooth: true
-    source: "qrc:" + type
+    source: type !== "logo" ? "qrc:images/"+ size + "/" + type +  ".png" : "qrc:logo" // fix this later
 }

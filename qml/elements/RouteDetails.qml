@@ -44,23 +44,32 @@ Column {
     // default is hidden
     opacity: 0
 
-    // add a nice transition because we can
+
     transitions: [
         Transition {
             from: "change"
             to: "visible"
             SequentialAnimation {
-                NumberAnimation { target: routeDetailsColumn ; property: "opacity"; to: 0; duration: 200; }
-                PropertyAction { target: routeDetailsColumn; property: "routeIndex"; value: newRouteIndex }
+                // this is a slow operation, so wait until the other animations have finished before starting
+                PropertyAction { target: routeDetailsColumn; property: "visible"; value: false }
                 PauseAnimation { duration: 750 }
-                NumberAnimation { target: routeDetailsColumn ; property: "opacity"; to: 1; duration: 200; }
+                PropertyAction { target: routeDetailsColumn; property: "routeIndex"; value: newRouteIndex }
+                PauseAnimation { duration: 1000 }
+                PropertyAction { target: routeDetailsColumn; property: "visible"; value: true }
+
+                //NumberAnimation { target: routeDetailsColumn ; property: "opacity"; to: 0; duration: 200; }
+
+                //
+                //NumberAnimation { target: routeDetailsColumn ; property: "opacity"; to: 1; duration: 200; }
             }
         },
         Transition {
             from: "visible"
             to: ""
             SequentialAnimation {
-                NumberAnimation { target: routeDetailsColumn ; property: "opacity"; to: 0; duration: 200; }
+                //PauseAnimation { duration: 1000 }
+                //NumberAnimation { target: routeDetailsColumn ; property: "opacity"; to: 0; duration: 200; }
+                PropertyAction { target: routeDetailsColumn; property: "visible"; value: false }
             }
         }
     ]

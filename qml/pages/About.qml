@@ -9,13 +9,13 @@ Page {
     ListModel {
         id: iconLicenses
         ListElement {icon: "logo"; by: "Freepik.com"; lic: "CC BY 3.0"}
-        ListElement {icon: "icon-bus"; by: "Freepik.com"; lic: "CC BY 3.0"}
-        ListElement {icon: "icon-walk"; by: "Freepik.com"; lic: "CC BY 3.0"}
-        ListElement {icon: "icon-metro"; by: "Freepik.com"; lic: "CC BY 3.0"}
-        ListElement {icon: "icon-ferry"; by: "Freepik.com"; lic: "CC BY 3.0"}
-        ListElement {icon: "icon-tram"; by: "Icons8"; lic: "CC BY 3.0"}
-        ListElement {icon: "icon-wait"; by: "Freepik.com"; lic: "CC BY 3.0"}
-        ListElement {icon: "icon-train"; by: "Scott de Jonge"; lic: "CC BY 3.0"}
+        ListElement {icon: "bus3"; by: "Freepik.com"; lic: "CC BY 3.0"}
+        ListElement {icon: "businessman4"; by: "Freepik.com"; lic: "CC BY 3.0"}
+        ListElement {icon: "train20"; by: "Freepik.com"; lic: "CC BY 3.0"}
+        ListElement {icon: "sail1"; by: "Freepik.com"; lic: "CC BY 3.0"}
+        ListElement {icon: "tram4"; by: "Icons8"; lic: "CC BY 3.0"}
+        ListElement {icon: "zzz"; by: "Freepik.com"; lic: "CC BY 3.0"}
+        ListElement {icon: "train5"; by: "Scott de Jonge"; lic: "CC BY 3.0"}
     }
 
     // To enable PullDownMenu, place our content in a SilicaFlickable
@@ -64,7 +64,7 @@ Page {
 
                     Elements.LineIcon {
                         id: image
-                        size: Theme.iconSizeSmall; height: Theme.iconSizeSmall
+                        size: 48
                         type: icon
                     }
                     Label {

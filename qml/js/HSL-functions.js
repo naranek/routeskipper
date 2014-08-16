@@ -111,32 +111,32 @@ function transportIcon(type) {
     */
 
     var iconList = {
-        1: "icon-bus",
-        2: "icon-tram",
-        3: "icon-bus",
-        4: "icon-bus",
-        5: "icon-bus",
-        6: "icon-metro",
-        7: "icon-ferry",
-        8: "icon-bus",
-        12: "icon-train",
-        21: "icon-bus",
-        22: "icon-bus",
-        23: "icon-bus",
-        24: "icon-bus",
-        25: "icon-bus",
-        36: "icon-bus",
-        37: "icon-bus",
-        38: "icon-bus",
-        39: "icon-bus",
+        1: "bus3",
+        2: "tram4",
+        3: "bus3",
+        4: "bus3",
+        5: "bus3",
+        6: "train20",
+        7: "sail1",
+        8: "bus3",
+        12: "train5",
+        21: "bus3",
+        22: "bus3",
+        23: "bus3",
+        24: "bus3",
+        25: "bus3",
+        36: "bus3",
+        37: "bus3",
+        38: "bus3",
+        39: "bus3",
     }
 
     if (type == "walk") {
-        return "icon-walk"
+        return "businessman4"
     }
 
     if (type == "wait") {
-        return "icon-wait"
+        return "zzz"
     }
 
     return iconList[type]

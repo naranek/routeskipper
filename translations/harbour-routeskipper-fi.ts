@@ -147,7 +147,7 @@
 <context>
     <name>RouteDetails</name>
     <message>
-        <location filename="../qml/elements/RouteDetails.qml" line="94"/>
+        <location filename="../qml/elements/RouteDetails.qml" line="103"/>
         <source>Stop information</source>
         <translation>Pysäkkitiedot</translation>
     </message>

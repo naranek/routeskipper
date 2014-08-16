@@ -3,6 +3,7 @@ import Sailfish.Silica 1.0
 // import QtQuick.XmlListModel 2.0
 import "../elements" as Elements
 import "../js/Common.js" as JS
+import "../js/HSL-functions.js" as HSL
 
 
 
@@ -52,7 +53,7 @@ Item {
 
     Elements.LineIcon {
         id: waitIcon
-        size: 28; type: "icon-wait";
+        size: 28; type: HSL.transportIcon("wait")
         anchors.left: lineRow.right
         anchors.top: parent.top
     }
@@ -62,15 +63,13 @@ Item {
         text: Math.ceil((Duration - MovingDuration)/60) + " min"
         font.pixelSize: Theme.fontSizeSmall
         color: routeBackground.highlighted ? Theme.highlightColor : Theme.primaryColor
-        //width: 80
         horizontalAlignment: Text.AlignRight
         anchors.left: waitIcon.right
-        //anchors.top: waitIcon.top
         anchors.verticalCenter: waitIcon.verticalCenter
     }
 
     Elements.LineIcon {
-        id: walkIcon; size: 28; type: "icon-walk";
+        id: walkIcon; size: 28; type: HSL.transportIcon("walk")
         anchors {
             top: waitIcon.bottom
             topMargin: 5
@@ -83,10 +82,9 @@ Item {
         text: JS.formatLength(WalkingLength)
         font.pixelSize: Theme.fontSizeSmall
         color: routeBackground.highlighted ? Theme.highlightColor : Theme.primaryColor
-        //width: 80
+
         horizontalAlignment: Text.AlignRight
         anchors.left: walkIcon.right
-        //   anchors.top: walkIcon.top
         anchors.verticalCenter: walkIcon.verticalCenter
     }
 
