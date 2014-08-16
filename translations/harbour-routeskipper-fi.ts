@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.1" language="fi_FI">
+<TS version="2.0" language="fi_FI">
 <context>
     <name>CoverBlank</name>
     <message>
@@ -56,7 +56,7 @@
     <message>
         <location filename="../qml/pages/FirstPage.qml" line="168"/>
         <source>Departure</source>
-        <translation>Lähtöpaikka</translation>
+        <translation>Lähtöaika</translation>
     </message>
     <message>
         <source>Departure time</source>
