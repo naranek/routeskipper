@@ -18,14 +18,6 @@
     </message>
 </context>
 <context>
-    <name>Dev</name>
-    <message>
-        <location filename="../qml/pages/Dev.qml" line="14"/>
-        <source>uustesti</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
     <name>FirstPage</name>
     <message>
         <location filename="../qml/pages/FirstPage.qml" line="45"/>

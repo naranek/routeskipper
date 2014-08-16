@@ -40,7 +40,7 @@ Page {
                 text: qsTr("To LayoutTest")
                 onClicked: pageStack.push(Qt.resolvedUrl("LayoutTest.qml"))
             }
-            */
+*/
             MenuItem {
                 text: qsTr("About")
                 onClicked: pageStack.push(Qt.resolvedUrl("About.qml"))
@@ -195,7 +195,7 @@ Page {
             Button {
                 id: doSearch
                 text: qsTr("Show routes")
- //     enabled: false
+      enabled: false
                 anchors.horizontalCenter: parent.horizontalCenter
                 onClicked: pageStack.push(Qt.resolvedUrl("SelectRoute.qml"),
                                           {sourceName: sourceValue.text, destinationName: destinationValue.text,

@@ -2,6 +2,7 @@ import QtQuick 2.0
 import Sailfish.Silica 1.0
 import "../pages/../js/HSL-functions.js" as HSL
 import "../js/Common.js" as JS
+import "../elements" as Elements
 
 Rectangle {
     id: lineContainer
@@ -63,12 +64,7 @@ Rectangle {
         lineNumber.text = lineShieldText
     }
 
-    Image {
-        id: lineIcon
-        width: 32; height: 32
-        fillMode: Image.PreserveAspectFit
-        smooth: true
-        source: "qrc:" + HSL.transportIcon(Type)
+    Elements.LineIcon {id: lineIcon; size: 32; type:HSL.transportIcon(Type)
 
         anchors {
             left: lineContainer.left

@@ -92,18 +92,9 @@ Page {
                  }
             }
 
-            // show details on the selected route
-            Column {
-               id: routeDetails
 
-               SectionHeader {
-                   text: "Valittu reitti"
-               }
 
-               Label {
-                   text: "Siis täällä"
-               }
-            }
+
         }
     }
 }

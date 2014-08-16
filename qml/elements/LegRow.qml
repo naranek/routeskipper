@@ -14,31 +14,30 @@ Row {
 
 
     width: (parent !== null ? parent.width : 0)
-    spacing: 3
-
+    spacing: 10
 
 
     // Starting place and time
     Label {
         id: fromPart
-        width: parent.width - lineShield.width - toPart.width
+        width: 60
         font.pixelSize: Theme.fontSizeSmall
-        text: startName + " " + JS.prettyTime(startTime)
+        text:  JS.prettyTime(startTime)
         color: lineColor
         truncationMode: TruncationMode.Fade
-        horizontalAlignment: Text.AlignRight
+
     }
 
     // Line icon and number
 
     Elements.LineShield {id: lineShield; lineColor: lineRow.lineColor; state: ""}
 
+
     // Endpoint and time
     Label {
         id: toPart
-        width: 80
         font.pixelSize: Theme.fontSizeSmall
-        text: JS.prettyTime(endTime)
+        text: startName
         color: lineColor
         truncationMode: TruncationMode.Fade
     }

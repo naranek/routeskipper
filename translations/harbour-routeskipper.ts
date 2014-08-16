@@ -16,13 +16,6 @@
     </message>
 </context>
 <context>
-    <name>Dev</name>
-    <message>
-        <source>uustesti</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
     <name>FirstPage</name>
     <message>
         <source>Route Planner</source>

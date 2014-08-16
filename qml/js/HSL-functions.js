@@ -13,10 +13,10 @@ function makeHttpRoutingRequest(dateOffsetInMinutes) {
             + "&date=" + JS.hslDate(pastDatetime)
             + "&time=" + JS.hslTime(pastDatetime)
 
-    console.log(url)
+            //  console.log(url)
 
     // debugging url
-    var url="http://riippuliito.net/files/routing-esimerkki.xml"
+    //var url="http://riippuliito.net/files/routing-esimerkki.xml"
 
 
     http.open("GET", url, true)
@@ -106,6 +106,7 @@ function transportIcon(type) {
     24 = Vantaa service lines
     25 = region night buses
     36 = Kirkkonummi internal bus lines
+    38 = Sipoo internal bus lines maybe?
     39 = Kerava internal bus lines
     */
 
@@ -125,6 +126,8 @@ function transportIcon(type) {
         24: "icon-bus",
         25: "icon-bus",
         36: "icon-bus",
+        37: "icon-bus",
+        38: "icon-bus",
         39: "icon-bus",
     }
 

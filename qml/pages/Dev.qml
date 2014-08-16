@@ -5,36 +5,26 @@ import "../js/DatabaseTools.js" as DbTools
 import "../models" as Models
 import "../elements" as Elements
 
-// Rectangle { anchors.fill: parent; color: "red"; opacity: 0.3; z:-1; visible: true }
 
 Page {
-    id: page
-
-    Label {
-        text: qsTr("uustesti")
-    }
-
-    /*
     BackgroundItem {
-        id: singleRouteInfo
-        height: contentItem.childrenRect.height
-        anchors.bottomMargin: 30
+        width: 300; height: 100;
+        Rectangle {
+            width: 200; height: 100
 
-        Label {
-            id: routeHeader
-            x: Theme.paddingLarge
-            text: "Latauksia haetaan."
-            color: singleRouteInfo.highlighted ? Theme.highlightColor : Theme.primaryColor
+
+
+            SilicaFlickable {
+                anchors.fill: parent
+                contentWidth: text.width; contentHeight: text.height
+
+                Text {
+                    id: text
+                    text: "Hello, Sailor!"
+                    font.pixelSize: 100
+                }
+            }
+
         }
     }
-
-    Button {
-        id: doSearch
-        text: qsTr("Tyhjennä tietokanta")
-        //enabled: false
-        anchors.horizontalCenter: parent.horizontalCenter
-        onClicked: DbTools.cleanDb()
-
-    }
-    */
 }

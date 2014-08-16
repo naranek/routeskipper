@@ -12,7 +12,7 @@ Page {
 
     // remove legs and waypoints selected on the next page
     onStatusChanged: {
-        if (status == PageStatus.Active) {
+        if (status === PageStatus.Active) {
             mainWindow.selectedLegsModel.removeLegsFromPage(pageStack.depth + 1)
             mainWindow.selectedWaypointsModel.removeWaypointsFromPage(pageStack.depth + 1)
         }
@@ -251,7 +251,6 @@ Page {
                             PropertyChanges {
                                 target: detailedView
                                 visible: true
-
                             }
                         }
                     ]
@@ -309,6 +308,7 @@ Page {
                                 width: parent.width / 4
                                 anchors.verticalCenter: parent.verticalCenter
                                 horizontalAlignment: Text.AlignHCenter
+                                font.pixelSize: Theme.fontSizeSmall
                             }
 
 
@@ -325,71 +325,9 @@ Page {
                         }
 
 
-
-                        // minimized view
-                        Item {
+                        Elements.RouteMinimized {
                             id: minimizedView
                             width: parent.width
-                            height: lineRow.height
-
-
-                            Row {
-                                id: lineRow
-                                width: parent.width - walkIcon.width - walkingLength.width
-
-
-                                Repeater {
-                                    id: legsRepeater
-                                    model: legsModel
-                                    clip: true
-
-                                    delegate:
-                                        Column {
-                                        visible: Type !== "walk" && Type !== "wait" ? true : false;
-                                        height: lineShield.height //+ startTime.height
-                                        width: lineShield.height
-                                        Elements.LineShield {id: lineShield;  lineColor: routeBackground.highlighted ? Theme.highlightColor : Theme.primaryColor; state: "horizontal"}
-                                    }
-                                }
-                            }
-
-
-
-                            Elements.LineIcon {
-                                id: waitIcon
-                                size: 32; type: "icon-wait";
-                                anchors.left: lineRow.right
-                                anchors.top: parent.top
-                            }
-
-                            Label {
-                                id: waitDuration
-                                text: Math.ceil((Duration - MovingDuration)/60) + " min"
-                                font.pixelSize: Theme.fontSizeSmall
-                                color: routeBackground.highlighted ? Theme.highlightColor : Theme.primaryColor
-                                width: 90
-                                horizontalAlignment: Text.AlignRight
-                                anchors.left: waitIcon.right
-                                anchors.top: waitIcon.top
-                            }
-
-                            Elements.LineIcon {
-                                id: walkIcon; size: 32; type: "icon-walk";
-                                anchors.top: waitIcon.bottom
-                                anchors.left: waitIcon.left
-                            }
-
-                            Label {
-                                id: walkingLength
-                                text: JS.formatLength(WalkingLength)
-                                font.pixelSize: Theme.fontSizeSmall
-                                color: routeBackground.highlighted ? Theme.highlightColor : Theme.primaryColor
-                                width: 90
-                                horizontalAlignment: Text.AlignRight
-                                anchors.left: walkIcon.right
-                                anchors.top: walkIcon.top
-                            }
-
                         }
 
                         Column {

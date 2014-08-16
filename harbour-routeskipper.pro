@@ -48,7 +48,8 @@ OTHER_FILES += qml/harbour-routeskipper.qml \
     qml/elements/Clock.qml \
     qml/js/Common.js \
     qml/elements/LineIcon.qml \
-    translations/harbour-routeskipper-fi.ts
+    translations/harbour-routeskipper-fi.ts \
+    qml/elements/RouteMinimized.qml
 
 # to disable building translations every time, comment out the
 # following CONFIG line
