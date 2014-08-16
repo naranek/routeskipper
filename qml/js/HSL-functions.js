@@ -16,7 +16,7 @@ function makeHttpRoutingRequest(dateOffsetInMinutes) {
     console.log(url)
 
     // debugging url
-    //var url="http://riippuliito.net/files/routing-esimerkki.xml"
+    var url="http://riippuliito.net/files/routing-esimerkki.xml"
 
 
     http.open("GET", url, true)

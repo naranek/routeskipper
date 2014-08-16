@@ -4,6 +4,7 @@ X-Nemo-Application-Type=silica-qt5
 Icon=harbour-routeskipper
 Exec=harbour-routeskipper
 Name=RouteSkipper
+X-Nemo-Single-Instance=no
 # translation example:
 # your app name in German locale (de)
 Name[de]=DasRouteSkipper

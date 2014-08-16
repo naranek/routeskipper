@@ -268,43 +268,76 @@ Page {
                             width: parent.width
                             id: routeHeader
 
+                            // Start time
                             Label {
                                 id: routeStartTime
                                 text: JS.prettyTime(RouteStartTime)
                                 color: routeBackground.highlighted ? Theme.highlightColor : Theme.primaryColor
-                                width: parent.width / 3
+                                width: parent.width / 4
                                 font.pixelSize: Theme.fontSizeLarge
                             }
 
+                            // Icon and start time for the first actual line
+                            Item {
+                                width: parent.width / 4
+                                height: routeStartTime.height
+                                anchors.verticalCenter:  parent.verticalCenter
+
+                                Elements.LineIcon {
+                                    id: lineIcon
+                                    size: 24
+                                    type: HSL.transportIcon(FirstLineType)
+                                    anchors.verticalCenter:  parent.verticalCenter
+                                }
+
+                                Label {
+                                    id: firstLineStartTime
+                                    text: JS.prettyTime(FirstLineStartTime)
+                                    color: routeBackground.highlighted ? Theme.highlightColor : Theme.primaryColor
+                                    anchors.verticalCenter:  parent.verticalCenter
+                                    anchors.left: lineIcon.right
+                                    font.pixelSize: Theme.fontSizeSmall
+                                }
+
+                            }
+
+                            // Total travel time
                             Label {
                                 id: duration
                                 text: (Duration/60) + " min"
                                 color: routeBackground.highlighted ? Theme.highlightColor : Theme.primaryColor
-                                width: parent.width / 3
+                                width: parent.width / 4
                                 anchors.verticalCenter: parent.verticalCenter
                                 horizontalAlignment: Text.AlignHCenter
                             }
 
 
+                            // Arrival time
                             Label {
                                 id: routeEndTime
                                 text: JS.prettyTime(RouteEndTime)
                                 color: routeBackground.highlighted ? Theme.highlightColor : Theme.primaryColor
-                                width: parent.width / 3
+                                width: parent.width / 4
                                 font.pixelSize: Theme.fontSizeLarge
                                 horizontalAlignment: Text.AlignRight
                             }
 
                         }
 
+
+
                         // minimized view
                         Item {
                             id: minimizedView
                             width: parent.width
                             height: lineRow.height
+
+
                             Row {
                                 id: lineRow
                                 width: parent.width - walkIcon.width - walkingLength.width
+
+
                                 Repeater {
                                     id: legsRepeater
                                     model: legsModel
@@ -313,64 +346,50 @@ Page {
                                     delegate:
                                         Column {
                                         visible: Type !== "walk" && Type !== "wait" ? true : false;
-                                        height: lineShield.height + startTime.height
+                                        height: lineShield.height //+ startTime.height
                                         width: lineShield.height
                                         Elements.LineShield {id: lineShield;  lineColor: routeBackground.highlighted ? Theme.highlightColor : Theme.primaryColor; state: "horizontal"}
-
-                                        Label {
-                                            id: startTime
-                                            text: JS.prettyTime(StartTime)
-                                            anchors {
-                                                horizontalCenter: lineShield.horizontalCenter
-                                            }
-                                            horizontalAlignment: Text.AlignHCenter
-                                            font.pixelSize: Theme.fontSizeSmall
-                                        }
-
-
                                     }
                                 }
                             }
 
-                            Image {
-                                id: walkIcon
-                                width: 32; height: 32
-                                fillMode: Image.PreserveAspectFit
-                                smooth: true
-                                source: "qrc:icon-walk"
-                                anchors.left: lineRow.right
-                                anchors.top: parent.top
-                            }
 
-                            Label {
-                                id: walkingLength
-                                text: JS.formatLength(WalkingLength)
-                                color: routeBackground.highlighted ? Theme.highlightColor : Theme.primaryColor
-                                width: 90
-                                horizontalAlignment: Text.AlignRight
-                                anchors.left: walkIcon.right
-                                anchors.top: parent.top
-                            }
 
-                            Image {
+                            Elements.LineIcon {
                                 id: waitIcon
-                                width: 32; height: 32
-                                fillMode: Image.PreserveAspectFit
-                                smooth: true
-                                source: "qrc:icon-wait"
+                                size: 32; type: "icon-wait";
                                 anchors.left: lineRow.right
-                                anchors.top: walkingLength.bottom
+                                anchors.top: parent.top
                             }
 
                             Label {
                                 id: waitDuration
                                 text: Math.ceil((Duration - MovingDuration)/60) + " min"
+                                font.pixelSize: Theme.fontSizeSmall
+                                color: routeBackground.highlighted ? Theme.highlightColor : Theme.primaryColor
+                                width: 90
+                                horizontalAlignment: Text.AlignRight
+                                anchors.left: waitIcon.right
+                                anchors.top: waitIcon.top
+                            }
+
+                            Elements.LineIcon {
+                                id: walkIcon; size: 32; type: "icon-walk";
+                                anchors.top: waitIcon.bottom
+                                anchors.left: waitIcon.left
+                            }
+
+                            Label {
+                                id: walkingLength
+                                text: JS.formatLength(WalkingLength)
+                                font.pixelSize: Theme.fontSizeSmall
                                 color: routeBackground.highlighted ? Theme.highlightColor : Theme.primaryColor
                                 width: 90
                                 horizontalAlignment: Text.AlignRight
                                 anchors.left: walkIcon.right
-                                anchors.bottom: parent.bottom
+                                anchors.top: walkIcon.top
                             }
+
                         }
 
                         Column {

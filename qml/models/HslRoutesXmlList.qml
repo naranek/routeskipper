@@ -20,6 +20,10 @@ XmlListModel {
     XmlRole { name: "Duration"; query: "duration/string()" }
     XmlRole { name: "RouteStartTime"; query: "legs/node[1]/locs/node[1]/depTime/string()" }
     XmlRole { name: "RouteEndTime"; query: "legs/node[last()]/locs/node[last()]/arrTime/string()" }
+
+    XmlRole { name: "FirstLineStartTime"; query: "(legs/node[type!='walk'])[1]/locs/node[1]/depTime/string()" } // start time of the first leg that's not walking
+    XmlRole { name: "FirstLineType"; query: "(legs/node[type!='walk'])[1]/type/string()" } // transport type of the first leg that's not walking
+
     XmlRole { name: "WalkingLength"; query: "sum(legs/node[type='walk']/length)" }
     XmlRole { name: "MovingDuration"; query: "sum(legs/node/duration)" } // time spent moving. Duration - MovingDuration = waiting time
 

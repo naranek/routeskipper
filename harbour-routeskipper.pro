@@ -46,7 +46,8 @@ OTHER_FILES += qml/harbour-routeskipper.qml \
     README.md \
     qml/models/Credentials.qml \
     qml/elements/Clock.qml \
-    qml/js/Common.js
+    qml/js/Common.js \
+    qml/elements/LineIcon.qml
 
 # to disable building translations every time, comment out the
 # following CONFIG line
