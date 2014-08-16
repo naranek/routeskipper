@@ -40,7 +40,7 @@ Page {
         if (httpQueryStatus == -1) {
             httpQueryStatus = 0
             httpQueryFailed = true
-            HSL.makeHttpRoutingRequest()
+            HSL.makeHttpRoutingRequest(-5)
         }
 
         if (httpQueryStatus == 2) httpQueryFailed = false
@@ -53,7 +53,7 @@ Page {
 
     Component.onCompleted: {
         // fetch the first XML from HSL - result is placed in hslXml variable when finished
-        HSL.makeHttpRoutingRequest()
+        HSL.makeHttpRoutingRequest(-5)
     }
 
     Models.HslRoutesXmlList {
@@ -111,15 +111,15 @@ Page {
                     var lastTime = routeModel.get(routeModel.count-1).RouteStartTime
                     selectedTime = JS.hslTime(lastTime)
                     selectedDate = JS.hslDate(lastTime)
-                    HSL.makeHttpRoutingRequest()
+                    HSL.makeHttpRoutingRequest(1)
                 }
             }
             MenuItem {
                 text: qsTr("Lähtöaika: Nyt")
                 onClicked: {
-                    selectedTime = Qt.formatDateTime(new Date(), "hhmm")
-                    selectedDate = Qt.formatDateTime(new Date(), "yyyyMMdd")
-                    HSL.makeHttpRoutingRequest()
+                    selectedTime =JS.hslTime(new Date())
+                    selectedDate = JS.hslDate(new Date())
+                    HSL.makeHttpRoutingRequest(-5)
                 }
             }
         }
@@ -359,7 +359,7 @@ Page {
                                 smooth: true
                                 source: "qrc:icon-wait"
                                 anchors.left: lineRow.right
-                                anchors.bottom: parent.bottom
+                                anchors.top: walkingLength.bottom
                             }
 
                             Label {

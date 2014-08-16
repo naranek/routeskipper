@@ -1,17 +1,19 @@
 .import "Common.js" as JS
 
 // make the correct query and send it to Reittiopas api
-function makeHttpRoutingRequest() {
+function makeHttpRoutingRequest(dateOffsetInMinutes) {
     var http = new XMLHttpRequest()
 
-    // always go back 5 minutes to see if we just missed something
-    var pastDatetime = JS.addMinutesToDatestamp(selectedDate + selectedTime, -5)
+    //
+    var pastDatetime = JS.addMinutesToDatestamp(selectedDate + selectedTime, dateOffsetInMinutes)
 
     // the actual url. Concatenating FTW
     var url = "http://api.reittiopas.fi/hsl/prod/?request=route&user=" + credentials.hslUsername + "&pass=" + credentials.hslPassword + "&format=xml&show=5&from=" +
             encodeURI(sourceCoords) + "&to=" + encodeURI(destinationCoords)
             + "&date=" + JS.hslDate(pastDatetime)
             + "&time=" + JS.hslTime(pastDatetime)
+
+    console.log(url)
 
     // debugging url
     //var url="http://riippuliito.net/files/routing-esimerkki.xml"

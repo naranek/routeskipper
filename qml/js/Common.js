@@ -54,19 +54,21 @@ function prettyTime(dateParam) {
 
 // @param date object
 // @return datestamp
-function hslDateStamp(dateObj) {
-    return Qt.formatDateTime(dateObj, "yyyyMMddhhmm")
+function hslDateStamp(dateStamp) {
+    return Qt.formatDateTime(dateStamp, "yyyyMMddhhmm")
 }
 
-// @param date object
+// @param date object or datestamp
 // @return datestamp
-function hslDate(dateObj) {
+function hslDate(dateParam) {
+    var dateObj = dateToObj(dateParam)
     return Qt.formatDateTime(dateObj, "yyyyMMdd")
 }
 
-// @param date object
+// @param date object or datestamp
 // @return datestamp
-function hslTime(dateObj) {
+function hslTime(dateParam) {
+    var dateObj = dateToObj(dateParam)
     return Qt.formatDateTime(dateObj, "hhmm")
 }
 
