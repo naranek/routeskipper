@@ -20,6 +20,11 @@
 <context>
     <name>FirstPage</name>
     <message>
+        <location filename="../qml/pages/FirstPage.qml" line="36"/>
+        <source>To Dev</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <location filename="../qml/pages/FirstPage.qml" line="45"/>
         <source>About</source>
         <translation>Tietoja ohjelmasta</translation>

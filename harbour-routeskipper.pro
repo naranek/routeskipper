@@ -49,7 +49,11 @@ OTHER_FILES += qml/harbour-routeskipper.qml \
     qml/js/Common.js \
     qml/elements/LineIcon.qml \
     translations/harbour-routeskipper-fi.ts \
-    qml/elements/RouteMinimized.qml
+    qml/elements/RouteMinimized.qml \
+    qml/models/KamoNextDepartures.qml \
+    qml/models/KamoLineId.qml \
+    qml/js/KAMO-functions.js \
+    qml/models/KamoPassingTimes.qml
 
 # to disable building translations every time, comment out the
 # following CONFIG line

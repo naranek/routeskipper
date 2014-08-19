@@ -31,12 +31,12 @@ Page {
             MenuItem {
                 text: qsTr("To Map")
                 onClicked: pageStack.push(Qt.resolvedUrl("MapTest.qml"), {searchstring: "Otaniemi"})
-            }
+            } */
             MenuItem {
                 text: qsTr("To Dev")
                 onClicked: pageStack.push(Qt.resolvedUrl("Dev.qml"))
             }
-            MenuItem {
+/*          MenuItem {
                 text: qsTr("To LayoutTest")
                 onClicked: pageStack.push(Qt.resolvedUrl("LayoutTest.qml"))
             }

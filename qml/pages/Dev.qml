@@ -4,27 +4,38 @@ import "../js/HSL-functions.js" as HSL
 import "../js/DatabaseTools.js" as DbTools
 import "../models" as Models
 import "../elements" as Elements
+import "../js/KAMO-functions.js" as KAMO
 
 
 Page {
-    BackgroundItem {
-        width: 300; height: 100;
-        Rectangle {
-            width: 200; height: 100
 
+    property int httpQueryStatus
+    property string kamoXml
+    property string kamoError
 
+    Component.onCompleted: KAMO.makeNextDeparturesHttpRequest()
 
-            SilicaFlickable {
-                anchors.fill: parent
-                contentWidth: text.width; contentHeight: text.height
+    onHttpQueryStatusChanged: {
+        departuresModel.xml = kamoXml
+    }
 
-                Text {
-                    id: text
-                    text: "Hello, Sailor!"
-                    font.pixelSize: 100
+    Models.KamoNextDepartures {
+        id: departuresModel
+    }
+
+    Column {
+        width: parent.width
+
+        Repeater {
+            model: departuresModel
+            delegate: Row{
+                Label {
+                    text: Time + " " + Line + " " + Dest
                 }
             }
-
         }
+
     }
+
+
 }
