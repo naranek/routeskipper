@@ -42,7 +42,7 @@ Column {
 
 
     // default is hidden
-    opacity: 0
+    visible: false
 
 
     transitions: [
@@ -56,11 +56,6 @@ Column {
                 PropertyAction { target: routeDetailsColumn; property: "routeIndex"; value: newRouteIndex }
                 PauseAnimation { duration: 1000 }
                 PropertyAction { target: routeDetailsColumn; property: "visible"; value: true }
-
-                //NumberAnimation { target: routeDetailsColumn ; property: "opacity"; to: 0; duration: 200; }
-
-                //
-                //NumberAnimation { target: routeDetailsColumn ; property: "opacity"; to: 1; duration: 200; }
             }
         },
         Transition {
@@ -121,6 +116,8 @@ Column {
                 }
             }
 
+
+
             // Create model for waypoints of this route (select route using index)
             Models.HslWaypointsXmlList {
                 xml: hslXml
@@ -154,13 +151,14 @@ Column {
                     ListModel {id: returnData }
 
                     onClicked: {
-                        //the new way
-                        mainWindow.selectedWaypointsModel.stopAtWaypoint(pageStack.depth, waypointRepeater.legIndex, index) // remove this level's old selection
+                        // remove this level's old selection
+                        mainWindow.selectedWaypointsModel.stopAtWaypoint(pageStack.depth, waypointRepeater.legIndex, index)
+
+                        // change the endpoint of the leg to this waypoint
                         mainWindow.selectedLegsModel.changeEndpoint(pageStack.depth, waypointRepeater.legIndex, model)
 
                         // return the clicked waypoint model
                         routeDetailsColumn.waypointClicked(model)
-
                     }
 
                     Row {

@@ -37,6 +37,7 @@ XmlListModel {
                 waypoint.WaypointIndex = i
                 waypoint.WaypointLegIndex = legIndex
 
+
                 if (waypoint.Name == "") {
                     if (i == 0) {
                         waypoint.Name = sourceName

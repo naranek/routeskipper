@@ -18,6 +18,14 @@
     </message>
 </context>
 <context>
+    <name>CurrentRouteDetails</name>
+    <message>
+        <location filename="../qml/pages/selectRoute/CurrentRouteDetails.qml" line="98"/>
+        <source>Stop information</source>
+        <translation type="unfinished">Pysäkkitiedot</translation>
+    </message>
+</context>
+<context>
     <name>FirstPage</name>
     <message>
         <location filename="../qml/pages/FirstPage.qml" line="36"/>
@@ -152,9 +160,8 @@
 <context>
     <name>RouteDetails</name>
     <message>
-        <location filename="../qml/pages/selectRoute/RouteDetails.qml" line="103"/>
         <source>Stop information</source>
-        <translation>Pysäkkitiedot</translation>
+        <translation type="obsolete">Pysäkkitiedot</translation>
     </message>
 </context>
 <context>

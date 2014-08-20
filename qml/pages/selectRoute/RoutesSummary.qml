@@ -34,7 +34,7 @@ Repeater {
 
 
 
-
+        // what happens when you click a route
         onClicked: {
             var newState
 
@@ -45,7 +45,7 @@ Repeater {
                 lastClickedRouteSummary = -1
             } else
 
-                // first click shows details and hides other
+            // first click shows details and hides other
             {
                 newState = "detailed"
                 routeDetails.show(index)
@@ -55,6 +55,8 @@ Repeater {
                 mainWindow.selectedLegsModel.removeLegsFromPage(pageStack.depth) // remove this level's old selection
                 mainWindow.selectedLegsModel.addLegs(legsModel, pageStack.depth) // add new selection
                 mainWindow.coverPage.resetCover()
+
+
             }
 
             //  show details for the clicked, minimize others
@@ -129,7 +131,7 @@ Repeater {
             width: parent.width - Theme.paddingSmall
 
 
-            // Route header row
+            //// Route header row
             Row {
                 width: parent.width
                 id: routeHeader
@@ -192,11 +194,13 @@ Repeater {
             }
 
 
+            // minimized route view
             RouteMinimized {
                 id: minimizedView
                 width: parent.width
             }
 
+            // detailed route view
             Column {
                 id: detailedView
                 width: parent.width

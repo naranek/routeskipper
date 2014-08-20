@@ -31,6 +31,7 @@ XmlListModel {
 
     onStatusChanged: {
 
+        // if connection failed
         if (status == XmlListModel.Error) {
             httpQueryFailed = true
             httpQueryStatus = -1
@@ -44,11 +45,17 @@ XmlListModel {
                 httpQueryStatus = -1
             }
             else {
+
+                // Add routes to the target model
                 targetListModel.clear()
 
                 for (var i = 0; i < xmlModel.count ; i++) {
                     var route = xmlModel.get(i)
+
                     // add here if route needs changing
+
+
+
                     targetListModel.append(route)
                 }
             }

@@ -1,8 +1,8 @@
 // make the correct query and send it to Reittiopas api
-function makeNextDeparturesHttpRequest() {
+function makeNextDeparturesHttpRequest(stopId) {
     var http = new XMLHttpRequest()
 
-    var stopID = "1291128"
+    //var stopID = "1291128"
 
     var soapData = '<soapenv:Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" '+
             'xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:urn="urn:seasam">'+
@@ -44,10 +44,10 @@ function makeNextDeparturesHttpRequest() {
 }
 
 // make the correct query and send it to Reittiopas api
-function makePassingTimesHttpRequest() {
+function makePassingTimesHttpRequest(lineID) {
     var http = new XMLHttpRequest()
 
-    var lineId = "1997652780"
+    // var lineId = "1997652780"
 
     var soapData = '<soapenv:Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" '+
             'xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:urn="urn:seasam">'+
@@ -85,4 +85,9 @@ function makePassingTimesHttpRequest() {
     //http.overrideMimeType('text/xml; charset=iso-8859-1');
     http.setRequestHeader("Content-type", "text/xml; charset=utf-8");
     http.send((soapData));
+}
+
+//
+function mergeRealtimeData() {
+
 }

@@ -16,6 +16,13 @@
     </message>
 </context>
 <context>
+    <name>CurrentRouteDetails</name>
+    <message>
+        <source>Stop information</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>FirstPage</name>
     <message>
         <source>Route Planner</source>
@@ -112,13 +119,6 @@
     </message>
     <message>
         <source>Search</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>RouteDetails</name>
-    <message>
-        <source>Stop information</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

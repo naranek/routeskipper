@@ -56,9 +56,9 @@ OTHER_FILES += qml/harbour-routeskipper.qml \
     qml/elements/TimeView.qml \
     qml/pages/selectRoute/RoutesSummary.qml \
     qml/pages/selectRoute/LegRow.qml \
-    qml/pages/selectRoute/RouteDetails.qml \
     qml/pages/selectRoute/RouteMinimized.qml \
-    qml/pages/selectRoute/SelectedRoutesSummary.qml
+    qml/pages/selectRoute/SelectedRoutesSummary.qml \
+    qml/pages/selectRoute/CurrentRouteDetails.qml
 
 # to disable building translations every time, comment out the
 # following CONFIG line

@@ -37,7 +37,6 @@ Page {
 
     // retry if the fetch failed
     onHttpQueryStatusChanged: {
-
         if (httpQueryStatus == -1) {
             httpQueryStatus = 0
             httpQueryFailed = true
@@ -57,6 +56,7 @@ Page {
         HSL.makeHttpRoutingRequest(-5)
     }
 
+    // HSL models
     Models.HslRoutesXmlList {
         xml: hslXml
         targetListModel: routeModel
@@ -165,8 +165,8 @@ Page {
                 id: routes
             }
 
-
-            PageElements.RouteDetails{
+            // show the selected route and populate selectedWaypointsModel
+            PageElements.CurrentRouteDetails{
                 id: routeDetails
 
 
