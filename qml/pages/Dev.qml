@@ -35,6 +35,10 @@ Page {
             }
         }
 
+        Elements.TimeView {
+            schedTime: "12:34"
+
+        }
     }
 
 

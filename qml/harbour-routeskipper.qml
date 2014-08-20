@@ -7,7 +7,7 @@ import "models" as Models
 ApplicationWindow
 {
     id: mainWindow
-    initialPage: Component { Dev { } }
+    initialPage: Component { FirstPage { } }
 
     property alias selectedLegsModel: selectedLegsModel
     property alias selectedWaypointsModel: selectedWaypointsModel

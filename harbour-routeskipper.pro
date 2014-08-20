@@ -29,7 +29,6 @@ OTHER_FILES += qml/harbour-routeskipper.qml \
     qml/pages/Geocode.qml \    
     qml/pages/LayoutTest.qml \
     qml/elements/LineShield.qml \
-    qml/elements/RouteDetails.qml \
     qml/elements/SelectedRoutesSummary.qml \
     qml/js/HSL-functions.js \
     qml/js/DatabaseTools.js \  
@@ -53,7 +52,13 @@ OTHER_FILES += qml/harbour-routeskipper.qml \
     qml/models/KamoNextDepartures.qml \
     qml/models/KamoLineId.qml \
     qml/js/KAMO-functions.js \
-    qml/models/KamoPassingTimes.qml
+    qml/models/KamoPassingTimes.qml \
+    qml/elements/TimeView.qml \
+    qml/pages/selectRoute/RoutesSummary.qml \
+    qml/pages/selectRoute/LegRow.qml \
+    qml/pages/selectRoute/RouteDetails.qml \
+    qml/pages/selectRoute/RouteMinimized.qml \
+    qml/pages/selectRoute/SelectedRoutesSummary.qml
 
 # to disable building translations every time, comment out the
 # following CONFIG line

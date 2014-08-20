@@ -1,7 +1,7 @@
 import QtQuick 2.0
 import Sailfish.Silica 1.0
-import "../elements" as Elements
-import "../js/Common.js" as JS
+import "../../elements" as Elements
+import "../../js/Common.js" as JS
 
 Row {
     id: lineRow

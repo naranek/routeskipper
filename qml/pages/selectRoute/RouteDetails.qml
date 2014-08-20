@@ -1,10 +1,10 @@
 import QtQuick 2.0
 import Sailfish.Silica 1.0
 import QtQuick.XmlListModel 2.0
-import "../js/HSL-functions.js" as HSL
-import "../elements" as Elements
-import "../models" as Models
-import "../js/Common.js" as JS
+import "../../js/HSL-functions.js" as HSL
+import "../../elements" as Elements
+import "../../models" as Models
+import "../../js/Common.js" as JS
 
 
 

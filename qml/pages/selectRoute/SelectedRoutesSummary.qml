@@ -1,9 +1,9 @@
 import QtQuick 2.0
 import Sailfish.Silica 1.0
 import QtQuick.XmlListModel 2.0
-import "../js/DatabaseTools.js" as DbTools
-import "../js/Common.js" as JS
-import "../elements" as Elements
+import "../../js/DatabaseTools.js" as DbTools
+import "../../js/Common.js" as JS
+import "../../elements" as Elements
 
 Column {
 
@@ -31,7 +31,7 @@ Column {
         width: parent.width
         model: selectedLegsModel
         delegate:
-            Elements.LegRow    {
+            LegRow    {
             lineColor: Theme.highlightColor
             startName: StartName
             startTime: StartTime
