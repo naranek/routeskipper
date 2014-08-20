@@ -78,12 +78,12 @@
         <translation>Hae</translation>
     </message>
     <message>
-        <location filename="../qml/pages/Geocode.qml" line="61"/>
+        <location filename="../qml/pages/Geocode.qml" line="62"/>
         <source>Connection to Reittiopas failed</source>
         <translation>Ei saatu yhteyttä Reittioppaaseen </translation>
     </message>
     <message>
-        <location filename="../qml/pages/Geocode.qml" line="65"/>
+        <location filename="../qml/pages/Geocode.qml" line="66"/>
         <source>Nothing was found, or connection to Reittiopas failed</source>
         <translation>Haulla ei löytynyt mitään, tai yhteys Reittioppaaseen katkesi</translation>
     </message>

@@ -167,7 +167,7 @@ Page {
 
                 delegate: BackgroundItem {
                     id: routeBackground
-                    height: routeHeader.height + minimizedView.height
+                    height: routeHeader.height + minimizedView.height+10
                     anchors.bottomMargin: 30
                     clip: true // clipping on, so that route details are hidden when minimized
 
@@ -263,7 +263,7 @@ Page {
                             from: "detailed"
                             to: ""
                             ParallelAnimation {
-                                NumberAnimation { target: routeBackground; property: "height"; duration: 300; to: routeHeader.height + minimizedView.height}
+                                NumberAnimation { target: routeBackground; property: "height"; duration: 300; to: routeHeader.height + minimizedView.height + 10}
                                 SequentialAnimation {
                                     PropertyAnimation { target: minimizedView; property: "opacity"; to: 0}
                                     FadeAnimation { target: detailedView; property: "opacity"; duration: 150; to: 0}

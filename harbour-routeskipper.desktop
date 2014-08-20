@@ -4,8 +4,6 @@ X-Nemo-Application-Type=silica-qt5
 Icon=harbour-routeskipper
 Exec=harbour-routeskipper
 Name=RouteSkipper
-X-Nemo-Single-Instance=no
+# X-Nemo-Single-Instance=no # Disappointing that this is not allowed on a system that is supposed to be great at multitasking
 # translation example:
-# your app name in German locale (de)
-Name[de]=DasRouteSkipper
 

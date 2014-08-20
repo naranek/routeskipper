@@ -49,6 +49,7 @@ Page {
             query: "/response/node"
 
             XmlRole { name: "Name"; query: "name/string()" }
+            XmlRole { name: "City"; query: "city/string()" }
             XmlRole { name: "Coords"; query: "coords/string()" }
             XmlRole { name: "HouseNumber"; query: "details/houseNumber/string()" }
             XmlRole { name: "LocationTypeId"; query: "locTypeId/string()" }
@@ -98,7 +99,7 @@ Page {
 
             Label {
                 x: Theme.paddingLarge
-                text: Name + " " + HouseNumber
+                text: Name + (HouseNumber !== "" ? " " + HouseNumber : "") + ", " + City
                 anchors.verticalCenter: parent.verticalCenter
                 font.capitalization: Font.Capitalize
                 color: listItem.highlighted ? Theme.highlightColor : Theme.primaryColor
