@@ -9,11 +9,6 @@ XmlListModel {
 
     property ListModel targetListModel
 
-    // Get the XML response from reittiopas
-    // We can't use source property for XmlListModel, because we need to
-    // create two models from the same data, and that would fetch the data
-    // two times
-
     query: "/response/node/node"
 
     XmlRole { name: "Length"; query: "length/string()" }
@@ -30,7 +25,6 @@ XmlListModel {
 
 
     onStatusChanged: {
-
         // if connection failed
         if (status == XmlListModel.Error) {
             httpQueryFailed = true
@@ -45,15 +39,18 @@ XmlListModel {
                 httpQueryStatus = -1
             }
             else {
-
                 // Add routes to the target model
                 targetListModel.clear()
 
                 for (var i = 0; i < xmlModel.count ; i++) {
                     var route = xmlModel.get(i)
 
-                    // add here if route needs changing
+                    var legsComponent = Qt.createComponent("HslLegsModel.qml");
 
+
+                    // add here if route needs changing
+                    if (legsComponent.status == Component.Ready)
+                        route.Legs = legsComponent.createObject(null, {routeIndex: i, xml: xmlModel.xml});
 
 
                     targetListModel.append(route)

@@ -13,11 +13,11 @@ function makeHttpRoutingRequest(dateOffsetInMinutes) {
             + "&date=" + JS.hslDate(pastDatetime)
             + "&time=" + JS.hslTime(pastDatetime)
 
-            //  console.log(url)
+              console.log(url)
 
     // debugging url
     //var url="http://riippuliito.net/files/routing-esimerkki.xml"
-
+    var url = "http://api.reittiopas.fi/hsl/prod/?request=route&user=aikaopas&pass=agjghsra&format=xml&show=5&from=2552335,6673660&to=2546489,6675524&"
 
     http.open("GET", url, true)
 

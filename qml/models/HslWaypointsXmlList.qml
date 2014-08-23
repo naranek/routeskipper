@@ -7,11 +7,12 @@ XmlListModel {
     property int routeIndex
     property int legIndex
     property ListModel targetListModel
+    property string legType
 
     id: xmlModel
 
     // only select starting point and endpoint for walking
-    query: (Type == "walk" ?
+    query: (legType == "walk" ?
                 "/response/node[" + (routeIndex + 1) +"]/node/legs/node[" + (legIndex+1) + "]/locs/node[position()=1 or position() = last()]"
               :
                 "/response/node[" + (routeIndex + 1) +"]/node/legs/node[" + (legIndex+1) + "]/locs/node"
@@ -48,7 +49,8 @@ XmlListModel {
 
                 targetListModel.append(waypoint)
             }
-            targetListModel.newDataLoaded()
+            // reimplement this
+            //targetListModel.newDataLoaded()
         }
     }
 }

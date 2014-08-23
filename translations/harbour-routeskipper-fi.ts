@@ -20,7 +20,7 @@
 <context>
     <name>CurrentRouteDetails</name>
     <message>
-        <location filename="../qml/pages/selectRoute/CurrentRouteDetails.qml" line="98"/>
+        <location filename="../qml/pages/selectRoute/CurrentRouteDetails.qml" line="93"/>
         <source>Stop information</source>
         <translation type="unfinished">Pysäkkitiedot</translation>
     </message>
@@ -167,24 +167,29 @@
 <context>
     <name>SelectRoute</name>
     <message>
-        <location filename="../qml/pages/SelectRoute.qml" line="90"/>
+        <location filename="../qml/pages/SelectRoute.qml" line="91"/>
         <source>Query failed. Fine. I&apos;ll try again.</source>
-        <translation>Yhteys katkesi. Huoh. Yritetään uudestaan. </translation>
+        <translation type="unfinished">Yhteys katkesi. Huoh. Yritetään uudestaan. </translation>
     </message>
     <message>
-        <location filename="../qml/pages/SelectRoute.qml" line="107"/>
+        <location filename="../qml/pages/SelectRoute.qml" line="108"/>
         <source>New search</source>
-        <translation>Uusi haku</translation>
+        <translation type="unfinished">Uusi haku</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SelectRoute.qml" line="111"/>
+        <location filename="../qml/pages/SelectRoute.qml" line="112"/>
         <source>Following connections</source>
-        <translation>Seuraavat yhteydet</translation>
+        <translation type="unfinished">Seuraavat yhteydet</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SelectRoute.qml" line="120"/>
+        <location filename="../qml/pages/SelectRoute.qml" line="121"/>
         <source>Departure: Now</source>
-        <translation>Lähtöaika: Nyt</translation>
+        <translation type="unfinished">Lähtöaika: Nyt</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/SelectRoute.qml" line="130"/>
+        <source>Model validator</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

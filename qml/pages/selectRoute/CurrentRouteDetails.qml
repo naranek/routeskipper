@@ -15,12 +15,17 @@ Column {
     width: parent.width
 
 
-    property int routeIndex
+    property int routeIndex: -1 // nothing selected at first
     property int newRouteIndex
+
 
     // clear waypoints if the selected route is changed
     onRouteIndexChanged: {
         mainWindow.selectedWaypointsModel.removeWaypointsFromPage(pageStack.depth) // remove this level's old selection
+        legsRepeater.model = routeModel.get(routeIndex).Legs
+
+
+        console.log("route: " + routeModel.get(routeDetailsColumn.routeIndex).Legs)
     }
 
     // create signals for status change
@@ -84,23 +89,13 @@ Column {
         }
     ]
 
-
-    Models.HslLegsXmlList {
-        xml: hslXml
-        routeIndex: routeDetailsColumn.routeIndex
-        targetListModel: legsModel
-    }
-    ListModel {
-        id: legsModel
-    }
-
     SectionHeader {
         text: qsTr("Stop information")
     }
 
+
     Repeater {
         id: legsRepeater
-        model: legsModel
 
         delegate:
             Column {
@@ -118,31 +113,13 @@ Column {
 
 
 
-            // Create model for waypoints of this route (select route using index)
-            Models.HslWaypointsXmlList {
-                xml: hslXml
-                targetListModel: waypointModel
-                routeIndex: routeDetailsColumn.routeIndex
-                legIndex: LegIndex
-            }
-
-            ListModel {
-                id: waypointModel
-                signal newDataLoaded
-
-                // add new selection to selectedWaypoint
-                onNewDataLoaded: {
-                    mainWindow.selectedWaypointsModel.addWaypoints(waypointModel, pageStack.depth)
-                }
-            }
 
             Repeater {
                 id: waypointRepeater
+                model: routeModel.get(routeIndex).Legs.get(index).Waypoints
 
                 // store index in property so we can refer to it from another Repeater
                 property int legIndex: LegIndex
-
-                model: waypointModel
 
                 delegate: BackgroundItem {
                     id: waypointBox

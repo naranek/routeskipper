@@ -29,9 +29,18 @@ XmlListModel {
         if (status == XmlListModel.Ready) {
             targetListModel.clear()
 
+            var waypointsComponent = Qt.createComponent("HslWaypointsModel.qml");
+
             for (var i = 0; i < xmlModel.count ; i++) {
                 var leg = xmlModel.get(i)
                 // add here if route needs changing
+
+                // add waypoints
+                if (waypointsComponent.status == Component.Ready)
+                    leg.Waypoints = waypointsComponent.createObject(xmlModel, {routeIndex: xmlModel.routeIndex,
+                                                                        legIndex: i, legType: leg.Type,
+                                                                        xml: xmlModel.xml,});
+
 
                 // StartName and EndName are empty for first and last node.
                 // we'll use the search terms for them

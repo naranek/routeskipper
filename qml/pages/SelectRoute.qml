@@ -56,20 +56,18 @@ Page {
         HSL.makeHttpRoutingRequest(-5)
     }
 
-    // HSL models
-    Models.HslRoutesXmlList {
+
+
+    // route model
+    Models.HslRoutesModel {
+        id: routeModel
         xml: hslXml
-        targetListModel: routeModel
     }
 
-    ListModel {
-        id: routeModel
-    }
 
     Models.Credentials {
         id: credentials
     }
-
 
 
     // Busy indicator and error text. These are drawn according to httpQueryStatus and httpQueryFailed
@@ -124,6 +122,13 @@ Page {
                     HSL.makeHttpRoutingRequest(-5)
                 }
             }
+
+            MenuItem {
+                text: qsTr("Model validator")
+                onClicked: {
+                    pageStack.push(Qt.resolvedUrl("RouteModelValidator.qml"), {routeModel: routeModel})
+                }
+            }
         }
 
         // Show the clock
@@ -168,6 +173,7 @@ Page {
             // show the selected route and populate selectedWaypointsModel
             PageElements.CurrentRouteDetails{
                 id: routeDetails
+
 
 
                 signal waypointClicked(variant waypoint)

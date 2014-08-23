@@ -1,6 +1,5 @@
 import QtQuick 2.0
 import Sailfish.Silica 1.0
-// import QtQuick.XmlListModel 2.0
 import "../../elements" as Elements
 import "../../js/Common.js" as JS
 import "../../js/HSL-functions.js" as HSL
@@ -35,11 +34,12 @@ Item {
             width: parent.width - walkIcon.width - Math.max(walkingLength.width, waitDuration.width)
             Repeater {
                 id: legsRepeater
-                model: legsModel
+                model: Legs
                 clip: true
 
                 delegate:
                     Column {
+                    Component.onCompleted: console.log("Legs: " + Legs + " ja " + LegIndex)
                     visible: Type !== "walk" && Type !== "wait" ? true : false;
                     height: lineShield.height
                     width: lineShield.height

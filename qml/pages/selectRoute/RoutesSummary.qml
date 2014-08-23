@@ -22,18 +22,6 @@ Repeater {
         // the opacity that changes depending on if it's even or odd row
         property real rowOpacity: 0.15 - (index % 2) *0.1
 
-        Models.HslLegsXmlList {
-            xml: hslXml
-            routeIndex: index
-            targetListModel: legsModel
-        }
-        ListModel {
-            id: legsModel
-        }
-
-
-
-
         // what happens when you click a route
         onClicked: {
             var newState
@@ -53,7 +41,7 @@ Repeater {
 
                 // Add new legs to selectedLegsModel
                 mainWindow.selectedLegsModel.removeLegsFromPage(pageStack.depth) // remove this level's old selection
-                mainWindow.selectedLegsModel.addLegs(legsModel, pageStack.depth) // add new selection
+                mainWindow.selectedLegsModel.addLegs(Legs, pageStack.depth) // add new selection
                 mainWindow.coverPage.resetCover()
 
 
@@ -67,7 +55,6 @@ Repeater {
                     routes.itemAt(i).state = ""
                 }
             }
-
         }
 
 
@@ -206,7 +193,7 @@ Repeater {
                 width: parent.width
                 visible: false
                 Repeater {
-                    model: legsModel
+                    model: Legs
                     delegate:
                         // the detailed view
                         LegRow {
