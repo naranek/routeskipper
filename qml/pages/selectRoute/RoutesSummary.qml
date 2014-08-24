@@ -19,6 +19,11 @@ Repeater {
         clip: true // clipping on, so that route details are hidden when minimized
 
 
+/*        Models.KamoOperations {
+            id: kamoOperations
+            routeIndex: index
+        }
+*/
         // the opacity that changes depending on if it's even or odd row
         property real rowOpacity: 0.15 - (index % 2) *0.1
 

@@ -20,7 +20,7 @@
 <context>
     <name>CurrentRouteDetails</name>
     <message>
-        <location filename="../qml/pages/selectRoute/CurrentRouteDetails.qml" line="93"/>
+        <location filename="../qml/pages/selectRoute/CurrentRouteDetails.qml" line="90"/>
         <source>Stop information</source>
         <translation type="unfinished">Pysäkkitiedot</translation>
     </message>
@@ -167,27 +167,27 @@
 <context>
     <name>SelectRoute</name>
     <message>
-        <location filename="../qml/pages/SelectRoute.qml" line="91"/>
+        <location filename="../qml/pages/SelectRoute.qml" line="89"/>
         <source>Query failed. Fine. I&apos;ll try again.</source>
         <translation type="unfinished">Yhteys katkesi. Huoh. Yritetään uudestaan. </translation>
     </message>
     <message>
-        <location filename="../qml/pages/SelectRoute.qml" line="108"/>
+        <location filename="../qml/pages/SelectRoute.qml" line="106"/>
         <source>New search</source>
         <translation type="unfinished">Uusi haku</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SelectRoute.qml" line="112"/>
+        <location filename="../qml/pages/SelectRoute.qml" line="110"/>
         <source>Following connections</source>
         <translation type="unfinished">Seuraavat yhteydet</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SelectRoute.qml" line="121"/>
+        <location filename="../qml/pages/SelectRoute.qml" line="119"/>
         <source>Departure: Now</source>
         <translation type="unfinished">Lähtöaika: Nyt</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SelectRoute.qml" line="130"/>
+        <location filename="../qml/pages/SelectRoute.qml" line="128"/>
         <source>Model validator</source>
         <translation type="unfinished"></translation>
     </message>

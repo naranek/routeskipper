@@ -38,6 +38,8 @@ XmlListModel {
                 waypoint.WaypointIndex = i
                 waypoint.WaypointLegIndex = legIndex
 
+                // From Kamo:
+                // RealTime - real time ArrTime
 
                 if (waypoint.Name == "") {
                     if (i == 0) {

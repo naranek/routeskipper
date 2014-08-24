@@ -39,7 +39,7 @@ Item {
 
                 delegate:
                     Column {
-                    Component.onCompleted: console.log("Legs: " + Legs + " ja " + LegIndex)
+
                     visible: Type !== "walk" && Type !== "wait" ? true : false;
                     height: lineShield.height
                     width: lineShield.height

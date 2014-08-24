@@ -69,7 +69,7 @@ CoverBackground {
         },
         State {
             name: "passive"
-            when: selectedLegsModel.counHSLt > 0 && cover.status !== Cover.Active
+            when: selectedLegsModel.count > 0 && cover.status !== Cover.Active
         }
     ]
 

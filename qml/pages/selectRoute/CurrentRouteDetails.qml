@@ -23,9 +23,6 @@ Column {
     onRouteIndexChanged: {
         mainWindow.selectedWaypointsModel.removeWaypointsFromPage(pageStack.depth) // remove this level's old selection
         legsRepeater.model = routeModel.get(routeIndex).Legs
-
-
-        console.log("route: " + routeModel.get(routeDetailsColumn.routeIndex).Legs)
     }
 
     // create signals for status change
@@ -128,6 +125,7 @@ Column {
                     ListModel {id: returnData }
 
                     onClicked: {
+                        //// What happens when a waypoint is clicked
                         // remove this level's old selection
                         mainWindow.selectedWaypointsModel.stopAtWaypoint(pageStack.depth, waypointRepeater.legIndex, index)
 

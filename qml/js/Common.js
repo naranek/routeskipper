@@ -72,6 +72,12 @@ function hslTime(dateParam) {
     return Qt.formatDateTime(dateObj, "hhmm")
 }
 
+// @param date object or datestamp
+// @return datestamp
+function kamoTime(dateParam) {
+    var dateObj = dateToObj(dateParam)
+    return Qt.formatDateTime(dateObj, "hh:mm:ss")
+}
 
 // @param int amount of seconds
 // @return h:mm:ss or just mm:ss from se
