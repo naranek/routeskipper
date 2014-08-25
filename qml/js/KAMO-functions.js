@@ -1,8 +1,10 @@
 .import "Common.js" as JS
 
-// make the correct query and return XML or insert LineID to leg model
-function makeNextDeparturesHttpRequest(stopId, time, routeCode, selectedLegIndex) {
+// // this function starts the async function rollercoaster that ends with LineID in selectedModelData
+function makeNextDeparturesHttpRequest(stopId, startTime, routeCode, selectedLegIndex) {
     var http = new XMLHttpRequest()
+
+
 
     var soapData = '<soapenv:Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" '+
             'xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:urn="urn:seasam">'+
@@ -22,16 +24,22 @@ function makeNextDeparturesHttpRequest(stopId, time, routeCode, selectedLegIndex
 
 
     // Now we're searching
-    httpQueryStatus = 1
+    // httpQueryStatus = 1
 
     http.onreadystatechange = function() { // Call a function when the state changes.
         if (http.readyState == 4) {
             if (http.status == 200) {
                 console.log("Kamo HTTP Success")
+
                 //
                 if (routeCode !== null) {
-                    addLineId()
+                    // create the xmlListModel
+                    var kamoLineId = Qt.createComponent("../models/KamoLineId.qml");
+                    kamoLineId.createObject(selectedLegsModel, {startTime: startTime, routeCode: routeCode,
+                                                selectedLegIndex: selectedLegIndex, xml: http.responseText});
+
                 } else {
+                    // kamoXml = http.responseXML
                     // this is crazy, but return the xml to someone maybe?
                 }
 
@@ -45,22 +53,12 @@ function makeNextDeparturesHttpRequest(stopId, time, routeCode, selectedLegIndex
     http.send((soapData));
 }
 
-// add line id to legs model
-function addLineId(xml, selectedLegIndex) {
-    // create the KamoLineId model
 
-    // get the line ID
-
-    // insert to model
-
-    // call makePassingTimesHttpRequest
-}
-
-// make the correct query and send it to Reittiopas api
-function makePassingTimesHttpRequest(lineID) {
+// this function starts the async function rollercoaster that ends with new realtime data inserted to model
+function makePassingTimesHttpRequest(lineID, selectedLineIndex) {
     var http = new XMLHttpRequest()
 
-    // var lineId = "1997652780"
+
 
     var soapData = '<soapenv:Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" '+
             'xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:urn="urn:seasam">'+
@@ -86,10 +84,10 @@ function makePassingTimesHttpRequest(lineID) {
             if (http.status == 200) {
 
                 kamoXml = http.responseText
-              //  httpQueryStatus = 2
+                //  httpQueryStatus = 2
 
             } else {
-            //    httpQueryStatus = -1
+                //    httpQueryStatus = -1
                 console.log("Status: " + http.status + ", Status Text: " + http.statusText);
             }
         }
@@ -99,7 +97,7 @@ function makePassingTimesHttpRequest(lineID) {
     http.send((soapData));
 }
 
-function addTimesToLegsModel(xml) {
+function addTimesToLegsModel(xml, selectedLegIndex) {
     // create KamoPassingTimes model
 
     // extract passing times
@@ -108,21 +106,27 @@ function addTimesToLegsModel(xml) {
 }
 
 // update the real time data of all the selected legs
-function mergeRealtimeData() {
+function mergeRealtimeData(selectedLegIndex) {
 
-    for (var i = 0; i < selectedLegsModel.count ; i++) {
+    if (selectedLegsModel.get(selectedLegIndex).Type !== "walk" && selectedLegsModel.get(selectedLegIndex).Type !== "wait") {
+        console.log("merging leg: " + selectedLegIndex)
+        // console.log("leg:" + selectedLegsModel.get(selectedLegIndex))
+
+        var leg = selectedLegsModel.get(selectedLegIndex)
 
         // find LineID if it's not defined
-        if (typeof selectedLegsModel.get(i).LineID === undefined) {
-            makeNextDeparturesHttpRequest(StartCode, JS.kamoTime(StartTime), JORECode)
+        if (typeof selectedLegsModel.get(selectedLegIndex).LineID === "undefined") {
+            console.log("leg " + selectedLegIndex + " no LineID")
+            makeNextDeparturesHttpRequest(leg.StartCode, JS.kamoTime(leg.StartTime), leg.JORECode, selectedLegIndex)
         }
 
         // get realtime data and merge it to the legs model
         else {
-            makePassingTimesHttpRequest(selectedLegsModel.get(i).LineID)
+            console.log("leg " + selectedLegIndex + " LineID found: " + selectedLegsModel.get(selectedLegIndex).LineID)
+            makePassingTimesHttpRequest(selectedLegsModel.get(selectedLegIndex).LineID)
         }
-
     }
+
 }
 
 

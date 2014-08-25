@@ -19,7 +19,6 @@ Page {
                         text: "Route " + index + ": " + JS.prettyTime(RouteStartTime) + " - " + JS.prettyTime(RouteEndTime)
                     }
 
-
                     Repeater {
                         model: Legs
                         delegate: Column {

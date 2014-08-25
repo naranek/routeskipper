@@ -13,16 +13,30 @@ Page {
     property string kamoXml
     property string kamoError
 
-    Component.onCompleted: KAMO.makeNextDeparturesHttpRequest()
+    Component.onCompleted: KAMO.makeNextDeparturesHttpRequest('2222205', '19:36:00', '2165N 1', '1')
 
     onHttpQueryStatusChanged: {
         departuresModel.xml = kamoXml
+        idModel.xml = kamoXml
     }
 
     Models.KamoNextDepartures {
         id: departuresModel
     }
 
+    Models.KamoLineId {
+        id: idModel
+    }
+
+    Column {
+        Repeater {
+            model: idModel
+            delegate: Label {
+                text: "line: " + LineID
+            }
+        }
+    }
+    /*
     Column {
         width: parent.width
 
@@ -40,6 +54,6 @@ Page {
 
         }
     }
-
+*/
 
 }

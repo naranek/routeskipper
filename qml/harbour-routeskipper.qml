@@ -20,12 +20,19 @@ ApplicationWindow
 
     Models.SelectedLegs {
         id: selectedLegsModel
+
     }
+
+
 
     Models.SelectedWaypoints {
         id: selectedWaypointsModel
     }
 
+
+    Models.KamoLineId {
+        id: kamoLineIdModel
+    }
 }
 
 

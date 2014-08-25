@@ -1,4 +1,5 @@
 import QtQuick 2.0
+import "../js/KAMO-functions.js" as KAMO
 
 ListModel {
     id: selectedLegs
@@ -11,7 +12,11 @@ ListModel {
             var leg = legsModel.get(i)
             leg.CurrentPage = currentPage
 
+            // add leg
             selectedLegs.append(leg)
+
+            // trigger real time data fetching
+            KAMO.mergeRealtimeData(selectedLegs.count-1)
         }
     }
 
@@ -42,5 +47,12 @@ ListModel {
             }
 
         }
+    }
+
+    // receive new realtime data and send it also to the routeModel
+    signal newRealTime(int selectedLegsIndex, string time)
+    onNewRealTime: {
+        selectedLegs.get(selectedLegsIndex).Rtime = time
+
     }
 }
