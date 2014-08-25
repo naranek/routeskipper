@@ -5,7 +5,7 @@ import "../../js/HSL-functions.js" as HSL
 import "../../elements" as Elements
 import "../../models" as Models
 import "../../js/Common.js" as JS
-
+import "../../js/KAMO-functions.js" as KAMO
 // Show routes summary
 Repeater {
     id: routes
@@ -19,17 +19,15 @@ Repeater {
         clip: true // clipping on, so that route details are hidden when minimized
 
 
-/*        Models.KamoOperations {
-            id: kamoOperations
-            routeIndex: index
-        }
-*/
+
         // the opacity that changes depending on if it's even or odd row
         property real rowOpacity: 0.15 - (index % 2) *0.1
 
         // what happens when you click a route
         onClicked: {
             var newState
+
+
 
             // on second click return to defaults
             if (lastClickedRouteSummary == index) {
@@ -40,6 +38,8 @@ Repeater {
 
             // first click shows details and hides other
             {
+
+
                 newState = "detailed"
                 routeDetails.show(index)
                 lastClickedRouteSummary = index
@@ -50,6 +50,11 @@ Repeater {
                 mainWindow.coverPage.resetCover()
 
 
+                // fetch realtime data
+                for (var i = 0; i < routeModel.get(index).Legs.count; i++) {
+                    KAMO.mergeRealtimeData(routeModel.get(index).Legs.get(i))
+                    console.log("route " + index + " leg " + i)
+                }
             }
 
             //  show details for the clicked, minimize others
@@ -129,9 +134,10 @@ Repeater {
                 id: routeHeader
 
                 // Start time
-                Label {
+                Elements.TimeView {
                     id: routeStartTime
-                    text: JS.prettyTime(RouteStartTime)
+                    schedTime: JS.prettyTime(RouteStartTime)
+                    realTime: RealStartTime
                     color: routeBackground.highlighted ? Theme.highlightColor : Theme.primaryColor
                     width: parent.width / 4
                     font.pixelSize: Theme.fontSizeLarge

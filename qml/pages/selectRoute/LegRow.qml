@@ -41,8 +41,4 @@ Row {
         color: lineColor
         truncationMode: TruncationMode.Fade
     }
-    Label {
-        id: test
-        text: "lineID: " + (typeof LineId !== "undefined" ? LineID : "")
-    }
 }

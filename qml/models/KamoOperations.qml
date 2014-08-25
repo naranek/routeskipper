@@ -26,9 +26,9 @@ Item {
             onStopXmlChanged: {
                 console.log("XML muuttui")
                 // get LineID if it's not present
-                if (typeof routeModel.get(routeIndex).Legs.LineID === "undefined") {
+                if (typeof routeModel.get(routeIndex).Legs.LineId === "undefined") {
                     kamoLineIdModel.xml = stopXml
-                    console.log("Line ID: " + kamoLineIdModel.LineID)
+                    console.log("Line ID: " + kamoLineIdModel.LineId)
                 }
             }
 

@@ -20,6 +20,7 @@ XmlListModel {
     XmlRole { name: "StartCode"; query: "locs/node[1]/code/string()" }      // Code of the first stop - used with KAMO
     XmlRole { name: "EndName"; query: "locs/node[last()]/name/string()" }
     XmlRole { name: "EndTime"; query: "locs/node[last()]/arrTime/string()" }
+    XmlRole { name: "EndCode"; query: "locs/node[last()]/code/string()" }
     XmlRole { name: "EndDepTime"; query: "locs/node[last()]/depTime/string()" }
     XmlRole { name: "StartX"; query: "locs/node[1]/coord/x/string()" }
     XmlRole { name: "StartY"; query: "locs/node[1]/coord/y/string()" }
@@ -56,10 +57,10 @@ XmlListModel {
                 // the page depth the leg was searched
                 leg.PageId = currentPage
 
-                // From Kamo:
-                // LineID
-                // RealStartTime
-                // RealEndTime
+                // For Kamo realtime data:
+                leg.LineId = -1
+                leg.RealStartTime = ""
+                leg.RealEndTime = ""
 
                 // add leg to model
                 targetListModel.append(leg)
@@ -77,6 +78,9 @@ XmlListModel {
                     waitingLeg.StartTime = ""
                     waitingLeg.EndTime = ""
                     waitingLeg.StartName = ""
+
+                    waitingLeg.RealStartTime = ""
+                    waitingLeg.RealEndTime = ""
 
                     waitingLeg.LegIndex = -1
 

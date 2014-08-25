@@ -32,7 +32,7 @@ Page {
         Repeater {
             model: idModel
             delegate: Label {
-                text: "line: " + LineID
+                text: "line: " + LineId
             }
         }
     }

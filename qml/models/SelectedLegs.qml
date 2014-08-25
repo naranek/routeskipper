@@ -16,7 +16,7 @@ ListModel {
             selectedLegs.append(leg)
 
             // trigger real time data fetching
-            KAMO.mergeRealtimeData(selectedLegs.count-1)
+            KAMO.mergeRealtimeData(selectedLegs.get(count-1))
         }
     }
 

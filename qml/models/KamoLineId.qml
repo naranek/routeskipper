@@ -6,9 +6,9 @@ XmlListModel {
     property string startTime
     property string routeCode
 
-    property string selectedLegIndex
+    property ListModel legModel
 
-    // get the lineID for the bus that's driving the route
+    // get the lineId for the bus that's driving the route
     // do the matching by matching scheduled arrival time and route code
 
         query: "//*[local-name()='Envelope']/*[local-name()='Body']/*[local-name()='getNextDeparturesResponse']/*[local-name()='result']" +
@@ -25,15 +25,21 @@ XmlListModel {
             console.log("XmlListModel failed")
         }
 
+        console.log(legModel)
 
         if (status == XmlListModel.Ready) {
             // insert LineId data to selectedLegsModel
-            selectedLegsModel.get(selectedLegIndex).LineID = get(0).Id
+            if (count == 0) {
+
+                console.log("failure startTime: " + startTime + " ja route " + routeCode)
+            }
+
+            legModel.LineId = get(0).Id
             console.log("Setting line ID: " + get(0).Id)
-            console.log("Noh: " +  selectedLegsModel.get(selectedLegIndex).LineID)
+
 
             // trigger fetching the actual live data
-            KAMO.addTimesToLegsModel(xml, selectedLegIndex)
+            // KAMO.addTimesToLegsModel(xml, selectedLegIndex)
         }
     }
 

@@ -25,16 +25,5 @@ Label {
         duration: 500
     }
 
-    Timer {
-        id: clockTimer
-        interval: 1000
-        running: true
-        repeat: true
-        onTriggered: {
-
-            realTime = realTime + "."
-        }
-    }
-
 
 }

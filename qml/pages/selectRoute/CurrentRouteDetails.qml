@@ -106,6 +106,7 @@ Column {
                     id: lineShield
                     lineColor: Theme.highlightColor
                 }
+
             }
 
 
