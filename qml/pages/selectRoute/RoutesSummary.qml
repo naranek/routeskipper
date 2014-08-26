@@ -137,7 +137,7 @@ Repeater {
                 Elements.TimeView {
                     id: routeStartTime
                     schedTime: JS.prettyTime(RouteStartTime)
-                    realTime: RealStartTime
+                    realTime: RouteRealStartTime
                     color: routeBackground.highlighted ? Theme.highlightColor : Theme.primaryColor
                     width: parent.width / 4
                     font.pixelSize: Theme.fontSizeLarge

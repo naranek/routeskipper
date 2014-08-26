@@ -3,7 +3,7 @@ import QtQuick.XmlListModel 2.0
 
 
 XmlListModel {
-    property ListModel legModel
+    property QtObject legModel
 
     query: "//*[local-name()='Envelope']/*[local-name()='Body']/*[local-name()='getPassingTimesResponse']/*[local-name()='result']/*[local-name()='item']"
 
@@ -25,6 +25,8 @@ XmlListModel {
             // insert LineId data to selectedLegsModel
             if (count == 0) {
                 console.log("failure - nothing found")
+                console.log("XML: " + xml)
+                console.log("Query: " + query)
             }
 
             // add times to routes
@@ -35,17 +37,27 @@ XmlListModel {
 
             // add times to legs
             for (var i = 0; i < count - 1; i++) {
-                for (j = 0; i < legModel.count; j++) {
-                    if (get(i).Stop == legModel.get(j).StartCode) {
-                        console.log("match a")
-                        legModel.get(j).RealStartTime = get(i).Rtime
+                if (get(i).Stop == legModel.StartCode) {
+                    console.log("match: " + get(i).Rtime)
+                    if (get(i).Rtime !== "") {
+                        console.log("lisätään reaaliaika")
+                        legModel.RealStartTime = get(i).Rtime
                     }
                 }
+
             }
 
+
             // add times to waypoints
+            for (i = 0; i < count - 1; i++) {
+                for (var j = 0; j < legModel.Waypoints.count; j++) {
+                    if (get(i).Stop == legModel.Waypoints.get(j).Code) {
+                        legModel.Waypoints.get(j).RealArrTime = get(i).Rtime
+                    }
 
+                }
+            }
         }
-    }
 
+    }
 }

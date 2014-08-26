@@ -62,8 +62,7 @@ OTHER_FILES += qml/harbour-routeskipper.qml \
     qml/models/HslRoutesModel.qml \
     qml/models/HslLegsModel.qml \
     qml/models/HslWaypointsModel.qml \
-    qml/pages/RouteModelValidator.qml \
-    qml/models/KamoOperations.qml
+    qml/pages/RouteModelValidator.qml
 
 # to disable building translations every time, comment out the
 # following CONFIG line

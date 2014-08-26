@@ -30,9 +30,6 @@ ApplicationWindow
     }
 
 
-    Models.KamoLineId {
-        id: kamoLineIdModel
-    }
 }
 
 

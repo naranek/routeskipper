@@ -51,8 +51,8 @@ XmlListModel {
                     // add here if route needs changing
 
                     // for Kamo
-                    route.RouteRealStartTime = ""
-                    route.routeRealEndTime = ""
+                    route.RouteRealStartTime = "12:34:56"
+                    route.RouteRealEndTime = "13:45:01"
 
                     if (legsComponent.status == Component.Ready)
                         route.Legs = legsComponent.createObject(null, {routeIndex: i, xml: xmlModel.xml});

@@ -5,7 +5,7 @@ function makeHttpRoutingRequest(dateOffsetInMinutes) {
     var http = new XMLHttpRequest()
 
     //
-    var pastDatetime = JS.addMinutesToDatestamp(selectedDate + selectedTime, dateOffsetInMinutes)
+    var pastDatetime = JS.addMinutesToDatestamp(selectedDate + selectedTime, dateOffsetInMinutes-40)
 
     // the actual url. Concatenating FTW
     var url = "http://api.reittiopas.fi/hsl/prod/?request=route&user=" + credentials.hslUsername + "&pass=" + credentials.hslPassword + "&format=xml&show=5&from=" +
@@ -17,7 +17,8 @@ function makeHttpRoutingRequest(dateOffsetInMinutes) {
 
     // debugging url
     //var url="http://riippuliito.net/files/routing-esimerkki.xml"
-    var url = "http://api.reittiopas.fi/hsl/prod/?request=route&user=aikaopas&pass=agjghsra&format=xml&show=5&from=2552335,6673660&to=2546489,6675524&"
+    var url = "http://api.reittiopas.fi/hsl/prod/?request=route&user=aikaopas&pass=agjghsra&format=xml&show=5&from=2552335,6673660&to=2546489,6675524&"+ "&date=" +
+            JS.hslDate(pastDatetime) + "&time=" + JS.hslTime(pastDatetime)
 
     http.open("GET", url, true)
 

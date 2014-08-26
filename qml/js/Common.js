@@ -79,6 +79,14 @@ function kamoTime(dateParam) {
     return Qt.formatDateTime(dateObj, "hh:mm:ss")
 }
 
+// @param date object or datestamp
+// @return datestamp
+function isoTime(dateParam) {
+    var dateObj = dateToObj(dateParam)
+    return Qt.formatDateTime(dateObj, Qt.ISODate)
+}
+
+
 // @param int amount of seconds
 // @return h:mm:ss or just mm:ss from se
 function prettyTimeFromSeconds(seconds) {

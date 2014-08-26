@@ -107,6 +107,10 @@ Column {
                     lineColor: Theme.highlightColor
                 }
 
+                Elements.TimeView {
+                    schedTime: StartTime
+                    realTime: RealStartTime
+                }
             }
 
 
@@ -142,8 +146,9 @@ Column {
                         spacing: 0
                         anchors.verticalCenter: parent.verticalCenter
 
-                        Label {
-                            text: (index == 0 ? JS.prettyTime(DepTime) : JS.prettyTime(ArrTime)) // HSL shows depTime > arrTime if there is waiting on the bus stop
+                        Elements.TimeView  {
+                            schedTime: (index == 0 ? JS.prettyTime(DepTime) : JS.prettyTime(ArrTime)) // HSL shows depTime > arrTime if there is waiting on the bus stop
+                            realTime: RealArrTime
                             font.pixelSize: Theme.fontSizeSmall
                             width: 100
                             anchors.verticalCenter: parent.verticalCenter

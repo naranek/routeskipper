@@ -104,17 +104,17 @@
 <context>
     <name>HSL-functions</name>
     <message>
-        <location filename="../qml/js/HSL-functions.js" line="84"/>
+        <location filename="../qml/js/HSL-functions.js" line="85"/>
         <source>Stop</source>
         <translation>Pysäkki</translation>
     </message>
     <message>
-        <location filename="../qml/js/HSL-functions.js" line="85"/>
+        <location filename="../qml/js/HSL-functions.js" line="86"/>
         <source>Address</source>
         <translation>Osoite</translation>
     </message>
     <message>
-        <location filename="../qml/js/HSL-functions.js" line="86"/>
+        <location filename="../qml/js/HSL-functions.js" line="87"/>
         <source>Place of interest</source>
         <translation>Paikka</translation>
     </message>

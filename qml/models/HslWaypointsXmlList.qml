@@ -23,6 +23,7 @@ XmlListModel {
     XmlRole { name: "DepTime"; query: "depTime/string()" }
     XmlRole { name: "CoordX"; query: "coord/x/string()" }
     XmlRole { name: "CoordY"; query: "coord/y/string()" }
+    XmlRole { name: "Code"; query: "code/string()" }
 
 
     onStatusChanged: {
@@ -39,7 +40,7 @@ XmlListModel {
                 waypoint.WaypointLegIndex = legIndex
 
                 // From Kamo:
-                // RealTime - real time ArrTime
+                waypoint.RealArrTime = "12:34:56" // real ArrTime
 
                 if (waypoint.Name == "") {
                     if (i == 0) {
