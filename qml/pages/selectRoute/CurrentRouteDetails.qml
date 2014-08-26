@@ -106,11 +106,6 @@ Column {
                     id: lineShield
                     lineColor: Theme.highlightColor
                 }
-
-                Elements.TimeView {
-                    schedTime: StartTime
-                    realTime: RealStartTime
-                }
             }
 
 

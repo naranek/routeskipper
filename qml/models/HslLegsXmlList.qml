@@ -59,8 +59,8 @@ XmlListModel {
 
                 // For Kamo realtime data:
                 leg.LineId = -1
-                leg.RealStartTime = "12:34:56"
-                leg.RealEndTime = "01:23:45"
+                leg.RealStartTime = ""
+                leg.RealEndTime = ""
 
                 // add leg to model
                 targetListModel.append(leg)
@@ -79,9 +79,8 @@ XmlListModel {
                     waitingLeg.EndTime = ""
                     waitingLeg.StartName = ""
 
-                    waitingLeg.RealStartTime = "12:34:56"
-                    waitingLeg.RealEndTime = "01:23:45"
-
+                    waitingLeg.RealStartTime = ""
+                    waitingLeg.RealEndTime = ""
                     waitingLeg.LegIndex = -1
 
                     targetListModel.append(waitingLeg)

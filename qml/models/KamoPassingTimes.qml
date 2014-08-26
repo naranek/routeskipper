@@ -38,10 +38,18 @@ XmlListModel {
             // add times to legs
             for (var i = 0; i < count - 1; i++) {
                 if (get(i).Stop == legModel.StartCode) {
-                    console.log("match: " + get(i).Rtime)
+                    console.log("match start - Rtime: " + get(i).Rtime)
                     if (get(i).Rtime !== "") {
                         console.log("lisätään reaaliaika")
                         legModel.RealStartTime = get(i).Rtime
+                    }
+                }
+
+                if (get(i).Stop == legModel.EndCode) {
+                    console.log("match end - Rtime: " + get(i).Rtime)
+                    if (get(i).Rtime !== "") {
+                        console.log("lisätään reaaliaika")
+                        legModel.RealEndTime = get(i).Rtime
                     }
                 }
 
@@ -52,7 +60,10 @@ XmlListModel {
             for (i = 0; i < count - 1; i++) {
                 for (var j = 0; j < legModel.Waypoints.count; j++) {
                     if (get(i).Stop == legModel.Waypoints.get(j).Code) {
-                        legModel.Waypoints.get(j).RealArrTime = get(i).Rtime
+                        if (get(i).Rtime !== "") {
+                            console.log("lisätään waypointille: " + get(i).Rtime)
+                            legModel.Waypoints.get(j).RealArrTime = get(i).Rtime
+                        }
                     }
 
                 }

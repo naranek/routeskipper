@@ -10,9 +10,11 @@ function makeNextDeparturesHttpRequest(stopId, startTime, routeCode, legModel) {
             'xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:urn="urn:seasam">'+
             '<soapenv:Header/>'+
             '<soapenv:Body>'+
-            '<urn:getNextDepartures soapenv:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">'+
+            '<urn:getNextDeparturesExt soapenv:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">'+
             '<String_1 xsi:type="xsd:string">' + stopId + '</String_1>'+
-            '</urn:getNextDepartures>'+
+            '<Date_2 xsi:type="xsd:dateTime">' + JS.isoTime(JS.addMinutesToDatestamp(legModel.StartTime, -1)) + '</Date_2>' +
+            '<int_3 xsi:type="xsd:int">3</int_3>' +
+            '</urn:getNextDeparturesExt>'+
             '</soapenv:Body>'+
             '</soapenv:Envelope>'
 
@@ -43,6 +45,7 @@ function makeNextDeparturesHttpRequest(stopId, startTime, routeCode, legModel) {
 
             } else {
                 console.log("Status: " + http.status + ", Status Text: " + http.statusText);
+                console.debug("request:" + soapData)
             }
         }
     }
@@ -79,15 +82,11 @@ function makePassingTimesHttpRequest(legModel) {
             if (http.status == 200) {
 
                 // create the xmlListModel
-                console.log("ReturnedXML: " + http.responseText)
+
                 var passingTimes = Qt.createComponent("../models/KamoPassingTimes.qml");
                 passingTimes.createObject(legModel, {legModel: legModel, xml: http.responseText});
 
-                //kamoXml = http.responseText
-
-
             } else {
-
                 console.log("Status: " + http.status + ", Status Text: " + http.statusText);
             }
         }
@@ -101,9 +100,6 @@ function makePassingTimesHttpRequest(legModel) {
 // update the real time data of all the selected legs
 // parameter is the leg model object which will be changed
 function mergeRealtimeData(legModel) {
-
-
-
     if (legModel.Type !== "walk" && legModel.Type !== "wait") {
 
         // find LineId if it's not defined
@@ -113,7 +109,6 @@ function mergeRealtimeData(legModel) {
 
         // get realtime data and merge it to the legs model
         else {
-
             makePassingTimesHttpRequest(legModel)
         }
     }

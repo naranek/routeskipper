@@ -11,7 +11,7 @@ XmlListModel {
     // get the lineId for the bus that's driving the route
     // do the matching by matching scheduled arrival time and route code
 
-    query: "//*[local-name()='Envelope']/*[local-name()='Body']/*[local-name()='getNextDeparturesResponse']/*[local-name()='result']" +
+    query: "//*[local-name()='Envelope']/*[local-name()='Body']/*[local-name()='getNextDeparturesExtResponse']/*[local-name()='result']" +
            "/*[local-name()='item'][*[local-name()='time'] = '" + startTime + "' and *[local-name()='route'] = '" + routeCode + "']"
 
 

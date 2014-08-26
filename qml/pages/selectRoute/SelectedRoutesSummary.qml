@@ -33,9 +33,13 @@ Column {
         delegate:
             LegRow    {
             lineColor: Theme.highlightColor
+
+            // replace by just passing the model
             startName: StartName
             startTime: StartTime
+            realStartTime: RealStartTime
             endTime: EndTime
+            realEndTime: RealEndTime
 
             // only show if the rows are from the previous page
             visible: (typeof CurrentPage === 'undefined' ? false :

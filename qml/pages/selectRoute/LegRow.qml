@@ -7,7 +7,9 @@ Row {
     id: lineRow
     property string startName
     property string startTime
+    property string realStartTime
     property string endTime
+    property string realEndTime
 
     property color lineColor
 
@@ -18,11 +20,12 @@ Row {
 
 
     // Starting place and time
-    Label {
+    Elements.TimeView {
         id: fromPart
-        width: 60
+        width: 90
         font.pixelSize: Theme.fontSizeSmall
-        text:  JS.prettyTime(startTime)
+        schedTime:  JS.prettyTime(startTime)
+        realTime: realStartTime
         color: lineColor
         truncationMode: TruncationMode.Fade
 

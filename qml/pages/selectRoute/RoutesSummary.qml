@@ -137,7 +137,7 @@ Repeater {
                 Elements.TimeView {
                     id: routeStartTime
                     schedTime: JS.prettyTime(RouteStartTime)
-                    realTime: RouteRealStartTime
+                    realTime: "" // disabled for graphical reasons
                     color: routeBackground.highlighted ? Theme.highlightColor : Theme.primaryColor
                     width: parent.width / 4
                     font.pixelSize: Theme.fontSizeLarge
@@ -156,9 +156,10 @@ Repeater {
                         anchors.verticalCenter:  parent.verticalCenter
                     }
 
-                    Label {
+                    Elements.TimeView {
                         id: firstLineStartTime
-                        text: JS.prettyTime(FirstLineStartTime)
+                        schedTime: JS.prettyTime(FirstLineStartTime)
+                        realTime: "" // waiting for implementation - yay :)
                         color: routeBackground.highlighted ? Theme.highlightColor : Theme.primaryColor
                         anchors.verticalCenter:  parent.verticalCenter
                         anchors.left: lineIcon.right
@@ -180,9 +181,10 @@ Repeater {
 
 
                 // Arrival time
-                Label {
+                Elements.TimeView {
                     id: routeEndTime
-                    text: JS.prettyTime(RouteEndTime)
+                    schedTime: JS.prettyTime(RouteEndTime)
+                    realTime: "" // disabled for graphical reasons
                     color: routeBackground.highlighted ? Theme.highlightColor : Theme.primaryColor
                     width: parent.width / 4
                     font.pixelSize: Theme.fontSizeLarge
@@ -211,7 +213,7 @@ Repeater {
                         lineColor: routeBackground.highlighted ? Theme.highlightColor : Theme.primaryColor
                         startName: StartName
                         startTime: StartTime
-                        endTime: EndTime
+                        realStartTime: RealStartTime
                     }
                 }
             }

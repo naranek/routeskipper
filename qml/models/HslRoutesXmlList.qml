@@ -19,6 +19,7 @@ XmlListModel {
     XmlRole { name: "FirstLineStartTime"; query: "(legs/node[type!='walk'])[1]/locs/node[1]/depTime/string()" } // start time of the first leg that's not walking
     XmlRole { name: "FirstLineType"; query: "(legs/node[type!='walk'])[1]/type/string()" } // transport type of the first leg that's not walking
 
+
     XmlRole { name: "WalkingLength"; query: "sum(legs/node[type='walk']/length)" }
     XmlRole { name: "MovingDuration"; query: "sum(legs/node/duration)" } // time spent moving. Duration - MovingDuration = waiting time
 
@@ -51,8 +52,7 @@ XmlListModel {
                     // add here if route needs changing
 
                     // for Kamo
-                    route.RouteRealStartTime = "12:34:56"
-                    route.RouteRealEndTime = "13:45:01"
+                    route.FirstLineRealStartTime = ""
 
                     if (legsComponent.status == Component.Ready)
                         route.Legs = legsComponent.createObject(null, {routeIndex: i, xml: xmlModel.xml});
