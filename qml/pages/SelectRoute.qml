@@ -2,9 +2,10 @@ import QtQuick 2.0
 import Sailfish.Silica 1.0
 import QtQuick.XmlListModel 2.0
 import "../js/HSL-functions.js" as HSL
+import "../js/Common.js" as JS
+import "../js/KAMO-functions.js" as KAMO
 import "../elements" as Elements
 import "../models" as Models
-import "../js/Common.js" as JS
 import "selectRoute" as PageElements
 
 Page {
@@ -64,10 +65,25 @@ Page {
         xml: hslXml
     }
 
-
-
     Models.Credentials {
         id: credentials
+    }
+
+    // timer that keeps the realtime data real
+    Timer {
+        id: kamoTimer
+        interval: 1000*60 // once a minute
+        running: Qt.application.active == true
+        repeat: true
+        onTriggered: {
+            console.log("updating realtime data")
+            // get realtime data for all the legs in the current search results
+            for (var i = 0; i < routeModel.count; i++) {
+                for (var j = 0; j < routeModel.get(i).Legs.count; j++) {
+                    KAMO.mergeRealtimeData(routeModel.get(i).Legs.get(j))
+                }
+            }
+        }
     }
 
 

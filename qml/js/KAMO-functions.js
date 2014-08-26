@@ -12,8 +12,8 @@ function makeNextDeparturesHttpRequest(stopId, startTime, routeCode, legModel) {
             '<soapenv:Body>'+
             '<urn:getNextDeparturesExt soapenv:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">'+
             '<String_1 xsi:type="xsd:string">' + stopId + '</String_1>'+
-            '<Date_2 xsi:type="xsd:dateTime">' + JS.isoTime(JS.addMinutesToDatestamp(legModel.StartTime, -1)) + '</Date_2>' +
-            '<int_3 xsi:type="xsd:int">3</int_3>' +
+            '<Date_2 xsi:type="xsd:dateTime">' + JS.isoTime(JS.addMinutesToDatestamp(legModel.StartTime, -5)) + '</Date_2>' +
+            '<int_3 xsi:type="xsd:int">10</int_3>' +
             '</urn:getNextDeparturesExt>'+
             '</soapenv:Body>'+
             '</soapenv:Envelope>'
@@ -97,8 +97,8 @@ function makePassingTimesHttpRequest(legModel) {
 }
 
 
-// update the real time data of all the selected legs
-// parameter is the leg model object which will be changed
+// update the real time data of the leg and waypoints that it contains
+// parameter is the leg model object
 function mergeRealtimeData(legModel) {
     if (legModel.Type !== "walk" && legModel.Type !== "wait") {
 
@@ -114,5 +114,3 @@ function mergeRealtimeData(legModel) {
     }
 
 }
-
-

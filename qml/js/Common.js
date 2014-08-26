@@ -17,6 +17,17 @@ function dateObjectFromDateStamp(datestamp) {
     return dateObject
 }
 
+// Returns the date object from parsing Kamo realtime datestamp
+// "hh:mm:ss"
+function dateObjectFromKamoRtime(rtime) {
+    var dateObject = new Date()
+    dateObject.setHours(rtime.substring(0,2))
+    dateObject.setMinutes(rtime.substring(3,5))
+    dateObject.setSeconds(rtime.substring(6,8))
+    return dateObject
+}
+
+
 // add a leading zero to 1 character string
 // @return string zeropadded value
 function addZeroPadding(target) {
@@ -66,7 +77,7 @@ function hslDate(dateParam) {
 }
 
 // @param date object or datestamp
-// @return datestamp
+// @return timestamp
 function hslTime(dateParam) {
     var dateObj = dateToObj(dateParam)
     return Qt.formatDateTime(dateObj, "hhmm")
@@ -78,6 +89,9 @@ function kamoTime(dateParam) {
     var dateObj = dateToObj(dateParam)
     return Qt.formatDateTime(dateObj, "hh:mm:ss")
 }
+
+
+
 
 // @param date object or datestamp
 // @return datestamp

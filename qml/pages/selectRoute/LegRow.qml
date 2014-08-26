@@ -27,8 +27,7 @@ Row {
         schedTime:  JS.prettyTime(startTime)
         realTime: realStartTime
         color: lineColor
-        truncationMode: TruncationMode.Fade
-
+        height: 32
     }
 
     // Line icon and number

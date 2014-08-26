@@ -32,7 +32,7 @@ XmlListModel {
 
             // no lineID found. damn
             if (count == 0) {
-                console.log("failure startTime: " + startTime + " ja route " + routeCode)
+                console.log("failure getting LineId - startTime: " + startTime + " ja route " + routeCode)
                 console.log("xml:" + xml)
             }
 

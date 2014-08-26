@@ -24,7 +24,7 @@ XmlListModel {
         if (status == XmlListModel.Ready) {
             // insert LineId data to selectedLegsModel
             if (count == 0) {
-                console.log("failure - nothing found")
+                console.log("failure getting PassingTimes - nothing found")
                 console.log("XML: " + xml)
                 console.log("Query: " + query)
             }
@@ -36,19 +36,18 @@ XmlListModel {
 
 
             // add times to legs
+            // loop thru stops
             for (var i = 0; i < count - 1; i++) {
                 if (get(i).Stop == legModel.StartCode) {
-                    console.log("match start - Rtime: " + get(i).Rtime)
                     if (get(i).Rtime !== "") {
-                        console.log("lisätään reaaliaika")
+                        // if the stop code matches and Rtime is not empty, insert it to the leg model
                         legModel.RealStartTime = get(i).Rtime
                     }
                 }
 
                 if (get(i).Stop == legModel.EndCode) {
-                    console.log("match end - Rtime: " + get(i).Rtime)
                     if (get(i).Rtime !== "") {
-                        console.log("lisätään reaaliaika")
+                        // if the stop code matches and Rtime is not empty, insert it to the leg model
                         legModel.RealEndTime = get(i).Rtime
                     }
                 }
@@ -57,11 +56,12 @@ XmlListModel {
 
 
             // add times to waypoints
+            // loop thru stops and waypoints
             for (i = 0; i < count - 1; i++) {
                 for (var j = 0; j < legModel.Waypoints.count; j++) {
                     if (get(i).Stop == legModel.Waypoints.get(j).Code) {
                         if (get(i).Rtime !== "") {
-                            console.log("lisätään waypointille: " + get(i).Rtime)
+                            // if the stop code matches and Rtime is not empty, insert it to the leg model
                             legModel.Waypoints.get(j).RealArrTime = get(i).Rtime
                         }
                     }

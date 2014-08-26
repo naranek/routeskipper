@@ -99,6 +99,7 @@ CoverBackground {
         }
     }
 
+    // advance the stops if the current stop is behind us
     Timer {
         id: currentStopTimer
         interval: 300
@@ -115,7 +116,11 @@ CoverBackground {
         // update the upper edge clock
         clock.update()
 
-        var currentStartTime = selectedLegsModel.get(coverView.currentIndex).StartTime
+        var legModel = selectedLegsModel.get(coverView.currentIndex)
+
+        // select scheduled or real start time
+        var currentStartTime = (legModel.RealStartTime !== "" ? JS.dateObjectFromKamoRtime(legModel.RealStartTime) : legModel.StartTime)
+
         timeLeft.text = JS.prettyTimeFromSeconds(JS.timestampDifferenceInSeconds(null, currentStartTime))
     }
 
@@ -201,9 +206,10 @@ CoverBackground {
                     Row {
                         width: parent.width
                         spacing: 10
-                        Label {
+                        Elements.TimeView {
                             id: row1
-                            text: JS.prettyTime(StartTime)
+                            schedTime: JS.prettyTime(StartTime)
+                            realTime: RealStartTime
                             font.pixelSize: Theme.fontSizeMedium
                             width: parent.width - lineShield.width - 25
                         }
@@ -211,6 +217,7 @@ CoverBackground {
                         Elements.LineShield {id: lineShield; lineColor: Theme.highlightColor;}
                     }
 
+                    // Stop name
                     Label {
                         id: row2
                         text: StartName
@@ -226,7 +233,7 @@ CoverBackground {
 
 
 
-
+        // the counter
         Label {
             id: timeLeft
             font.pixelSize: Theme.fontSizeLarge
