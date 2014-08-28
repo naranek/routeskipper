@@ -15,8 +15,8 @@ ListModel {
             // add leg
             selectedLegs.append(leg)
 
-            // trigger real time data fetching
-            KAMO.mergeRealtimeData(selectedLegs.get(count-1)) // TODO: this causes double the amount of querys. Would be better to do this at the same time as routeModel update
+            // update the realtime data in cover
+            KAMO.mergeRealtimeData(selectedLegs.get(selectedLegs.count-1), 15)
         }
     }
 

@@ -34,11 +34,13 @@ XmlListModel {
             if (count == 0) {
                 console.log("failure getting LineId - startTime: " + startTime + " ja route " + routeCode)
                 console.log("xml:" + xml)
+                legModel.LineId = "0"
             }
 
             // insert LineId data to selectedLegsModel
             else {
                 // set the lineId
+                console.log("Asetetaan LineId: " + get(0).Id)
                 legModel.LineId = get(0).Id
 
                 // trigger fetching the actual live data

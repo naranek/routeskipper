@@ -58,9 +58,10 @@ XmlListModel {
                 leg.PageId = currentPage
 
                 // For Kamo realtime data:
-                leg.LineId = -1
+                leg.LineId = ""
                 leg.RealStartTime = ""
                 leg.RealEndTime = ""
+                leg.RealUpdateTime = new Date(0) // updated a long ago
 
                 // add leg to model
                 targetListModel.append(leg)

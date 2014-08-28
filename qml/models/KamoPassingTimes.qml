@@ -37,7 +37,7 @@ XmlListModel {
 
             // add times to legs
             // loop thru stops
-            for (var i = 0; i < count - 1; i++) {
+            for (var i = 0; i < count ; i++) {
                 if (get(i).Stop == legModel.StartCode) {
                     if (get(i).Rtime !== "") {
                         // if the stop code matches and Rtime is not empty, insert it to the leg model
@@ -57,11 +57,22 @@ XmlListModel {
 
             // add times to waypoints
             // loop thru stops and waypoints
-            for (i = 0; i < count - 1; i++) {
+
+            // OK, so we have limited amounts of realtime data
+            // TODO maybe: Let's assume that if the bus is late, it will be as late for the rest of the trip
+            // If it's early it will probably wait at some point to match the schedule
+
+
+            // loop thru the stops
+            for (i = 0; i < count ; i++) {
+                // loop the legs
                 for (var j = 0; j < legModel.Waypoints.count; j++) {
+                    // see if it's the right stop
                     if (get(i).Stop == legModel.Waypoints.get(j).Code) {
+                        // realtime data - yay
                         if (get(i).Rtime !== "") {
-                            // if the stop code matches and Rtime is not empty, insert it to the leg model
+
+                            // set the realtime data
                             legModel.Waypoints.get(j).RealArrTime = get(i).Rtime
                         }
                     }

@@ -21,6 +21,12 @@ function dateObjectFromDateStamp(datestamp) {
 // "hh:mm:ss"
 function dateObjectFromKamoRtime(rtime) {
     var dateObject = new Date()
+
+    // switch to the next day if the realtime hour is smaller than the hour now. It wrapped at midnight ;)
+    if (dateObject.getHours() > parseInt(rtime.substring(0,2))) {
+        dateObject.setDate(dateObject.getDate()+1)
+    }
+
     dateObject.setHours(rtime.substring(0,2))
     dateObject.setMinutes(rtime.substring(3,5))
     dateObject.setSeconds(rtime.substring(6,8))

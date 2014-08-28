@@ -72,7 +72,7 @@ Page {
     // timer that keeps the realtime data real
     Timer {
         id: kamoTimer
-        interval: 1000*60 // once a minute
+        interval: 1000 * 120 // once in 2 minutes
         running: Qt.application.active == true
         repeat: true
         onTriggered: {
@@ -80,7 +80,7 @@ Page {
             // get realtime data for all the legs in the current search results
             for (var i = 0; i < routeModel.count; i++) {
                 for (var j = 0; j < routeModel.get(i).Legs.count; j++) {
-                    KAMO.mergeRealtimeData(routeModel.get(i).Legs.get(j))
+                    KAMO.mergeRealtimeData(routeModel.get(i).Legs.get(j), 110)
                 }
             }
         }
@@ -139,13 +139,14 @@ Page {
                     HSL.makeHttpRoutingRequest(-5)
                 }
             }
-
+/*
             MenuItem {
                 text: qsTr("Model validator")
                 onClicked: {
                     pageStack.push(Qt.resolvedUrl("RouteModelValidator.qml"), {routeModel: routeModel})
                 }
             }
+            */
         }
 
         // Show the clock
@@ -167,8 +168,7 @@ Page {
         Column{
             id: mainColumn
             spacing: 2
-            width: parent.width - 2* Theme.paddingLarge
-            x: Theme.paddingLarge
+            width: parent.width
             y: Theme.paddingLarge
 
 
@@ -178,6 +178,7 @@ Page {
                 sourceName: mainPage.sourceName
                 sourceTime: mainPage.selectedTime
                 destinationName: mainPage.destinationName
+                x: Theme.paddingLarge
             }
 
 

@@ -12,8 +12,8 @@ import "../../js/Common.js" as JS
 Column {
     id: routeDetailsColumn
     spacing: 0
-    width: parent.width
-
+    width: parent.width - 2* Theme.paddingLarge
+    x: Theme.paddingLarge
 
     property int routeIndex: -1 // nothing selected at first
     property int newRouteIndex

@@ -7,6 +7,7 @@ ListModel {
     property int routeIndex
     property string xml
 
+   // onDestroyed: console.log("Shiiiit! LedModel destroyed!")
 
     onXmlChanged:  {
         var legsComponent = Qt.createComponent("HslLegsXmlList.qml");

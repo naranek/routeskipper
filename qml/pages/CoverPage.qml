@@ -3,6 +3,7 @@ import Sailfish.Silica 1.0
 import QtQuick.XmlListModel 2.0
 import "../elements" as Elements
 import "../js/Common.js" as JS
+import "../js/KAMO-functions.js" as KAMO
 
 CoverBackground {
     id: appCover
@@ -64,6 +65,7 @@ CoverBackground {
             PropertyChanges {target: emptyCoverActions; enabled: false }
             PropertyChanges {target: bothCoverActions; enabled: true }
             PropertyChanges {target: coverTimer; running: true }
+            //  PropertyChanges {target: kamoTimer; running: true }
             PropertyChanges {target: routeBackground; opacity: 0.1}
 
         },
@@ -110,6 +112,17 @@ CoverBackground {
         }
     }
 
+    // update realtime data of the selected leg
+    Timer {
+        id: kamoTimer
+        interval: 15000
+        running: false
+        repeat: true
+        onTriggered: {
+            updateRtime()
+        }
+    }
+
     // update the clocks on the cover
     signal updateClocks()
     onUpdateClocks: {
@@ -122,6 +135,15 @@ CoverBackground {
         var currentStartTime = (legModel.RealStartTime !== "" ? JS.dateObjectFromKamoRtime(legModel.RealStartTime) : legModel.StartTime)
 
         timeLeft.text = JS.prettyTimeFromSeconds(JS.timestampDifferenceInSeconds(null, currentStartTime))
+    }
+
+    signal updateRtime()
+    onUpdateRtime: {
+        if (state == "active") {
+            var legModel = selectedLegsModel.get(coverView.currentIndex)
+            console.log("updating cover")
+            KAMO.mergeRealtimeData(legModel, 15)
+        }
     }
 
 
@@ -194,7 +216,10 @@ CoverBackground {
                 width: parent.width
                 interactive: false
 
-                onCurrentIndexChanged: { updateClocks() } // update timers when the route is changed
+                onCurrentIndexChanged: {
+                    updateClocks() // update timers  when the route is changed
+                    updateRtime() // also the realtime
+                }
 
                 anchors.left: parent.left
                 anchors.top: parent.top

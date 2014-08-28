@@ -111,34 +111,36 @@ function transportIcon(type) {
     39 = Kerava internal bus lines
     */
 
+    var prefix = '_3'
+
     var iconList = {
-        1: "bus3",
-        2: "tram4",
-        3: "bus3",
-        4: "bus3",
-        5: "bus3",
-        6: "train20",
-        7: "sail1",
-        8: "bus3",
-        12: "train5",
-        21: "bus3",
-        22: "bus3",
-        23: "bus3",
-        24: "bus3",
-        25: "bus3",
-        36: "bus3",
-        37: "bus3",
-        38: "bus3",
-        39: "bus3",
+        1: "bussi",
+        2: "ratikka",
+        3: "bussi",
+        4: "bussi",
+        5: "bussi",
+        6: "metro",
+        7: "lautta",
+        8: "bussi",
+        12: "juna",
+        21: "bussi",
+        22: "bussi",
+        23: "bussi",
+        24: "bussi",
+        25: "bussi",
+        36: "bussi",
+        37: "bussi",
+        38: "bussi",
+        39: "bussi",
     }
 
     if (type == "walk") {
-        return "businessman4"
+        return "kavely_hl2"
     }
 
     if (type == "wait") {
-        return "zzz"
+        return "odotus" + prefix
     }
 
-    return iconList[type]
+    return iconList[type] + prefix
 }

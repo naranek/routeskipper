@@ -13,9 +13,9 @@ Column {
     property string destinationTime
 
 
-    width: parent.width
+    width: parent.width - 2* Theme.paddingLarge
     id: selectedRoutesColumn
-
+    x: Theme.paddingLarge
 
     Label {
         id: header

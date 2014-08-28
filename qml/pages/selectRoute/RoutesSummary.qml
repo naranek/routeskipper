@@ -52,7 +52,7 @@ Repeater {
 
                 // fetch realtime data
                 for (var i = 0; i < routeModel.get(index).Legs.count; i++) {
-                    KAMO.mergeRealtimeData(routeModel.get(index).Legs.get(i))
+                    KAMO.mergeRealtimeData(routeModel.get(index).Legs.get(i), 15)
                     console.log("route " + index + " leg " + i)
                 }
             }
@@ -74,8 +74,6 @@ Repeater {
             opacity: rowOpacity  // odd rows
             z:-1
             color: Theme.primaryColor
-            radius: 5
-            smooth: true
         }
 
         // define the settings for minimized BackgroundItem
@@ -125,8 +123,8 @@ Repeater {
         // Actual route view
         Column {
             id: routeList
-            width: parent.width - Theme.paddingSmall
-
+            width: parent.width - Theme.paddingLarge*2
+            x: Theme.paddingLarge
 
             //// Route header row
             Row {

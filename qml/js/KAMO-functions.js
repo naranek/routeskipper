@@ -92,24 +92,33 @@ function makePassingTimesHttpRequest(legModel) {
         }
     }
 
-    http.setRequestHeader("Content-type", "text/xml; charset=utf-8");
-    http.send((soapData));
+    http.setRequestHeader("Content-type", "text/xml; charset=utf-8")
+    http.send((soapData))
 }
 
 
 // update the real time data of the leg and waypoints that it contains
 // parameter is the leg model object
-function mergeRealtimeData(legModel) {
-    if (legModel.Type !== "walk" && legModel.Type !== "wait") {
+// another parameter is the amount of seconds that need to pass before making another query
+function mergeRealtimeData(legModel, secondsBetweenQueries) {
+    // don't run for walking or waiting legs or if lineID is not available
+    if (legModel.Type !== "walk" && legModel.Type !== "wait" && legModel.LineId !== "0") {
 
-        // find LineId if it's not defined
-        if (legModel.LineId === -1) {
-            makeNextDeparturesHttpRequest(legModel.StartCode, JS.kamoTime(legModel.StartTime), legModel.JORECode, legModel)
-        }
+        // don't do anything if the update is already in progress
+        if (JS.timestampDifferenceInSeconds(legModel.RealUpdateTime, null) > secondsBetweenQueries) {
 
-        // get realtime data and merge it to the legs model
-        else {
-            makePassingTimesHttpRequest(legModel)
+            // set the new query time
+            legModel.RealUpdateTime = new Date()
+
+            // find LineId if it's not defined
+            if (legModel.LineId === "") {
+                makeNextDeparturesHttpRequest(legModel.StartCode, JS.kamoTime(legModel.StartTime), legModel.JORECode, legModel)
+            }
+
+            // get realtime data and merge it to the legs model
+            else {
+                makePassingTimesHttpRequest(legModel)
+            }
         }
     }
 
