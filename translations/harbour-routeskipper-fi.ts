@@ -136,33 +136,33 @@
 <context>
     <name>PlacePicker</name>
     <message>
-        <location filename="../qml/pages/PlacePicker.qml" line="51"/>
+        <location filename="../qml/pages/PlacePicker.qml" line="53"/>
         <source>Delete all stops</source>
         <translation>Poista kaikki pysäkit</translation>
     </message>
     <message>
-        <location filename="../qml/pages/PlacePicker.qml" line="53"/>
+        <location filename="../qml/pages/PlacePicker.qml" line="55"/>
         <source>Deleting all the stops</source>
         <translation>Poistetaan kaikki pysäkit</translation>
     </message>
     <message>
-        <location filename="../qml/pages/PlacePicker.qml" line="66"/>
+        <location filename="../qml/pages/PlacePicker.qml" line="69"/>
         <source>Departure</source>
         <translation>Lähtöpaikka</translation>
     </message>
     <message>
-        <location filename="../qml/pages/PlacePicker.qml" line="66"/>
+        <location filename="../qml/pages/PlacePicker.qml" line="69"/>
         <source>Destination</source>
         <translation>Määränpää</translation>
     </message>
     <message>
-        <location filename="../qml/pages/PlacePicker.qml" line="72"/>
-        <location filename="../qml/pages/PlacePicker.qml" line="73"/>
+        <location filename="../qml/pages/PlacePicker.qml" line="75"/>
+        <location filename="../qml/pages/PlacePicker.qml" line="76"/>
         <source>Address / Place</source>
         <translation>Paikka / Osoite</translation>
     </message>
     <message>
-        <location filename="../qml/pages/PlacePicker.qml" line="91"/>
+        <location filename="../qml/pages/PlacePicker.qml" line="95"/>
         <source>Search</source>
         <translation>Etsi</translation>
     </message>

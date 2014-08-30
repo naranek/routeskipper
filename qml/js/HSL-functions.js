@@ -115,7 +115,7 @@ function transportIcon(type) {
     39 = Kerava internal bus lines
     */
 
-    var prefix = '_3'
+
 
     var iconList = {
         1: "bussi",
@@ -139,12 +139,12 @@ function transportIcon(type) {
     }
 
     if (type == "walk") {
-        return "kavely_hl2"
+        return "kavely"
     }
 
     if (type == "wait") {
-        return "odotus" + prefix
+        return "odotus"
     }
 
-    return iconList[type] + prefix
+    return iconList[type]
 }

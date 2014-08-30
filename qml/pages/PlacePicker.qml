@@ -11,8 +11,10 @@ Page {
     // Reference to the parent page so we get the data back there
     property Item parentPage
 
-    onStatusChanged:  DbTools.getStops(stopsModel)
-
+    onStatusChanged:  {
+        DbTools.getStops(stopsModel)
+        DbTools.getFirstLetters(keybModel, searchfield.text)
+    }
 
     signal returnSelection(string Name, string Coords)
 
@@ -53,6 +55,7 @@ Page {
                     dbCleanRemorse.execute(mainColumn, qsTr("Deleting all the stops"), function() {
                         DbTools.cleanDb()
                         DbTools.getStops(stopsModel)
+                        DbTools.getFirstLetters(keybModel, searchfield.text)
                     })
                 }
             }
@@ -60,7 +63,7 @@ Page {
         Column {
 
             id: mainColumn
-            width: placePickerPage.width
+            width: placePickerPage.width - vertKeyb.width
             spacing: Theme.paddingSmall
 
             PageHeader { title: searchType == "source" ? qsTr("Departure") : qsTr("Destination") }
@@ -83,6 +86,7 @@ Page {
 
                 onTextChanged: {
                     DbTools.getStops(stopsModel, searchfield.text)
+                    DbTools.getFirstLetters(keybModel, searchfield.text)
                 }
             }
 
@@ -112,6 +116,7 @@ Page {
                             // Delete stop and refresh the model
                             DbTools.deleteStop(Name, Coords)
                             DbTools.getStops(stopsModel)
+                            DbTools.getFirstLetters(keybModel, searchfield.text)
                         })
                     }
 
@@ -145,6 +150,40 @@ Page {
                         }
                     }
                 }
+            }
+        }
+
+        ListModel {
+            id: keybModel
+
+
+        }
+
+        Column {
+            id: vertKeyb
+            width: 50
+
+            anchors {
+                left: mainColumn.right
+                top: doSearch.bottom
+            }
+
+            Repeater {
+                model: keybModel
+                delegate:
+                    Rectangle {
+                    width: 50
+                    height: 50
+
+                    color: "transparent"
+                    border.color: Theme.primaryColor
+                    border.width: 1
+
+                    Label {
+                        text: Letter
+                    }
+                }
+
             }
         }
     }

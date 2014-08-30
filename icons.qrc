@@ -1,83 +1,88 @@
 <RCC>
     <qresource prefix="/">
         <file alias="logo">harbour-routeskipper.png</file>
-        <file>images/16/bussi_3.png</file>
-        <file>images/16/bussi_hl2.png</file>
-        <file>images/16/juna_3.png</file>
-        <file>images/16/juna_hl2.png</file>
         <file>images/16/kavely_hl2.png</file>
-        <file>images/16/lautta_3.png</file>
+        <file>images/16/juna_hl2.png</file>
         <file>images/16/lautta_hl2.png</file>
-        <file>images/16/metro_3.png</file>
-        <file>images/16/metro_hl2.png</file>
-        <file>images/16/odotus_3.png</file>
-        <file>images/16/odotus_hl2.png</file>
-        <file>images/16/ratikka_3.png</file>
+        <file>images/16/metro.png</file>
         <file>images/16/ratikka_hl2.png</file>
-        <file>images/24/bussi_3.png</file>
-        <file>images/24/bussi_hl2.png</file>
-        <file>images/24/juna_3.png</file>
-        <file>images/24/juna_hl2.png</file>
+        <file>images/16/juna.png</file>
+        <file>images/16/odotus.png</file>
+        <file>images/16/kavely.png</file>
+        <file>images/16/bussi.png</file>
+        <file>images/16/metro_hl2.png</file>
+        <file>images/16/odotus_hl2.png</file>
+        <file>images/16/ratikka.png</file>
+        <file>images/16/lautta.png</file>
         <file>images/24/kavely_hl2.png</file>
-        <file>images/24/lautta_3.png</file>
+        <file>images/24/juna_hl2.png</file>
         <file>images/24/lautta_hl2.png</file>
-        <file>images/24/metro_3.png</file>
-        <file>images/24/metro_hl2.png</file>
-        <file>images/24/odotus_3.png</file>
-        <file>images/24/odotus_hl2.png</file>
-        <file>images/24/ratikka_3.png</file>
+        <file>images/24/metro.png</file>
         <file>images/24/ratikka_hl2.png</file>
-        <file>images/28/bussi_3.png</file>
-        <file>images/28/bussi_hl2.png</file>
-        <file>images/28/juna_3.png</file>
-        <file>images/28/juna_hl2.png</file>
-        <file>images/28/kavely_hl2.png</file>
-        <file>images/28/lautta_3.png</file>
-        <file>images/28/lautta_hl2.png</file>
-        <file>images/28/metro_3.png</file>
-        <file>images/28/metro_hl2.png</file>
-        <file>images/28/odotus_3.png</file>
-        <file>images/28/odotus_hl2.png</file>
-        <file>images/28/ratikka_3.png</file>
-        <file>images/28/ratikka_hl2.png</file>
-        <file>images/32/bussi_3.png</file>
-        <file>images/32/bussi_hl2.png</file>
-        <file>images/32/juna_3.png</file>
-        <file>images/32/juna_hl2.png</file>
+        <file>images/24/juna.png</file>
+        <file>images/24/odotus.png</file>
+        <file>images/24/kavely.png</file>
+        <file>images/24/bussi.png</file>
+        <file>images/24/metro_hl2.png</file>
+        <file>images/24/odotus_hl2.png</file>
+        <file>images/24/ratikka.png</file>
+        <file>images/24/lautta.png</file>
+        <file>images/24/bussi_hl2.png</file>
         <file>images/32/kavely_hl2.png</file>
-        <file>images/32/lautta_3.png</file>
+        <file>images/32/juna_hl2.png</file>
         <file>images/32/lautta_hl2.png</file>
-        <file>images/32/metro_3.png</file>
-        <file>images/32/metro_hl2.png</file>
-        <file>images/32/odotus_3.png</file>
-        <file>images/32/odotus_hl2.png</file>
-        <file>images/32/ratikka_3.png</file>
+        <file>images/32/metro.png</file>
         <file>images/32/ratikka_hl2.png</file>
-        <file>images/48/bussi_3.png</file>
-        <file>images/48/bussi_hl2.png</file>
-        <file>images/48/juna_3.png</file>
-        <file>images/48/juna_hl2.png</file>
+        <file>images/32/juna.png</file>
+        <file>images/32/odotus.png</file>
+        <file>images/32/kavely.png</file>
+        <file>images/32/bussi.png</file>
+        <file>images/32/metro_hl2.png</file>
+        <file>images/32/odotus_hl2.png</file>
+        <file>images/32/ratikka.png</file>
+        <file>images/32/lautta.png</file>
+        <file>images/32/bussi_hl2.png</file>
         <file>images/48/kavely_hl2.png</file>
-        <file>images/48/lautta_3.png</file>
+        <file>images/48/juna_hl2.png</file>
         <file>images/48/lautta_hl2.png</file>
-        <file>images/48/metro_3.png</file>
-        <file>images/48/metro_hl2.png</file>
-        <file>images/48/odotus_3.png</file>
-        <file>images/48/odotus_hl2.png</file>
-        <file>images/48/ratikka_3.png</file>
+        <file>images/48/metro.png</file>
         <file>images/48/ratikka_hl2.png</file>
-        <file>images/original/bussi_3.png</file>
-        <file>images/original/bussi_hl2.png</file>
-        <file>images/original/juna_3.png</file>
-        <file>images/original/juna_hl2.png</file>
+        <file>images/48/juna.png</file>
+        <file>images/48/odotus.png</file>
+        <file>images/48/kavely.png</file>
+        <file>images/48/bussi.png</file>
+        <file>images/48/metro_hl2.png</file>
+        <file>images/48/odotus_hl2.png</file>
+        <file>images/48/ratikka.png</file>
+        <file>images/48/lautta.png</file>
+        <file>images/48/bussi_hl2.png</file>
+        <file>images/28/kavely_hl2.png</file>
+        <file>images/28/juna_hl2.png</file>
+        <file>images/28/lautta_hl2.png</file>
+        <file>images/28/metro.png</file>
+        <file>images/28/ratikka_hl2.png</file>
+        <file>images/28/juna.png</file>
+        <file>images/28/odotus.png</file>
+        <file>images/28/kavely.png</file>
+        <file>images/28/bussi.png</file>
+        <file>images/28/metro_hl2.png</file>
+        <file>images/28/odotus_hl2.png</file>
+        <file>images/28/ratikka.png</file>
+        <file>images/28/lautta.png</file>
+        <file>images/28/bussi_hl2.png</file>
         <file>images/original/kavely_hl2.png</file>
-        <file>images/original/lautta_3.png</file>
+        <file>images/original/juna_hl2.png</file>
         <file>images/original/lautta_hl2.png</file>
-        <file>images/original/metro_3.png</file>
-        <file>images/original/metro_hl2.png</file>
-        <file>images/original/odotus_3.png</file>
-        <file>images/original/odotus_hl2.png</file>
-        <file>images/original/ratikka_3.png</file>
+        <file>images/original/metro.png</file>
         <file>images/original/ratikka_hl2.png</file>
+        <file>images/original/juna.png</file>
+        <file>images/original/odotus.png</file>
+        <file>images/original/kavely.png</file>
+        <file>images/original/bussi.png</file>
+        <file>images/original/metro_hl2.png</file>
+        <file>images/original/odotus_hl2.png</file>
+        <file>images/original/ratikka.png</file>
+        <file>images/original/lautta.png</file>
+        <file>images/original/bussi_hl2.png</file>
     </qresource>
 </RCC>
