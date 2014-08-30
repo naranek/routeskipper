@@ -43,8 +43,18 @@ XmlListModel {
                 // Add routes to the target model
                 targetListModel.clear()
 
+                var routeIndex = -1
+
                 for (var i = 0; i < xmlModel.count ; i++) {
-                    var route = xmlModel.get(i)
+                    // if timeType = arrival, the route order is reversed. Damn. We'll reverse it again
+                    if (timeType === "arrival") {
+                        routeIndex = xmlModel.count - i - 1
+                    }
+                    else {
+                        routeIndex = i
+                    }
+
+                    var route = xmlModel.get(routeIndex)
 
                     var legsComponent = Qt.createComponent("HslLegsModel.qml");
 
@@ -55,7 +65,7 @@ XmlListModel {
                     route.FirstLineRealStartTime = ""
 
                     if (legsComponent.status == Component.Ready)
-                        route.Legs = legsComponent.createObject(null, {routeIndex: i, xml: xmlModel.xml});
+                        route.Legs = legsComponent.createObject(null, {routeIndex: routeIndex, xml: xmlModel.xml});
 
 
 
@@ -63,6 +73,8 @@ XmlListModel {
                     targetListModel.append(route)
                 }
             }
+
+
         }
     }
 }

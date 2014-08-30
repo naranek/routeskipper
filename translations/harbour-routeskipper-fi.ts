@@ -28,59 +28,69 @@
 <context>
     <name>FirstPage</name>
     <message>
-        <location filename="../qml/pages/FirstPage.qml" line="36"/>
+        <location filename="../qml/pages/FirstPage.qml" line="38"/>
         <source>To Dev</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/FirstPage.qml" line="45"/>
+        <location filename="../qml/pages/FirstPage.qml" line="42"/>
+        <source>To Model Validator</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/FirstPage.qml" line="47"/>
         <source>About</source>
-        <translation>Tietoja ohjelmasta</translation>
+        <translation type="unfinished">Tietoja ohjelmasta</translation>
     </message>
     <message>
-        <location filename="../qml/pages/FirstPage.qml" line="60"/>
+        <location filename="../qml/pages/FirstPage.qml" line="62"/>
         <source>Route Planner</source>
-        <translation>Reittiopas</translation>
+        <translation type="unfinished">Reittiopas</translation>
     </message>
     <message>
-        <location filename="../qml/pages/FirstPage.qml" line="72"/>
+        <location filename="../qml/pages/FirstPage.qml" line="74"/>
         <source>From</source>
-        <translation>Mistä</translation>
+        <translation type="unfinished">Mistä</translation>
     </message>
     <message>
-        <location filename="../qml/pages/FirstPage.qml" line="80"/>
-        <location filename="../qml/pages/FirstPage.qml" line="115"/>
+        <location filename="../qml/pages/FirstPage.qml" line="82"/>
+        <location filename="../qml/pages/FirstPage.qml" line="117"/>
         <source>Select</source>
-        <translation>Valitse</translation>
+        <translation type="unfinished">Valitse</translation>
     </message>
     <message>
-        <location filename="../qml/pages/FirstPage.qml" line="106"/>
+        <location filename="../qml/pages/FirstPage.qml" line="108"/>
         <source>To</source>
-        <translation>Minne</translation>
+        <translation type="unfinished">Minne</translation>
     </message>
     <message>
-        <location filename="../qml/pages/FirstPage.qml" line="168"/>
+        <location filename="../qml/pages/FirstPage.qml" line="156"/>
         <source>Departure</source>
-        <translation>Lähtöaika</translation>
+        <translation type="unfinished">Lähtöaika</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/FirstPage.qml" line="156"/>
+        <source>Arrival</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Departure time</source>
         <translation type="obsolete">Lähtöaika</translation>
     </message>
     <message>
-        <location filename="../qml/pages/FirstPage.qml" line="186"/>
+        <location filename="../qml/pages/FirstPage.qml" line="212"/>
         <source>Tomorrow</source>
-        <translation>Huomenna</translation>
+        <translation type="unfinished">Huomenna</translation>
     </message>
     <message>
-        <location filename="../qml/pages/FirstPage.qml" line="186"/>
+        <location filename="../qml/pages/FirstPage.qml" line="212"/>
         <source>Today</source>
-        <translation>Tänään</translation>
+        <translation type="unfinished">Tänään</translation>
     </message>
     <message>
-        <location filename="../qml/pages/FirstPage.qml" line="197"/>
+        <location filename="../qml/pages/FirstPage.qml" line="225"/>
         <source>Show routes</source>
-        <translation>Hae yhteydet</translation>
+        <translation type="unfinished">Hae yhteydet</translation>
     </message>
 </context>
 <context>
@@ -104,17 +114,17 @@
 <context>
     <name>HSL-functions</name>
     <message>
-        <location filename="../qml/js/HSL-functions.js" line="85"/>
+        <location filename="../qml/js/HSL-functions.js" line="89"/>
         <source>Stop</source>
         <translation>Pysäkki</translation>
     </message>
     <message>
-        <location filename="../qml/js/HSL-functions.js" line="86"/>
+        <location filename="../qml/js/HSL-functions.js" line="90"/>
         <source>Address</source>
         <translation>Osoite</translation>
     </message>
     <message>
-        <location filename="../qml/js/HSL-functions.js" line="87"/>
+        <location filename="../qml/js/HSL-functions.js" line="91"/>
         <source>Place of interest</source>
         <translation>Paikka</translation>
     </message>
@@ -167,24 +177,29 @@
 <context>
     <name>SelectRoute</name>
     <message>
-        <location filename="../qml/pages/SelectRoute.qml" line="105"/>
+        <location filename="../qml/pages/SelectRoute.qml" line="106"/>
         <source>Query failed. Fine. I&apos;ll try again.</source>
         <translation type="unfinished">Yhteys katkesi. Huoh. Yritetään uudestaan. </translation>
     </message>
     <message>
-        <location filename="../qml/pages/SelectRoute.qml" line="122"/>
+        <location filename="../qml/pages/SelectRoute.qml" line="123"/>
         <source>New search</source>
         <translation type="unfinished">Uusi haku</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SelectRoute.qml" line="126"/>
+        <location filename="../qml/pages/SelectRoute.qml" line="127"/>
         <source>Following connections</source>
         <translation type="unfinished">Seuraavat yhteydet</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SelectRoute.qml" line="135"/>
+        <location filename="../qml/pages/SelectRoute.qml" line="137"/>
         <source>Departure: Now</source>
         <translation type="unfinished">Lähtöaika: Nyt</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/SelectRoute.qml" line="147"/>
+        <source>Model validator</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

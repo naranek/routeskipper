@@ -142,7 +142,7 @@ CoverBackground {
         if (state == "active") {
             var legModel = selectedLegsModel.get(coverView.currentIndex)
             console.log("updating cover")
-            KAMO.mergeRealtimeData(legModel, 15)
+            //KAMO.mergeRealtimeData(legModel, 15)
         }
     }
 

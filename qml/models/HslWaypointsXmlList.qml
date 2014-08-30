@@ -54,6 +54,8 @@ XmlListModel {
             }
             // reimplement this
             //targetListModel.newDataLoaded()
+
+
         }
     }
 }

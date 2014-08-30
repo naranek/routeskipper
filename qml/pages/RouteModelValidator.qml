@@ -6,9 +6,13 @@ import "../js/HSL-functions.js" as HSL
 
 Page {
     property ListModel routeModel
+
+
     SilicaFlickable {
         anchors.fill: parent
         contentHeight: mainColumn.height
+
+
 
         Column  {
             id: mainColumn

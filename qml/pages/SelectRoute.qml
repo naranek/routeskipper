@@ -27,6 +27,7 @@ Page {
     property string destinationCoords
     property string selectedTime
     property string selectedDate
+    property string timeType: "departure"
 
     // get the route as a default value for now
     property string hslXml
@@ -126,6 +127,7 @@ Page {
                 text: qsTr("Following connections")
                 onClicked: {
                     var lastTime = routeModel.get(routeModel.count-1).RouteStartTime
+                    timeType="departure"
                     selectedTime = JS.hslTime(lastTime)
                     selectedDate = JS.hslDate(lastTime)
                     HSL.makeHttpRoutingRequest(1)
@@ -134,19 +136,20 @@ Page {
             MenuItem {
                 text: qsTr("Departure: Now")
                 onClicked: {
+                    timeType = "departure"
                     selectedTime =JS.hslTime(new Date())
                     selectedDate = JS.hslDate(new Date())
                     HSL.makeHttpRoutingRequest(-5)
                 }
             }
-/*
+
             MenuItem {
                 text: qsTr("Model validator")
                 onClicked: {
                     pageStack.push(Qt.resolvedUrl("RouteModelValidator.qml"), {routeModel: routeModel})
                 }
             }
-            */
+
         }
 
         // Show the clock

@@ -25,11 +25,19 @@
 <context>
     <name>FirstPage</name>
     <message>
-        <source>Route Planner</source>
+        <source>To Dev</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>To Model Validator</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <source>About</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Route Planner</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -45,6 +53,14 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Arrival</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Departure</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Tomorrow</source>
         <translation type="unfinished"></translation>
     </message>
@@ -54,14 +70,6 @@
     </message>
     <message>
         <source>Show routes</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Departure</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>To Dev</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -138,6 +146,10 @@
     </message>
     <message>
         <source>Departure: Now</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Model validator</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

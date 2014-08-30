@@ -4,12 +4,16 @@
 function makeHttpRoutingRequest(dateOffsetInMinutes) {
     var http = new XMLHttpRequest()
 
-    //
+    // add or substract X minutes from target time
+    if (timeType === "arrival") dateOffsetInMinutes = dateOffsetInMinutes * -1
+
     var pastDatetime = JS.addMinutesToDatestamp(selectedDate + selectedTime, dateOffsetInMinutes)
 
     // the actual url. Concatenating FTW
     var url = "http://api.reittiopas.fi/hsl/prod/?request=route&user=" + credentials.hslUsername + "&pass=" + credentials.hslPassword + "&format=xml&show=5&from=" +
             encodeURI(sourceCoords) + "&to=" + encodeURI(destinationCoords)
+            + "&timetype=" + timeType
+
             + "&date=" + JS.hslDate(pastDatetime)
             + "&time=" + JS.hslTime(pastDatetime)
 

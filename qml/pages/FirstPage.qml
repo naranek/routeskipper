@@ -20,6 +20,8 @@ Page {
     property alias selectedDestinationName: destinationValue.text
     property string selectedDestinationCoords
 
+    property string timeType: "departure"
+
 
     // To enable PullDownMenu, place our content in a SilicaFlickable
     SilicaFlickable {
@@ -36,11 +38,11 @@ Page {
                 text: qsTr("To Dev")
                 onClicked: pageStack.push(Qt.resolvedUrl("Dev.qml"))
             }
-/*          MenuItem {
-                text: qsTr("To LayoutTest")
-                onClicked: pageStack.push(Qt.resolvedUrl("LayoutTest.qml"))
+            MenuItem {
+                text: qsTr("To Model Validator")
+                onClicked: pageStack.push(Qt.resolvedUrl("RouteModelValidator.qml", { model: routeModel}))
             }
-*/
+
             MenuItem {
                 text: qsTr("About")
                 onClicked: pageStack.push(Qt.resolvedUrl("About.qml"))
@@ -78,7 +80,7 @@ Page {
                 Label {
                     id: sourceValue
                     text: qsTr("Select")
-                    color: sourceBox.highlighted ? Theme.highlightColor : Theme.highlightColor
+                    color: Theme.highlightColor
                     anchors.verticalCenter: sourceLabel.verticalCenter
                     anchors.right: parent.right
                     anchors.rightMargin: Theme.paddingLarge
@@ -113,7 +115,7 @@ Page {
                 Label {
                     id: destinationValue
                     text: qsTr("Select")
-                    color: destinationBox.highlighted ? Theme.highlightColor : Theme.highlightColor
+                    color: Theme.highlightColor
                     anchors.verticalCenter: destinationLabel.verticalCenter
                     anchors.right: parent.right
                     anchors.rightMargin: Theme.paddingLarge
@@ -138,6 +140,27 @@ Page {
 
             Row {
                 width: column.width
+
+                // switch between arrival and departure
+                BackgroundItem {
+                    id: timeTypeSelector
+                    width: parent.width / 3
+
+                    anchors.verticalCenter: startTime.verticalCenter
+
+                    onClicked: {
+                        timeType = timeType === "arrival" ? "departure" : "arrival"
+                    }
+
+                    Label {
+                        text: timeType === "arrival" ? qsTr("Arrival") : qsTr("Departure")
+                        color: timeTypeSelector.highlighted ? Theme.highlightColor : Theme.primaryColor
+                        anchors.verticalCenter: parent.verticalCenter
+                        x: Theme.paddingLarge
+                    }
+
+
+                }
 
                 ValueButton {
                     id: startTime
@@ -165,16 +188,19 @@ Page {
                     selectedHour: Qt.formatDateTime(new Date(), "hh")
                     selectedMinute: Qt.formatDateTime(new Date(), "mm")
 
-                    label: qsTr("Departure")
+
+
                     value: Qt.formatDateTime(new Date(), "hh:mm")
-                    width: parent.width / 2
+                    width: parent.width / 3
                     onClicked: openTimeDialog()
+
                 }
 
                 // only switch between today and tomorrow, because user is on the move
                 // and the only use is for trips home from the bar
                 BackgroundItem {
                     id: daySelector
+                    width: parent.width / 3
 
                     anchors.verticalCenter: startTime.verticalCenter
 
@@ -184,8 +210,10 @@ Page {
 
                     Label {
                         text: selectedDayOffset == 1 ? qsTr("Tomorrow") : qsTr("Today")
-                        color: destinationBox.highlighted ? Theme.highlightColor : Theme.highlightColor
+                        color: daySelector.highlighted ? Theme.highlightColor :  Theme.primaryColor
                         anchors.verticalCenter: parent.verticalCenter
+                        anchors.right: parent.right
+                        anchors.rightMargin: Theme.paddingLarge
                     }
 
 
@@ -202,6 +230,7 @@ Page {
                                               sourceCoords: selectedSourceCoords, destinationCoords: selectedDestinationCoords,
                                               selectedTime: JS.addZeroPadding(selectedHour) + JS.addZeroPadding(selectedMinute),
                                               selectedDate: JS.hslDate(new Date(), selectedDayOffset),
+                                              timeType: timeType,
                                               mainWindow: mainWindow
                                           } )
 

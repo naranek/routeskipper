@@ -21,6 +21,7 @@ XmlListModel {
         }
 
 
+
         if (status == XmlListModel.Ready) {
             // insert LineId data to selectedLegsModel
             if (count == 0) {
@@ -28,6 +29,8 @@ XmlListModel {
                 console.log("XML: " + xml)
                 console.log("Query: " + query)
             }
+
+            console.log("updating passingTimes for leg: " + legModel)
 
             // add times to routes
             // .RouteRealStartTime
