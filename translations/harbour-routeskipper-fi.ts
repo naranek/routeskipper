@@ -146,23 +146,23 @@
         <translation>Poistetaan kaikki pysäkit</translation>
     </message>
     <message>
-        <location filename="../qml/pages/PlacePicker.qml" line="69"/>
+        <location filename="../qml/pages/PlacePicker.qml" line="64"/>
         <source>Departure</source>
         <translation>Lähtöpaikka</translation>
     </message>
     <message>
-        <location filename="../qml/pages/PlacePicker.qml" line="69"/>
+        <location filename="../qml/pages/PlacePicker.qml" line="64"/>
         <source>Destination</source>
         <translation>Määränpää</translation>
     </message>
     <message>
-        <location filename="../qml/pages/PlacePicker.qml" line="75"/>
-        <location filename="../qml/pages/PlacePicker.qml" line="76"/>
+        <location filename="../qml/pages/PlacePicker.qml" line="80"/>
+        <location filename="../qml/pages/PlacePicker.qml" line="81"/>
         <source>Address / Place</source>
         <translation>Paikka / Osoite</translation>
     </message>
     <message>
-        <location filename="../qml/pages/PlacePicker.qml" line="95"/>
+        <location filename="../qml/pages/PlacePicker.qml" line="100"/>
         <source>Search</source>
         <translation>Etsi</translation>
     </message>

@@ -142,7 +142,7 @@ function getFirstLetters(keyboardModel, filter) {
     db.transaction(
                 function(tx) {
 
-                    var rs = tx.executeSql('SELECT DISTINCT SUBSTR(Name, ?, 1) as Letter  FROM stops WHERE Name LIKE ? ORDER BY Name ASC', [filter.length+1, filter + "%"]);
+                    var rs = tx.executeSql('SELECT DISTINCT UPPER(SUBSTR(Name, ?, 1)) as Letter  FROM stops WHERE Name LIKE ? ORDER BY Name ASC', [filter.length+1, filter + "%"]);
 
 
                     for(var i = 0; i < rs.rows.length; i++) {

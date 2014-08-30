@@ -60,13 +60,18 @@ Page {
                 }
             }
         }
+
+        PageHeader { id: header ; title: searchType == "source" ? qsTr("Departure") : qsTr("Destination") }
+
         Column {
 
+
+            anchors.top: header.bottom
             id: mainColumn
-            width: placePickerPage.width - vertKeyb.width
+            width: placePickerPage.width
             spacing: Theme.paddingSmall
 
-            PageHeader { title: searchType == "source" ? qsTr("Departure") : qsTr("Destination") }
+
 
 
             TextField {
@@ -137,7 +142,9 @@ Page {
                         text: Name
                         anchors.verticalCenter: parent.verticalCenter
                         font.capitalization: Font.Capitalize
+                        width: parent.width - vertKeyb.width
                         color: listItem.highlighted ? Theme.highlightColor : Theme.primaryColor
+                        truncationMode: TruncationMode.Fade
                     }
 
                     Component {
@@ -161,29 +168,45 @@ Page {
 
         Column {
             id: vertKeyb
-            width: 50
+            width: 70
+
+            spacing: -1
 
             anchors {
-                left: mainColumn.right
-                top: doSearch.bottom
+                right: mainColumn.right
+                top: mainColumn.top
             }
 
             Repeater {
                 model: keybModel
                 delegate:
+                    BackgroundItem {
+                    id: letterBackground
+                    width: 70
+                    height: 70
+
+
                     Rectangle {
-                    width: 50
-                    height: 50
+                        anchors.fill: parent
 
-                    color: "transparent"
-                    border.color: Theme.primaryColor
-                    border.width: 1
+                        color: "transparent"
+                        border.color: Theme.primaryColor
+                        border.width: 1
 
-                    Label {
-                        text: Letter
+                        Label {
+                            text: Letter
+                            color: letterBackground.highlighted ? Theme.highlightColor :  Theme.primaryColor
+                            anchors {
+                                horizontalCenter: parent.horizontalCenter
+                                verticalCenter: parent.verticalCenter
+                            }
+                        }
+                    }
+
+                    onClicked: {
+                        searchfield.text = searchfield.text + Letter
                     }
                 }
-
             }
         }
     }
