@@ -142,7 +142,7 @@ Page {
                         text: Name
                         anchors.verticalCenter: parent.verticalCenter
                         font.capitalization: Font.Capitalize
-                        width: parent.width - vertKeyb.width
+                        width: parent.width - vertKeyb.width - Theme.paddingLarge
                         color: listItem.highlighted ? Theme.highlightColor : Theme.primaryColor
                         truncationMode: TruncationMode.Fade
                     }
@@ -174,7 +174,25 @@ Page {
 
             anchors {
                 right: mainColumn.right
+                rightMargin: Theme.paddingLarge
                 top: mainColumn.top
+            }
+
+            BackgroundItem {
+                id: backspaceBackground
+                width: 70
+                height: 70
+                Label {
+                    text: "<<-"
+                    color: backspaceBackground.highlighted ? Theme.highlightColor :  Theme.primaryColor
+                    font.pixelSize: Theme.fontSizeLarge
+                    anchors {
+                        horizontalCenter: parent.horizontalCenter
+                        verticalCenter: parent.verticalCenter
+                    }
+                }
+
+                onClicked: searchfield.text = searchfield.text.slice(0, -1)
             }
 
             Repeater {
@@ -196,6 +214,7 @@ Page {
                         Label {
                             text: Letter
                             color: letterBackground.highlighted ? Theme.highlightColor :  Theme.primaryColor
+                            font.pixelSize: Theme.fontSizeLarge
                             anchors {
                                 horizontalCenter: parent.horizontalCenter
                                 verticalCenter: parent.verticalCenter

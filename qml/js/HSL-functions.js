@@ -22,7 +22,7 @@ function makeHttpRoutingRequest(dateOffsetInMinutes) {
     // debugging url
     //var url="http://riippuliito.net/files/routing-esimerkki.xml"
     //var url = "http://api.reittiopas.fi/hsl/prod/?request=route&user=aikaopas&pass=agjghsra&format=xml&show=5&from=2552335,6673660&to=2546489,6675524&"+ "&date=" +
-    //        JS.hslDate(pastDatetime) + "&time=" + JS.hslTime(pastDatetime)
+    //       JS.hslDate(pastDatetime) + "&time=" + JS.hslTime(pastDatetime)
 
     http.open("GET", url, true)
 
