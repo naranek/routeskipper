@@ -159,6 +159,18 @@ function addMinutesToDatestamp(dateParam, minutes) {
     return offsetDateStamp
 }
 
+// add x number of minutes to dateStamp or dateObj
+// this is difficult because - dates are
+// @return date object
+function addSecondsToDatestamp(dateParam, seconds) {
+    var dateObj = dateToObj(dateParam)
+
+    var offsetDateStamp = new Date(dateObj.getTime() + seconds*1000)
+
+    return offsetDateStamp
+}
+
+
 // get two dates and return their difference in seconds
 // if parameter is null, current time is used
 function timestampDifferenceInSeconds(arrDate, depDate) {

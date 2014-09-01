@@ -196,11 +196,6 @@
         <source>Departure: Now</source>
         <translation type="unfinished">Lähtöaika: Nyt</translation>
     </message>
-    <message>
-        <location filename="../qml/pages/SelectRoute.qml" line="147"/>
-        <source>Model validator</source>
-        <translation type="unfinished"></translation>
-    </message>
 </context>
 <context>
     <name>SelectedRoutesSummary</name>

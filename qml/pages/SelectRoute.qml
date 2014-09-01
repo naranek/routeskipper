@@ -142,14 +142,14 @@ Page {
                     HSL.makeHttpRoutingRequest(-5)
                 }
             }
-
+/*
             MenuItem {
                 text: qsTr("Model validator")
                 onClicked: {
                     pageStack.push(Qt.resolvedUrl("RouteModelValidator.qml"), {routeModel: routeModel})
                 }
             }
-
+*/
         }
 
         // Show the clock

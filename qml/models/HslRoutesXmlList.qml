@@ -65,7 +65,7 @@ XmlListModel {
                     route.FirstLineRealStartTime = ""
 
                     if (legsComponent.status == Component.Ready)
-                        route.Legs = legsComponent.createObject(null, {routeIndex: routeIndex, xml: xmlModel.xml});
+                        route.Legs = legsComponent.createObject(targetListModel, {routeIndex: routeIndex, xml: xmlModel.xml});
 
 
 

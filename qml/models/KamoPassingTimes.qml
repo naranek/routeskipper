@@ -1,5 +1,6 @@
 import QtQuick 2.0
 import QtQuick.XmlListModel 2.0
+import "../js/Common.js" as JS
 
 
 XmlListModel {
@@ -38,37 +39,33 @@ XmlListModel {
             // These are most of the time walking, so we need to calculate them from next or previous legs
 
 
-            // add times to legs
-            // loop thru stops
-            for (var i = 0; i < count ; i++) {
-                if (get(i).Stop == legModel.StartCode) {
-                    if (get(i).Rtime !== "") {
-                        // if the stop code matches and Rtime is not empty, insert it to the leg model
-                        legModel.RealStartTime = get(i).Rtime
-                    }
-                }
-
-                if (get(i).Stop == legModel.EndCode) {
-                    if (get(i).Rtime !== "") {
-                        // if the stop code matches and Rtime is not empty, insert it to the leg model
-                        legModel.RealEndTime = get(i).Rtime
-                    }
-                }
-
-            }
-
-
-            // add times to waypoints
-            // loop thru stops and waypoints
-
             // OK, so we have limited amounts of realtime data
             // TODO maybe: Let's assume that if the bus is late, it will be as late for the rest of the trip
             // If it's early it will probably wait at some point to match the schedule
 
 
-            // loop thru the stops
-            for (i = 0; i < count ; i++) {
-                // loop the legs
+            // add times to legs and waypoints
+
+            var latestDelay = 0
+
+            // loop thru stops
+            for (var i = 0; i < count ; i++) {
+                // if the stop code matches and Rtime is not empty, insert it to the leg model
+                if (get(i).Stop == legModel.StartCode) {
+                    if (get(i).Rtime !== "") {
+                        legModel.RealStartTime = get(i).Rtime
+                    }
+                }
+
+                // if the stop code matches and Rtime is not empty, insert it to the leg model
+                if (get(i).Stop == legModel.EndCode) {
+                    if (get(i).Rtime !== "") {
+                        legModel.RealEndTime = get(i).Rtime
+                    }
+                }
+
+
+                // loop thru legs
                 for (var j = 0; j < legModel.Waypoints.count; j++) {
                     // see if it's the right stop
                     if (get(i).Stop == legModel.Waypoints.get(j).Code) {
@@ -77,11 +74,26 @@ XmlListModel {
 
                             // set the realtime data
                             legModel.Waypoints.get(j).RealArrTime = get(i).Rtime
+
+                            // calculate how late we are
+                            latestDelay = JS.timestampDifferenceInSeconds(legModel.Waypoints.get(j).ArrTime, JS.dateObjectFromKamoRtime(get(i).Rtime))
+                        } else {
+                            if (latestDelay > 60) {
+                                // set the estimated realtime data
+                                legModel.Waypoints.get(j).RealArrTime = JS.prettyTime(JS.addSecondsToDatestamp(legModel.Waypoints.get(j).ArrTime, latestDelay))
+                            }
                         }
                     }
 
                 }
             }
+
+
+            // add times to waypoints
+            // loop thru stops and waypoints
+
+
+
         }
 
     }

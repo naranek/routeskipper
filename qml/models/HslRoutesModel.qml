@@ -9,6 +9,6 @@ ListModel {
         var routeComponent = Qt.createComponent("../models/HslRoutesXmlList.qml");
 
         if (routeComponent.status == Component.Ready)
-            routeComponent.createObject(routeModel, {targetListModel: routesModel, xml: routesModel.xml,});
+            routeComponent.createObject(routesModel, {targetListModel: routesModel, xml: routesModel.xml,});
     }
 }

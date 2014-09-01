@@ -41,7 +41,7 @@ XmlListModel {
 
                 // add waypoints
                 if (waypointsComponent.status == Component.Ready)
-                    leg.Waypoints = waypointsComponent.createObject(xmlModel, {routeIndex: xmlModel.routeIndex,
+                    leg.Waypoints = waypointsComponent.createObject(targetListModel, {routeIndex: xmlModel.routeIndex,
                                                                         legIndex: i, legType: leg.Type,
                                                                         xml: xmlModel.xml,});
 

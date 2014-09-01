@@ -148,10 +148,6 @@
         <source>Departure: Now</source>
         <translation type="unfinished"></translation>
     </message>
-    <message>
-        <source>Model validator</source>
-        <translation type="unfinished"></translation>
-    </message>
 </context>
 <context>
     <name>SelectedRoutesSummary</name>
