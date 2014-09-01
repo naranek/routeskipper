@@ -146,7 +146,7 @@ function getFirstLetters(keyboardModel, filter) {
 
 
                     for(var i = 0; i < rs.rows.length; i++) {
-                        console.log("Letter: " + rs.rows.item(i).Letter)
+
                         keyboardModel.append({"Letter":  rs.rows.item(i).Letter})
                     }
 

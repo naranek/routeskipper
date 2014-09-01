@@ -8,14 +8,14 @@ Page {
 
     ListModel {
         id: iconLicenses
-        ListElement {icon: "logo"; by: "Freepik.com"; lic: "CC BY 3.0"}
-        ListElement {icon: "bus3"; by: "Freepik.com"; lic: "CC BY 3.0"}
-        ListElement {icon: "businessman4"; by: "Freepik.com"; lic: "CC BY 3.0"}
-        ListElement {icon: "train20"; by: "Freepik.com"; lic: "CC BY 3.0"}
-        ListElement {icon: "sail1"; by: "Freepik.com"; lic: "CC BY 3.0"}
-        ListElement {icon: "tram4"; by: "Icons8"; lic: "CC BY 3.0"}
-        ListElement {icon: "zzz"; by: "Freepik.com"; lic: "CC BY 3.0"}
-        ListElement {icon: "train5"; by: "Scott de Jonge"; lic: "CC BY 3.0"}
+        ListElement {icon: "logo" }
+        ListElement {icon: "bussi" }
+        ListElement {icon: "kavely" }
+        ListElement {icon: "juna" }
+        ListElement {icon: "lautta" }
+        ListElement {icon: "juna" }
+        ListElement {icon: "odotus" }
+        ListElement {icon: "metro" }
     }
 
     // To enable PullDownMenu, place our content in a SilicaFlickable
@@ -51,31 +51,27 @@ Page {
 
             Label {
                 font.pixelSize: Theme.fontSizeExtraSmall
-                text: "All icons are from Flaticon.com"
+                width: parent.width
+                wrapMode: Text.WordWrap
+                text: "All icons are made by Lassi Salohalla and distributed under CC BY-NC 4.0 license."
             }
 
-            Repeater {
+            GridView {
                 model: iconLicenses
                 width: parent.width
+                height: 300
 
-                delegate: Row{
-                    width: parent.width
-                    spacing: 10
+                delegate:
 
                     Elements.LineIcon {
-                        id: image
-                        size: 48
-                        type: icon
-                    }
-                    Label {
-                        font.pixelSize: Theme.fontSizeExtraSmall
-                        wrapMode: Text.WordWrap
-                        width: parent.width - image.width
-                        text: "Icon by " + by + " licensed under " + lic
-                    }
+                    id: image
+                    size: 48
+                    type: icon
                 }
-            }
 
+            }
         }
+
     }
+
 }

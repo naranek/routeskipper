@@ -28,16 +28,6 @@
 <context>
     <name>FirstPage</name>
     <message>
-        <location filename="../qml/pages/FirstPage.qml" line="38"/>
-        <source>To Dev</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../qml/pages/FirstPage.qml" line="42"/>
-        <source>To Model Validator</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <location filename="../qml/pages/FirstPage.qml" line="47"/>
         <source>About</source>
         <translation type="unfinished">Tietoja ohjelmasta</translation>

@@ -1,6 +1,5 @@
 <RCC>
     <qresource prefix="/">
-        <file alias="logo">harbour-routeskipper.png</file>
         <file>images/16/kavely_hl2.png</file>
         <file>images/16/juna_hl2.png</file>
         <file>images/16/lautta_hl2.png</file>
@@ -84,5 +83,6 @@
         <file>images/original/ratikka.png</file>
         <file>images/original/lautta.png</file>
         <file>images/original/bussi_hl2.png</file>
+        <file alias="logo">harbour-routeskipper.png</file>
     </qresource>
 </RCC>

@@ -33,7 +33,7 @@ Page {
             MenuItem {
                 text: qsTr("To Map")
                 onClicked: pageStack.push(Qt.resolvedUrl("MapTest.qml"), {searchstring: "Otaniemi"})
-            } */
+            }
             MenuItem {
                 text: qsTr("To Dev")
                 onClicked: pageStack.push(Qt.resolvedUrl("Dev.qml"))
@@ -42,7 +42,7 @@ Page {
                 text: qsTr("To Model Validator")
                 onClicked: pageStack.push(Qt.resolvedUrl("RouteModelValidator.qml", { model: routeModel}))
             }
-
+*/
             MenuItem {
                 text: qsTr("About")
                 onClicked: pageStack.push(Qt.resolvedUrl("About.qml"))

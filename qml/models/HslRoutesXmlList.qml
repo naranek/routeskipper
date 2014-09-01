@@ -60,6 +60,7 @@ XmlListModel {
 
 
                     // add here if route needs changing
+                    if (route.FirstLineType === "") route.FirstLineType = 'walk'
 
                     // for Kamo
                     route.FirstLineRealStartTime = ""

@@ -40,7 +40,7 @@ Item {
                 delegate:
                     Column {
 
-                    visible: Type !== "walk" && Type !== "wait" ? true : false;
+                    visible: Type !== "walk" && Type !== "wait" || Legs.count === 1 ? true : false;
                     height: lineShield.height
                     width: lineShield.height
                     Elements.LineShield {id: lineShield;  lineColor: routeBackground.highlighted ? Theme.highlightColor : Theme.primaryColor; state: "horizontal"}
@@ -65,6 +65,7 @@ Item {
         color: routeBackground.highlighted ? Theme.highlightColor : Theme.primaryColor
         horizontalAlignment: Text.AlignRight
         anchors.left: waitIcon.right
+        anchors.leftMargin: Theme.marginSmall
         anchors.verticalCenter: waitIcon.verticalCenter
     }
 
@@ -86,6 +87,7 @@ Item {
         horizontalAlignment: Text.AlignRight
         anchors.left: walkIcon.right
         anchors.verticalCenter: walkIcon.verticalCenter
+        anchors.leftMargin: Theme.marginSmall
     }
 
 }

@@ -25,14 +25,6 @@
 <context>
     <name>FirstPage</name>
     <message>
-        <source>To Dev</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>To Model Validator</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>About</source>
         <translation type="unfinished"></translation>
     </message>
