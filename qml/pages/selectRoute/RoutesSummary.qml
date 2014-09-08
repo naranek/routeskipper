@@ -53,8 +53,9 @@ Repeater {
                 // fetch realtime data
                 for (var i = 0; i < routeModel.get(index).Legs.count; i++) {
                     KAMO.mergeRealtimeData(routeModel.get(index).Legs.get(i), 15)
-                    console.log("route " + index + " leg " + i)
                 }
+
+                HSL.streamlineRoute(routeModel.get(index))
             }
 
             //  show details for the clicked, minimize others
@@ -135,7 +136,8 @@ Repeater {
                 Elements.TimeView {
                     id: routeStartTime
                     schedTime: JS.prettyTime(RouteStartTime)
-                    realTime: "" // disabled for graphical reasons
+                    realTime: new Date(0)  // waiting for implementation
+                    realTimeAcc: "min"
                     color: routeBackground.highlighted ? Theme.highlightColor : Theme.primaryColor
                     width: parent.width / 4
                     font.pixelSize: Theme.fontSizeLarge
@@ -157,7 +159,8 @@ Repeater {
                     Elements.TimeView {
                         id: firstLineStartTime
                         schedTime: JS.prettyTime(FirstLineStartTime)
-                        realTime: "" // waiting for implementation - yay :)
+                        realTime: new Date(0) // waiting for implementation - yay :)
+                        realTimeAcc: "min"
                         color: routeBackground.highlighted ? Theme.highlightColor : Theme.primaryColor
                         anchors.verticalCenter:  parent.verticalCenter
                         anchors.left: lineIcon.right
@@ -182,7 +185,7 @@ Repeater {
                 Elements.TimeView {
                     id: routeEndTime
                     schedTime: JS.prettyTime(RouteEndTime)
-                    realTime: "" // disabled for graphical reasons
+                    realTime: new Date(0) // disabled for graphical reasons
                     color: routeBackground.highlighted ? Theme.highlightColor : Theme.primaryColor
                     width: parent.width / 4
                     font.pixelSize: Theme.fontSizeLarge

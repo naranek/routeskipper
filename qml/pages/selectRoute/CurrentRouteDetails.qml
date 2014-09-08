@@ -25,7 +25,7 @@ Column {
         legsRepeater.model = routeModel.get(routeIndex).Legs
     }
 
-    // create signals for status change
+    // create signals for status change of routes
     // show also needs XML data and index of the route to use
     signal show(string newRouteIndex)
     onShow: {
@@ -102,10 +102,14 @@ Column {
             spacing: 0
 
             Row {
+                width: parent.width
+
                 Elements.LineShield {
                     id: lineShield
                     lineColor: Theme.highlightColor
                 }
+
+
             }
 
 
@@ -144,6 +148,7 @@ Column {
                         Elements.TimeView  {
                             schedTime: (index == 0 ? JS.prettyTime(DepTime) : JS.prettyTime(ArrTime)) // HSL shows depTime > arrTime if there is waiting on the bus stop
                             realTime: RealArrTime
+                            realTimeAcc: RealArrTimeAcc
                             font.pixelSize: Theme.fontSizeSmall
                             width: 100
                             anchors.verticalCenter: parent.verticalCenter

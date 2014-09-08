@@ -59,8 +59,12 @@ XmlListModel {
 
                 // For Kamo realtime data:
                 leg.LineId = ""
-                leg.RealStartTime = ""
-                leg.RealEndTime = ""
+                leg.RealStartTime = new Date(0)
+                leg.RealStartTimeAcc = ""
+
+                leg.RealEndTime = new Date(0)
+                leg.RealEndTimeAcc = ""
+
                 leg.RealUpdateTime = new Date(0) // updated a long ago
 
                 // add leg to model
@@ -80,8 +84,8 @@ XmlListModel {
                     waitingLeg.EndTime = ""
                     waitingLeg.StartName = ""
 
-                    waitingLeg.RealStartTime = ""
-                    waitingLeg.RealEndTime = ""
+                    waitingLeg.RealStartTime = new Date(0)
+                    waitingLeg.RealEndTime = new Date(0)
                     waitingLeg.LegIndex = -1
 
                     targetListModel.append(waitingLeg)
@@ -90,6 +94,7 @@ XmlListModel {
 
 
         }
+
     }
 
 }

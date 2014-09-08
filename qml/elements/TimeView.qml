@@ -7,13 +7,31 @@ import Sailfish.Silica 1.0
 
 Label {
     property string schedTime
-    property string realTime
+    property date realTime
+    property string realTimeAcc
+
+    // format the time according to properties
+    function timeFormat() {
+        // use scheduled time if we don't have real time
+        if (realTime.getTime() === 0) { // there is a strange bug, that causes the leg's getTime to be 7200000. This is a workaround.hasOwnProperty()
+            return schedTime
+        } else {
+            // if we have real time, show it according to the accuracy
+            if (realTimeAcc === "sec") {
+                return Qt.formatDateTime(realTime, "hh:mm:ss")
+            } else {
+                return Qt.formatDateTime(realTime, "hh:mm")
+            }
+        }
+    }
 
     id: timeView
-    text: (realTime !== "" ? realTime : schedTime)
+    text: timeFormat()
 
     onRealTimeChanged: {
-        textZoom.start()
+        if (realTime.getTime() !== 0) {
+            textZoom.start()
+        }
     }
 
     NumberAnimation {

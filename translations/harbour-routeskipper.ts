@@ -129,15 +129,15 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>New search</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Following connections</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Departure: Now</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Previous connections</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Next connections</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

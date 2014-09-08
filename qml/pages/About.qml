@@ -13,7 +13,7 @@ Page {
         ListElement {icon: "kavely" }
         ListElement {icon: "juna" }
         ListElement {icon: "lautta" }
-        ListElement {icon: "juna" }
+        ListElement {icon: "ratikka" }
         ListElement {icon: "odotus" }
         ListElement {icon: "metro" }
     }

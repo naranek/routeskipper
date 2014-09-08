@@ -12,6 +12,11 @@ CoverBackground {
     // select the most relevant cover to view
     function areWeThereYet() {
         var startTime = selectedLegsModel.get(coverView.currentIndex).StartTime
+        var realStartTime = selectedLegsModel.get(coverView.currentIndex).RealStartTime
+
+        // use real time if we have it
+        var startTimeObject = (realStartTime.getTime() !== 0 ? realStartTime : JS.dateObjectFromDateStamp(startTime))
+
         var transportType = selectedLegsModel.get(coverView.currentIndex).Type
 
         // only increment if we're not at the end
@@ -23,11 +28,11 @@ CoverBackground {
 
                 return
             } else {
-                var startTimeObject = JS.dateObjectFromDateStamp(startTime)
-                var timeNow = new Date()
+
+                //var timeNow = new Date()
 
                 // increment if current time is in the past
-                if ( startTimeObject < timeNow) {
+                if ( startTimeObject < Date()) {
                     coverView.incrementCurrentIndex()
 
                     return
@@ -132,7 +137,7 @@ CoverBackground {
         var legModel = selectedLegsModel.get(coverView.currentIndex)
 
         // select scheduled or real start time
-        var currentStartTime = (legModel.RealStartTime !== "" ? JS.dateObjectFromKamoRtime(legModel.RealStartTime) : legModel.StartTime)
+        var currentStartTime = (legModel.RealStartTime.getTime() !== 0 ? legModel.RealStartTime : legModel.StartTime)
 
         timeLeft.text = JS.prettyTimeFromSeconds(JS.timestampDifferenceInSeconds(null, currentStartTime))
     }
@@ -142,7 +147,7 @@ CoverBackground {
         if (state == "active") {
             var legModel = selectedLegsModel.get(coverView.currentIndex)
             console.log("updating cover")
-            //KAMO.mergeRealtimeData(legModel, 15)
+            KAMO.mergeRealtimeData(legModel, 15)
         }
     }
 
@@ -235,6 +240,7 @@ CoverBackground {
                             id: row1
                             schedTime: JS.prettyTime(StartTime)
                             realTime: RealStartTime
+                            realTimeAcc: RealStartTimeAcc
                             font.pixelSize: Theme.fontSizeMedium
                             width: parent.width - lineShield.width - 25
                         }

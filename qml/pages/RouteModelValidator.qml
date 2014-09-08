@@ -34,7 +34,7 @@ Page {
                                 model: Waypoints
                                 delegate: Column {
                                     Label {
-                                        text: "Waypoint " + index + ": " + Name
+                                        text: "Waypoint " + index + ": " + Name + " Real: " + RealArrTime
                                     }
                                 }
                             }

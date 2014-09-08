@@ -12,11 +12,13 @@ Page {
     id: mainPage
 
 
-    // remove legs and waypoints selected on the next page
+
     onStatusChanged: {
         if (status === PageStatus.Active) {
+            // remove legs and waypoints selected on the next page
             mainWindow.selectedLegsModel.removeLegsFromPage(pageStack.depth + 1)
             mainWindow.selectedWaypointsModel.removeWaypointsFromPage(pageStack.depth + 1)
+
         }
     }
 
@@ -119,20 +121,19 @@ Page {
         VerticalScrollDecorator {}
 
         PullDownMenu {
+
             MenuItem {
-                text: qsTr("New search")
-                onClicked: pageStack.pop(null)
-            }
-            MenuItem {
-                text: qsTr("Following connections")
+                text: qsTr("Previous connections")
                 onClicked: {
-                    var lastTime = routeModel.get(routeModel.count-1).RouteStartTime
-                    timeType="departure"
+                    var lastTime = routeModel.get(0).RouteEndTime
+                    timeType="arrival"
                     selectedTime = JS.hslTime(lastTime)
                     selectedDate = JS.hslDate(lastTime)
-                    HSL.makeHttpRoutingRequest(1)
+                    HSL.makeHttpRoutingRequest(-1)
                 }
             }
+
+
             MenuItem {
                 text: qsTr("Departure: Now")
                 onClicked: {
@@ -142,6 +143,18 @@ Page {
                     HSL.makeHttpRoutingRequest(-5)
                 }
             }
+
+            MenuItem {
+                text: qsTr("Next connections")
+                onClicked: {
+                    var lastTime = routeModel.get(routeModel.count-1).RouteStartTime
+                    timeType="departure"
+                    selectedTime = JS.hslTime(lastTime)
+                    selectedDate = JS.hslDate(lastTime)
+                    HSL.makeHttpRoutingRequest(1)
+                }
+            }
+
 /*
             MenuItem {
                 text: qsTr("Model validator")

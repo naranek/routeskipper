@@ -31,7 +31,6 @@ XmlListModel {
                 console.log("Query: " + query)
             }
 
-            console.log("updating passingTimes for leg: " + legModel)
 
             // add times to routes
             // .RouteRealStartTime
@@ -53,48 +52,43 @@ XmlListModel {
                 // if the stop code matches and Rtime is not empty, insert it to the leg model
                 if (get(i).Stop == legModel.StartCode) {
                     if (get(i).Rtime !== "") {
-                        legModel.RealStartTime = get(i).Rtime
+                        legModel.RealStartTime = JS.dateObjectFromKamoRtime(get(i).Rtime)
+                        legModel.RealStartTimeAcc = "sec"
                     }
                 }
 
                 // if the stop code matches and Rtime is not empty, insert it to the leg model
                 if (get(i).Stop == legModel.EndCode) {
                     if (get(i).Rtime !== "") {
-                        legModel.RealEndTime = get(i).Rtime
+                        legModel.RealEndTime = JS.dateObjectFromKamoRtime(get(i).Rtime)
+                        legModel.RealEndTimeAcc = "sec"
                     }
                 }
 
 
-                // loop thru legs
+                // loop thru waypoints
                 for (var j = 0; j < legModel.Waypoints.count; j++) {
                     // see if it's the right stop
                     if (get(i).Stop == legModel.Waypoints.get(j).Code) {
                         // realtime data - yay
                         if (get(i).Rtime !== "") {
-
                             // set the realtime data
-                            legModel.Waypoints.get(j).RealArrTime = get(i).Rtime
+                            legModel.Waypoints.get(j).RealArrTime = JS.dateObjectFromKamoRtime(get(i).Rtime)
+
+                            legModel.Waypoints.get(j).RealArrTimeAcc = "sec"
 
                             // calculate how late we are
-                            latestDelay = JS.timestampDifferenceInSeconds(legModel.Waypoints.get(j).ArrTime, JS.dateObjectFromKamoRtime(get(i).Rtime))
-                        } else {
+                            latestDelay = JS.timestampDifferenceInSeconds(legModel.Waypoints.get(j).ArrTime, get(i).Rtime)
+                        } /*else {
                             if (latestDelay > 60) {
                                 // set the estimated realtime data
-                                legModel.Waypoints.get(j).RealArrTime = JS.prettyTime(JS.addSecondsToDatestamp(legModel.Waypoints.get(j).ArrTime, latestDelay))
+                                legModel.Waypoints.get(j).RealArrTime = JS.addSecondsToDatestamp(legModel.Waypoints.get(j).ArrTime, latestDelay)
+                                legModel.Waypoints.get(j).RealArrTimeAcc = "min"
                             }
-                        }
+                        }*/
                     }
-
                 }
             }
-
-
-            // add times to waypoints
-            // loop thru stops and waypoints
-
-
-
         }
-
     }
 }

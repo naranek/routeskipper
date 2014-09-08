@@ -65,7 +65,7 @@ Item {
         color: routeBackground.highlighted ? Theme.highlightColor : Theme.primaryColor
         horizontalAlignment: Text.AlignRight
         anchors.left: waitIcon.right
-        anchors.leftMargin: Theme.marginSmall
+        anchors.leftMargin: 10
         anchors.verticalCenter: waitIcon.verticalCenter
     }
 
@@ -87,7 +87,7 @@ Item {
         horizontalAlignment: Text.AlignRight
         anchors.left: walkIcon.right
         anchors.verticalCenter: walkIcon.verticalCenter
-        anchors.leftMargin: Theme.marginSmall
+        anchors.leftMargin: 10
     }
 
 }

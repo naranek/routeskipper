@@ -69,7 +69,6 @@ Column {
                 color: Theme.highlightColor
                 horizontalAlignment: Text.AlignLeft
                 truncationMode: TruncationMode.Fade
-
             }
 
             Label  {

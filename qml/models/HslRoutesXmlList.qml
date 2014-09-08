@@ -63,7 +63,8 @@ XmlListModel {
                     if (route.FirstLineType === "") route.FirstLineType = 'walk'
 
                     // for Kamo
-                    route.FirstLineRealStartTime = ""
+                    route.FirstLineRealStartTime = new Date(0)
+                    route.FirstLineRealStartTimeAcc = ""
 
                     if (legsComponent.status == Component.Ready)
                         route.Legs = legsComponent.createObject(targetListModel, {routeIndex: routeIndex, xml: xmlModel.xml});

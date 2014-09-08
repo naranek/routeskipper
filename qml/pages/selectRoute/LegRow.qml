@@ -7,9 +7,9 @@ Row {
     id: lineRow
     property string startName
     property string startTime
-    property string realStartTime
+    property date realStartTime
     property string endTime
-    property string realEndTime
+    property date realEndTime
 
     property color lineColor
 

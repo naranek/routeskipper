@@ -67,6 +67,7 @@ Page {
 
 
             anchors.top: header.bottom
+            anchors.topMargin: 10
             id: mainColumn
             width: placePickerPage.width
             spacing: Theme.paddingSmall
@@ -171,6 +172,8 @@ Page {
             width: 70
 
             spacing: -1
+            opacity: 0.7
+
 
             anchors {
                 right: mainColumn.right
@@ -178,22 +181,11 @@ Page {
                 top: mainColumn.top
             }
 
-            BackgroundItem {
-                id: backspaceBackground
-                width: 70
-                height: 70
-                Label {
-                    text: "<<-"
-                    color: backspaceBackground.highlighted ? Theme.highlightColor :  Theme.primaryColor
-                    font.pixelSize: Theme.fontSizeLarge
-                    anchors {
-                        horizontalCenter: parent.horizontalCenter
-                        verticalCenter: parent.verticalCenter
-                    }
-                }
-
+            IconButton {
+                icon.source: "image://theme/icon-m-backspace"
                 onClicked: searchfield.text = searchfield.text.slice(0, -1)
             }
+
 
             Repeater {
                 model: keybModel
@@ -202,7 +194,6 @@ Page {
                     id: letterBackground
                     width: 70
                     height: 70
-
 
                     Rectangle {
                         anchors.fill: parent
