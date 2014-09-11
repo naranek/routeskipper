@@ -54,7 +54,6 @@ Page {
 
     property ApplicationWindow mainWindow // maintain connection with mainWindow to connect to cover
 
-
     Component.onCompleted: {
         // fetch the first XML from HSL - result is placed in hslXml variable when finished
         HSL.makeHttpRoutingRequest(-5)
@@ -130,6 +129,7 @@ Page {
                     selectedTime = JS.hslTime(lastTime)
                     selectedDate = JS.hslDate(lastTime)
                     HSL.makeHttpRoutingRequest(-1)
+                    routeDetails.hide()
                 }
             }
 
@@ -141,9 +141,11 @@ Page {
                     selectedTime =JS.hslTime(new Date())
                     selectedDate = JS.hslDate(new Date())
                     HSL.makeHttpRoutingRequest(-5)
+                    routeDetails.hide()
                 }
             }
-
+        }
+        PushUpMenu {
             MenuItem {
                 text: qsTr("Next connections")
                 onClicked: {
@@ -152,6 +154,7 @@ Page {
                     selectedTime = JS.hslTime(lastTime)
                     selectedDate = JS.hslDate(lastTime)
                     HSL.makeHttpRoutingRequest(1)
+                    routeDetails.hide()
                 }
             }
 

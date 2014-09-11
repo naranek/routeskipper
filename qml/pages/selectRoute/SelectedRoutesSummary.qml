@@ -38,8 +38,10 @@ Column {
             startName: StartName
             startTime: StartTime
             realStartTime: RealStartTime
+            realStartTimeAcc: RealStartTimeAcc
             endTime: EndTime
             realEndTime: RealEndTime
+            realEndTimeAcc: RealEndTimeAcc
 
             // only show if the rows are from the previous page
             visible: (typeof CurrentPage === 'undefined' ? false :

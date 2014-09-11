@@ -8,7 +8,7 @@ Page {
 
     ListModel {
         id: iconLicenses
-        ListElement {icon: "logo" }
+        //ListElement {icon: "logo" }
         ListElement {icon: "bussi" }
         ListElement {icon: "kavely" }
         ListElement {icon: "juna" }
@@ -53,7 +53,14 @@ Page {
                 font.pixelSize: Theme.fontSizeExtraSmall
                 width: parent.width
                 wrapMode: Text.WordWrap
-                text: "All icons are made by Lassi Salohalla and distributed under CC BY-NC 4.0 license."
+                text: "All icons are made by Lassi Salohalla and distributed under CC BY-NC 4.0"
+            }
+
+            Label {
+                font.pixelSize: Theme.fontSizeExtraSmall
+                width: parent.width
+                wrapMode: Text.WordWrap
+                text: "Logo is based on icon by Freepik.com and licensed under CC BY 3.0."
             }
 
             GridView {

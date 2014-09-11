@@ -1,6 +1,7 @@
 import QtQuick 2.0
 import QtQuick.XmlListModel 2.0
 import "../js/Common.js" as JS
+import "../js/HSL-functions.js" as HSL
 
 
 XmlListModel {
@@ -33,18 +34,13 @@ XmlListModel {
 
 
             // add times to routes
-            // .RouteRealStartTime
-            // .RouteRealEndTime
-            // These are most of the time walking, so we need to calculate them from next or previous legs
-
 
             // OK, so we have limited amounts of realtime data
-            // TODO maybe: Let's assume that if the bus is late, it will be as late for the rest of the trip
+            // Let's assume that if the bus is late, it will be as late for the rest of the trip
             // If it's early it will probably wait at some point to match the schedule
 
 
             // add times to legs and waypoints
-
             var latestDelay = 0
 
             // loop thru stops
@@ -78,14 +74,14 @@ XmlListModel {
                             legModel.Waypoints.get(j).RealArrTimeAcc = "sec"
 
                             // calculate how late we are
-                            latestDelay = JS.timestampDifferenceInSeconds(legModel.Waypoints.get(j).ArrTime, get(i).Rtime)
-                        } /*else {
+                            latestDelay = JS.timestampDifferenceInSeconds(legModel.Waypoints.get(j).ArrTime, JS.dateObjectFromKamoRtime(get(i).Rtime))
+                        } else {
                             if (latestDelay > 60) {
                                 // set the estimated realtime data
                                 legModel.Waypoints.get(j).RealArrTime = JS.addSecondsToDatestamp(legModel.Waypoints.get(j).ArrTime, latestDelay)
                                 legModel.Waypoints.get(j).RealArrTimeAcc = "min"
                             }
-                        }*/
+                        }
                     }
                 }
             }

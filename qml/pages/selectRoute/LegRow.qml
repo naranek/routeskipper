@@ -8,8 +8,10 @@ Row {
     property string startName
     property string startTime
     property date realStartTime
+    property string realStartTimeAcc
     property string endTime
     property date realEndTime
+    property string realEndTimeAcc
 
     property color lineColor
 
@@ -26,6 +28,7 @@ Row {
         font.pixelSize: Theme.fontSizeSmall
         schedTime:  JS.prettyTime(startTime)
         realTime: realStartTime
+        realTimeAcc: realStartTimeAcc
         color: lineColor
         height: 32
     }

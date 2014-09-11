@@ -32,7 +32,7 @@ CoverBackground {
                 //var timeNow = new Date()
 
                 // increment if current time is in the past
-                if ( startTimeObject < Date()) {
+                if ( startTimeObject < new Date() ) {
                     coverView.incrementCurrentIndex()
 
                     return
@@ -70,7 +70,6 @@ CoverBackground {
             PropertyChanges {target: emptyCoverActions; enabled: false }
             PropertyChanges {target: bothCoverActions; enabled: true }
             PropertyChanges {target: coverTimer; running: true }
-            //  PropertyChanges {target: kamoTimer; running: true }
             PropertyChanges {target: routeBackground; opacity: 0.1}
 
         },
@@ -83,11 +82,11 @@ CoverBackground {
     transitions: [
         Transition {
             from: "passive"; to: "active"
-            NumberAnimation {
+       /*     NumberAnimation {
                 target: logoImage
                 properties: "x"
                 duration: 400
-            }
+            } */
             NumberAnimation {
                 target: routeBackground
                 properties: "opacity"

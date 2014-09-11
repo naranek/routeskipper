@@ -55,7 +55,7 @@ Repeater {
                     KAMO.mergeRealtimeData(routeModel.get(index).Legs.get(i), 15)
                 }
 
-                HSL.streamlineRoute(routeModel.get(index))
+
             }
 
             //  show details for the clicked, minimize others
@@ -215,6 +215,9 @@ Repeater {
                         startName: StartName
                         startTime: StartTime
                         realStartTime: RealStartTime
+                        realStartTimeAcc: RealStartTimeAcc
+                        realEndTime: RealEndTime
+                        realEndTimeAcc: RealEndTimeAcc
                     }
                 }
             }

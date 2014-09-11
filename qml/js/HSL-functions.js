@@ -21,7 +21,9 @@ function makeHttpRoutingRequest(dateOffsetInMinutes) {
 
     // debugging url
     //var url="http://riippuliito.net/files/routing-esimerkki.xml"
-    //var url = "http://api.reittiopas.fi/hsl/prod/?request=route&user=aikaopas&pass=agjghsra&format=xml&show=5&from=2552335,6673660&to=2546489,6675524&"+ "&date=" +
+    //var url = "http://api.reittiopas.fi/hsl/prod/?request=route&user=aikaopas&pass=agjghsra&format=xml&show=5&from=2552335,6673660&to=2546489,6675524&date=" +
+
+    //var url ="http://api.reittiopas.fi/hsl/prod/?request=route&user=aikaopas&pass=agjghsra&format=xml&show=5&from=2550765,6672886&to=2553250,6674203&date=" +
     //       JS.hslDate(pastDatetime) + "&time=" + JS.hslTime(pastDatetime) + "&timetype=arrival"
 
     http.open("GET", url, true)
@@ -67,7 +69,10 @@ function streamlineRoute(singleRouteModel) {
         if (thisLeg.Type === 'walk') {
             if (prevLeg.RealEndTime.getTime() !== 0) {
                 console.log("Resetting Walking starttime of leg: " + i)
+
+                timeDifference = JS.dateObjectFromDateStamp(thisLeg.StartTime) - prevLeg.RealEndTime
                 thisLeg.RealStartTime = prevLeg.RealEndTime
+                thisLeg.RealEndTime = JS.dateObjectFromDateStamp(thisLeg.EndTime) + timeDifference
             }
         } else if (thisLeg.Type === 'wait') {
             nextLeg = singleRouteModel.Legs.get(i+1)
@@ -97,7 +102,7 @@ function streamlineRoute(singleRouteModel) {
 
         // set the first leg if it's walking and we have real startTime
         if (i === 1 && prevLeg.Type==='walk' && thisLeg.RealStartTime.getTime() !== 0) {
-            timeDifference = thisLeg.RealStartTime - prevLeg.EndTime
+            timeDifference = thisLeg.RealStartTime - JS.dateObjectFromDateStamp(prevLeg.EndTime)
             prevLeg.RealEndTime = thisLeg.RealStartTime
             prevLeg.RealStartTime = prevLeg.StartTime- timeDifference
         }

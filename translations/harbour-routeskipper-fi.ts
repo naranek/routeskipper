@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.1" language="fi_FI">
+<TS version="2.0" language="fi_FI">
 <context>
     <name>CoverBlank</name>
     <message>
@@ -104,17 +104,17 @@
 <context>
     <name>HSL-functions</name>
     <message>
-        <location filename="../qml/js/HSL-functions.js" line="146"/>
+        <location filename="../qml/js/HSL-functions.js" line="151"/>
         <source>Stop</source>
         <translation>Pysäkki</translation>
     </message>
     <message>
-        <location filename="../qml/js/HSL-functions.js" line="147"/>
+        <location filename="../qml/js/HSL-functions.js" line="152"/>
         <source>Address</source>
         <translation>Osoite</translation>
     </message>
     <message>
-        <location filename="../qml/js/HSL-functions.js" line="148"/>
+        <location filename="../qml/js/HSL-functions.js" line="153"/>
         <source>Place of interest</source>
         <translation>Paikka</translation>
     </message>
@@ -167,17 +167,17 @@
 <context>
     <name>SelectRoute</name>
     <message>
-        <location filename="../qml/pages/SelectRoute.qml" line="108"/>
+        <location filename="../qml/pages/SelectRoute.qml" line="107"/>
         <source>Query failed. Fine. I&apos;ll try again.</source>
         <translation>Yhteys katkesi. Huoh. Yritetään uudestaan. </translation>
     </message>
     <message>
-        <location filename="../qml/pages/SelectRoute.qml" line="126"/>
+        <location filename="../qml/pages/SelectRoute.qml" line="125"/>
         <source>Previous connections</source>
         <translation>Edelliset yhteydet</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SelectRoute.qml" line="148"/>
+        <location filename="../qml/pages/SelectRoute.qml" line="150"/>
         <source>Next connections</source>
         <translation>Seuraavat yhteydet</translation>
     </message>

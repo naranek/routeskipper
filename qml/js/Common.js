@@ -5,7 +5,7 @@
 // @return date object or "" if parameter is undefined
 
 function dateToObj(someDate) {
-    if (typeof someDate === 'string')
+    if (typeof someDate === 'string' || typeof someDate === 'number')
         return dateObjectFromDateStamp(someDate)
     else
         return someDate
@@ -22,14 +22,17 @@ function dateObjectFromDateStamp(datestamp) {
 function dateObjectFromKamoRtime(rtime) {
     var dateObject = new Date()
 
-    // switch to the next day if the realtime hour is smaller than the hour now. It wrapped at midnight ;)
-    if (dateObject.getHours() > parseInt(rtime.substring(0,2))) {
+    // switch to the next day if the realtime hour is smaller than the hour now. It wrapped at midnight.
+    // not 100% accurate, but best I could do now.
+    if (dateObject.getHours() > parseInt(rtime.substring(0,2) && rtime.substring(0,2) === "00")) {
+
         dateObject.setDate(dateObject.getDate()+1)
     }
 
     dateObject.setHours(rtime.substring(0,2))
     dateObject.setMinutes(rtime.substring(3,5))
     dateObject.setSeconds(rtime.substring(6,8))
+
     return dateObject
 }
 

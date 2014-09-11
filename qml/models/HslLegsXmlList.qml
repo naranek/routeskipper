@@ -53,6 +53,7 @@ XmlListModel {
 
                 // the number of the leg on the route
                 leg.LegIndex = i
+                leg.RouteIndex = routeIndex
 
                 // the page depth the leg was searched
                 leg.PageId = currentPage
@@ -66,6 +67,7 @@ XmlListModel {
                 leg.RealEndTimeAcc = ""
 
                 leg.RealUpdateTime = new Date(0) // updated a long ago
+                leg.RealUpdateDone = false
 
                 // add leg to model
                 targetListModel.append(leg)
@@ -85,7 +87,9 @@ XmlListModel {
                     waitingLeg.StartName = ""
 
                     waitingLeg.RealStartTime = new Date(0)
+                    waitingLeg.RealStartTimeAcc = ""
                     waitingLeg.RealEndTime = new Date(0)
+                    waitingLeg.RealEndTimeAcc =  ""
                     waitingLeg.LegIndex = -1
 
                     targetListModel.append(waitingLeg)
